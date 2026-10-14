@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Universo Rebeldia",
   "short_name": "Rebeldia",
-  "description": "Plataforma interativa e offline de A Rebeldia da Mecatrônica.",
+  "description": "Leia, reflita, conecte conceitos e crie projetos a partir de A Rebeldia da Mecatrônica, mesmo offline.",
   "lang": "pt-BR",
   "start_url": "./index.html#/dashboard",
   "scope": "./",
@@ -22,12 +22,24 @@
       "url": "./index.html#/laboratorio"
     },
     {
-      "name": "Desafios",
-      "short_name": "Desafios",
-      "url": "./index.html#/desafios"
+      "name": "Minha jornada",
+      "short_name": "Jornada",
+      "url": "./index.html#/dashboard"
     }
   ],
   "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
     {
       "src": "assets/icons/icon.svg",
       "sizes": "any",

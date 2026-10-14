@@ -1,129 +1,69 @@
-# Universo Rebeldia — Fases 1 a 5
+# Universo Rebeldia
 
-Aplicação web progressiva estática para explorar o livro **A Rebeldia da Mecatrônica**. Esta entrega já cobre:
+PWA de **A Rebeldia da Mecatrônica** para transformar conhecimento em projetos pequenos e testáveis.
 
-- Fase 1: estrutura PWA, dashboard e leitor interativo.
-- Fase 2: mapa de conceitos e enciclopédia local.
-- Fase 3: desafios (quiz, estudos de caso e missões maker), gamificação e persistência dos resultados.
-- Fase 4: Laboratório Maker com CRUD de projetos em IndexedDB e vínculo com missões.
-- Fase 5: timeline, configurações, backup completo e publicação integrada ao site oficial.
+## Fluxo principal
 
-## Árvore de arquivos
+1. **Ler:** escolha um capítulo do livro. O botão ao final leva à reflexão e registra a leitura.
+2. **Refletir:** explique uma ideia com suas palavras e relacione-a a um problema real.
+3. **Conectar conceitos:** selecione pelo menos dois conceitos do glossário e descreva como trabalham juntos. Os conceitos referenciados no capítulo aparecem primeiro, sem impedir conexões com outras áreas.
+4. **Criar projeto:** a reflexão e a conexão preenchem o problema e a solução inicial. Registre nome, componentes, primeiro teste e resultado observável. Revise os campos e salve.
 
-```text
-app/
-├── index.html
-├── manifest.json
-├── service-worker.js
-├── README.md
-├── pages/
-│   ├── dashboard.html
-│   ├── livro.html
-│   ├── conceitos.html
-│   ├── enciclopedia.html
-│   ├── desafios.html
-│   ├── laboratorio.html
-│   ├── timeline.html
-│   └── configuracoes.html
-├── assets/
-│   ├── css/app.css
-│   ├── js/
-│   │   ├── app.js
-│   │   └── db.js
-│   └── icons/icon.svg
-├── data/
-│   ├── capitulos.json       # gerado; não editar manualmente
-│   ├── conceitos.json       # gerado do glossário
-│   ├── glossario.json       # gerado do glossário
-│   ├── desafios.json        # gerado dos desafios do livro + glossário
-│   └── timeline.json        # marcos tecnológicos da plataforma
-└── storage/                 # dados do usuário ficam no navegador
-```
+Cada capítulo tem sua própria reflexão, seleção de conceitos, conexão e rascunho. A página inicial indica o próximo passo. Projetos guardam uma cópia do contexto da leitura, que não muda quando a reflexão original é revisada. Podem ser reabertos, editados e excluídos.
 
-O script `generate_app_data.py`, na raiz do repositório, transforma os Markdown de `capitulos/` em `app/data/capitulos.json`. O Markdown continua sendo a única fonte de verdade. Execute-o sempre que os capítulos forem alterados:
+Não há pontuação, rankings, conquistas ou certificações no fluxo. Telas e catálogos de fases anteriores permanecem nos arquivos por compatibilidade, mas suas rotas estão desativadas e não são carregadas nem necessárias ao funcionamento offline. Dados antigos não são removidos; projetos anteriores continuam editáveis.
 
-```powershell
-python generate_app_data.py
-```
+## Execução
 
-O script `generate_phase2_data.py` transforma o arquivo `capitulos/14_glossario.md` em:
-
-- `app/data/glossario.json` (base local da enciclopédia)
-- `app/data/conceitos.json` (categorias e conexões do mapa mental)
-
-Execute-o sempre que o glossário for alterado:
-
-```powershell
-python generate_phase2_data.py
-```
-
-O script `generate_phase3_data.py` monta o catálogo de desafios em `app/data/desafios.json` a partir de duas fontes do próprio livro:
-
-- as seções `### 🎮 Desafio...` e `### 🔬 Experimento...` dos capítulos viram missões maker e experimentos de campo (um item por nível);
-- cada termo do glossário vira três questões objetivas (definição, analogia e aplicação) com alternativas formadas por outros termos reais do livro.
-
-Execute-o depois de `generate_phase2_data.py` e sempre que capítulos ou glossário mudarem:
-
-```powershell
-python generate_phase3_data.py
-```
-
-## Executar localmente
-
-O service worker e o armazenamento offline exigem `localhost` ou HTTPS. Na raiz do repositório, inicie um servidor estático:
+Sem frameworks, CDN, conta ou servidor de aplicação. Na raiz:
 
 ```powershell
 python -m http.server 8000
 ```
 
-Abra `http://localhost:8000/app/`. Depois da primeira carga completa, toda a plataforma fica disponível offline. O aplicativo não usa frameworks, CDN ou dependências externas.
+Abra `http://localhost:8000/app/`. Service workers exigem HTTPS ou localhost. Aguarde a indicação **Pronto para usar offline** antes de desconectar. A primeira visita precisa de conexão: o service worker armazena todas as seis telas ativas, os capítulos completos, o glossário, os scripts, os estilos e os ícones.
 
-## Publicar o site oficial
+No Android/navegadores compatíveis, instale pelo menu ou pelo botão em Configurações. No iOS, use Safari → Compartilhar → Adicionar à Tela de Início. Instalar é opcional; o fluxo também funciona em uma aba.
 
-O site público é servido a partir de `docs/`. O comando abaixo regenera capítulos, glossário, desafios e o HTML do livro e copia a versão de produção da PWA para `docs/app/`:
+O cache é isolado pelo escopo da aplicação; as cópias de desenvolvimento e publicação podem coexistir. Uma atualização fica aguardando o fechamento de todas as abas, evitando misturar versões durante a escrita. Ao alterar o shell ou os dados publicados, incremente a versão do cache em `service-worker.js`.
+
+## Persistência
+
+- `localStorage`: leitura, favoritos, anotações, reflexões, conexões e rascunhos. A escrita é imediata, sem esperar um temporizador antes de navegar.
+- IndexedDB: projetos salvos, incluindo capítulo de origem, reflexão, IDs dos conceitos, conexão, primeiro teste e resultado esperado.
+- Nenhum registro é enviado para uma API. O armazenamento é específico do navegador e da origem; não é sincronização nem garantia contra limpeza de dados.
+- Configurações permite exportar/importar um JSON com os registros e preferências, inclusive dados legados. Exporte regularmente e antes de limpar o site.
+- Falhas de armazenamento são apresentadas ao leitor. As etapas não avançam quando a gravação local falha.
+
+## Conteúdo e publicação
+
+O Markdown em `capitulos/` continua sendo a fonte de verdade. Não edite os JSON gerados:
+
+```powershell
+python generate_app_data.py
+python generate_phase2_data.py
+```
+
+A publicação existente regenera os catálogos, compila o livro e copia `app/` para `docs/app/`:
 
 ```powershell
 python publish_site.py
 ```
 
-Não edite `docs/app/` manualmente. Faça alterações em `app/` e execute novamente o comando de publicação.
+Não edite `docs/app/` manualmente. Para copiar somente o shell durante o desenvolvimento, sem regenerar o livro:
 
-## Persistência e comportamento
+```powershell
+python -c "import shutil; shutil.copytree('app', 'docs/app', dirs_exist_ok=True, ignore=shutil.ignore_patterns('README.md'))"
+```
 
-- Capítulos concluídos, favoritos, anotações, conceitos estudados, respostas, missões e preferências ficam em `localStorage`.
-- Projetos maker ficam em IndexedDB, com os campos nome, problema, solução, componentes, resultado esperado, observações e missão relacionada.
-- O service worker pré-armazena o shell, todas as páginas e todos os catálogos locais; outras solicitações GET da mesma origem usam cache-first.
-- A pesquisa global localiza capítulos, conceitos, missões, projetos e marcos da timeline.
-- O progresso de leitura conta capítulos marcados como concluídos; isso não é uma estimativa baseada no scroll.
-- O dashboard mostra progresso de leitura, conceitos estudados, desafios concluídos, pontuação e nível atual.
-- Mapa de conceitos e enciclopédia reutilizam dados do glossário do livro, sem manter conteúdo duplicado editável no app.
+## Validação
 
-## Desafios e gamificação
+Os testes de navegador em `tests/test_pwa.py` usam `unittest` e Playwright/Chromium. Com essas dependências de desenvolvimento disponíveis:
 
-- Trilhas: quatro trilhas temáticas de conhecimento (derivadas das categorias do mapa de conceitos) e a trilha "Missões de campo" com os desafios práticos dos capítulos.
-- Tipos: `quiz` (5 pontos), `caso` (10 pontos), `missao` (15 pontos no nível 1 e 20 no nível 2) e `experimento` (20 pontos).
-- Pontuação é derivada dos itens concluídos, nunca armazenada em separado — o progresso permanece consistente mesmo se o catálogo for regerado.
-- Níveis: Aprendiz de bancada, Técnico de campo, Engenheiro rebelde e Mestre da mecatrônica, calculados sobre o total de pontos disponíveis.
-- Conquistas: primeiro acerto, dez acertos, cinco estudos de caso, primeira missão, cinco missões e trilha completa. Elas aparecem na arena de desafios e no dashboard.
-- Quizzes aceitam novas tentativas; missões guardam um registro textual e podem ser reabertas.
+```powershell
+python -m unittest discover -s tests -v
+```
 
-## Laboratório Maker
+Os testes iniciam seu próprio servidor local e verificam: fluxo completo, pré-requisitos, texto em branco, mínimo de dois conceitos, rascunho e projeto após recarga, edição/exclusão, separação por capítulo, exportação/importação, armazenamento indisponível, preservação de projetos antigos, larguras mobile, funcionamento offline e isolamento de cache entre `app/` e `docs/app/`.
 
-- Criação, edição, busca e exclusão de projetos locais.
-- Vínculo opcional com uma missão maker já concluída.
-- Contagem de projetos no dashboard.
-- Persistência independente do `localStorage`, adequada a registros maiores e evolução futura.
-
-## Timeline e configurações
-
-- Dez marcos entre 1760 e 2030, com filtros temáticos e atalhos para capítulos relacionados.
-- Tema escuro, claro ou do sistema; escala tipográfica de 90% a 125%; redução de movimento.
-- Instalação da PWA quando oferecida pelo navegador.
-- Exportação e importação de um backup JSON único contendo progresso, preferências e projetos.
-- Limpeza explícita de todos os dados locais.
-
-## Próximos passos de evolução
-
-1. Adicionar anexos e imagens aos projetos maker usando blobs no IndexedDB.
-2. Criar testes automatizados de navegador para os fluxos críticos.
-3. Adicionar sincronização opcional somente quando houver uma API oficial, mantendo o modo local como padrão.
+Antes de validar recursos secundários, observe com leitores se conseguem, sem ajuda, produzir um projeto com contexto de leitura, problema, conceitos conectados e primeiro teste verificável. Os testes técnicos não substituem essa validação de uso.

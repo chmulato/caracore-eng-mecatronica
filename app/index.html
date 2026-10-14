@@ -8,6 +8,7 @@
   <meta name="author" content="Christian Vladimir Uhdre Mulato">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
   <link rel="stylesheet" href="assets/css/app.css">
   <title>Universo Rebeldia</title>
 </head>
@@ -19,20 +20,18 @@
         <span class="brand-mark" aria-hidden="true">R</span>
         <span><strong>UNIVERSO</strong><small>REBELDIA</small></span>
       </a>
-      <p class="nav-label">PLATAFORMA</p>
+      <p class="nav-label">DO LIVRO AO PROJETO</p>
       <nav class="primary-nav">
-        <a href="#/dashboard" data-route="dashboard"><span aria-hidden="true">⌂</span> Dashboard</a>
-        <a href="#/livro" data-route="livro"><span aria-hidden="true">▤</span> Livro interativo</a>
-        <a href="#/conceitos" data-route="conceitos"><span aria-hidden="true">⌘</span> Mapa de conceitos</a>
-        <a href="#/enciclopedia" data-route="enciclopedia"><span aria-hidden="true">⌕</span> Enciclopédia</a>
-        <a href="#/desafios" data-route="desafios"><span aria-hidden="true">◇</span> Desafios</a>
-        <a href="#/laboratorio" data-route="laboratorio"><span aria-hidden="true">⌁</span> Laboratório</a>
-        <a href="#/timeline" data-route="timeline"><span aria-hidden="true">◷</span> Timeline</a>
+        <a href="#/dashboard" data-route="dashboard"><span aria-hidden="true">⌂</span> Minha jornada</a>
+        <a href="#/livro" data-route="livro"><span aria-hidden="true">1</span> Ler</a>
+        <a href="#/refletir" data-route="refletir"><span aria-hidden="true">2</span> Refletir</a>
+        <a href="#/conectar" data-route="conectar"><span aria-hidden="true">3</span> Conectar conceitos</a>
+        <a href="#/laboratorio" data-route="laboratorio"><span aria-hidden="true">4</span> Criar projeto</a>
         <a href="#/configuracoes" data-route="configuracoes"><span aria-hidden="true">⚙</span> Configurações</a>
       </nav>
       <div class="sidebar-bottom">
         <span class="status-dot" aria-hidden="true"></span>
-        <span>Conteúdo disponível offline</span>
+        <span>Dados neste dispositivo</span>
       </div>
     </aside>
 
@@ -41,19 +40,20 @@
         <button class="icon-button mobile-menu" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
           <span aria-hidden="true">☰</span>
         </button>
-        <div class="topbar-title"><span class="eyebrow">A REBELDIA DA MECATRÔNICA</span><strong id="page-heading">Dashboard</strong></div>
+        <div class="topbar-title"><span class="eyebrow">A REBELDIA DA MECATRÔNICA</span><strong id="page-heading">Minha jornada</strong></div>
         <form class="global-search" id="global-search" role="search">
-          <label class="sr-only" for="global-search-input">Buscar no livro, na enciclopédia, nos desafios e na timeline</label>
+          <label class="sr-only" for="global-search-input">Buscar capítulos do livro</label>
           <span aria-hidden="true">⌕</span>
-          <input id="global-search-input" type="search" placeholder="Buscar em todo o universo..." autocomplete="off">
+          <input id="global-search-input" type="search" placeholder="Buscar no livro..." autocomplete="off">
           <kbd>/</kbd>
         </form>
         <a class="topbar-bookmark" href="#/livro?f=1" aria-label="Abrir capítulos favoritos"><span aria-hidden="true">☆</span></a>
       </header>
+      <div class="connection-status"><span id="offline-status" role="status">Preparando conteúdo offline…</span></div>
 
       <main id="main-content" tabindex="-1">
         <div class="page-meta">
-          <nav aria-label="Breadcrumb" class="breadcrumbs"><a href="#/dashboard">Início</a><span aria-hidden="true">/</span><span id="breadcrumb-current">Dashboard</span></nav>
+          <nav aria-label="Breadcrumb" class="breadcrumbs"><a href="#/dashboard">Início</a><span aria-hidden="true">/</span><span id="breadcrumb-current">Minha jornada</span></nav>
           <button class="back-button" id="back-button" type="button"><span aria-hidden="true">←</span> Voltar</button>
         </div>
         <div id="page-content" aria-live="polite"></div>

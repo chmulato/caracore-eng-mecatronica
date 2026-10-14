@@ -32,12 +32,12 @@
     const database = await openDatabase();
     try {
       const transaction = database.transaction(PROJECT_STORE, mode);
-      const result = await action(transaction.objectStore(PROJECT_STORE));
-      await new Promise((resolve, reject) => {
+      const completed = new Promise((resolve, reject) => {
         transaction.addEventListener("complete", resolve);
         transaction.addEventListener("abort", () => reject(transaction.error));
         transaction.addEventListener("error", () => reject(transaction.error));
       });
+      const [result] = await Promise.all([action(transaction.objectStore(PROJECT_STORE)), completed]);
       return result;
     } finally {
       database.close();
@@ -57,6 +57,12 @@
       expectedResult: String(project.expectedResult || "").trim(),
       observations: String(project.observations || "").trim(),
       missionId: String(project.missionId || ""),
+      chapterId: String(project.chapterId || ""),
+      reflection: String(project.reflection || ""),
+      conceptIds: Array.isArray(project.conceptIds)
+        ? [...new Set(project.conceptIds.filter((id) => typeof id === "string"))] : [],
+      connection: String(project.connection || ""),
+      firstTest: String(project.firstTest || "").trim(),
       createdAt: typeof project.createdAt === "string" && project.createdAt ? project.createdAt : now,
       updatedAt: now
     };

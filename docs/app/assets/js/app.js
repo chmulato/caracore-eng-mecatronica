@@ -22,13 +22,14 @@
   let activeGlossaryCategory = "all";
   let searchTerm = "";
   let toastTimer = 0;
-  let saveTimer = 0;
+  let routeVersion = 0;
 
   function emptyState() {
     return {
       read: [],
       favorites: [],
       notes: {},
+      journeys: {},
       studiedConcepts: [],
       quizResults: {},
       missions: {},
@@ -47,6 +48,7 @@
         read: Array.isArray(parsed.read) ? parsed.read.filter((id) => typeof id === "string") : [],
         favorites: Array.isArray(parsed.favorites) ? parsed.favorites.filter((id) => typeof id === "string") : [],
         notes: parsed.notes && typeof parsed.notes === "object" && !Array.isArray(parsed.notes) ? parsed.notes : {},
+        journeys: parsed.journeys && typeof parsed.journeys === "object" && !Array.isArray(parsed.journeys) ? parsed.journeys : {},
         studiedConcepts: Array.isArray(parsed.studiedConcepts) ? parsed.studiedConcepts.filter((id) => typeof id === "string") : [],
         quizResults: parsed.quizResults && typeof parsed.quizResults === "object" && !Array.isArray(parsed.quizResults) ? parsed.quizResults : {},
         missions: parsed.missions && typeof parsed.missions === "object" && !Array.isArray(parsed.missions) ? parsed.missions : {},
@@ -231,7 +233,7 @@
     const [routePart, queryPart = ""] = raw.split("?");
     const params = new URLSearchParams(queryPart);
     return {
-      page: ["livro", "conceitos", "enciclopedia", "desafios", "laboratorio", "timeline", "configuracoes"].includes(routePart)
+      page: ["livro", "refletir", "conectar", "laboratorio", "configuracoes"].includes(routePart)
         ? routePart
         : "dashboard",
       chapter: params.get("c") || "",
@@ -256,8 +258,9 @@
     document.querySelector("#page-heading").textContent = title;
     document.querySelector("#breadcrumb-current").textContent = title;
     document.querySelectorAll(".primary-nav a").forEach((link) => {
-      if (link.dataset.route === route) link.classList.add("active");
-      else link.classList.remove("active");
+      link.classList.toggle("active", link.dataset.route === route);
+      if (link.dataset.route === route) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
     });
   }
 
@@ -270,47 +273,158 @@
   }
 
   function updateDashboard() {
-    const readCount = state.read.filter((id) => getChapter(id)).length;
-    const percentage = chapters.length ? Math.round(readCount / chapters.length * 100) : 0;
-    const stat = document.querySelector("#reading-stat");
-    if (!stat) return;
-    stat.textContent = `${percentage}%`;
-    document.querySelector("#reading-detail").textContent = `${readCount} de ${chapters.length} capítulos concluídos`;
-    document.querySelector("#reading-progress-bar").style.width = `${percentage}%`;
-    document.querySelector(".progress-track").setAttribute("aria-valuenow", String(percentage));
-    document.querySelector("#concepts-stat").textContent = String(state.studiedConcepts.filter((id) => getGlossaryTerm(id)).length);
-    const stats = challengeStats();
-    const points = earnedPoints();
-    document.querySelector("#challenges-stat").textContent = String(stats.completed);
-    const challengesDetail = document.querySelector("#challenges-detail");
-    if (challengesDetail) {
-      challengesDetail.textContent = `${points} pontos · ${currentLevel(points).title}`;
+    const link = document.querySelector("#journey-resume");
+    if (!link) return;
+    const chapter = getChapter(state.lastChapter);
+    const journey = getJourney(chapter?.id);
+    let next = "livro";
+    let label = chapter ? "Continuar leitura" : "Começar pela leitura";
+    if (chapter && state.read.includes(chapter.id)) {
+      next = "refletir";
+      label = "Refletir sobre a leitura";
+      if (journey.reflection.trim()) {
+        next = "conectar";
+        label = "Conectar conceitos";
+        if (connectionReady(journey)) {
+          next = "laboratorio";
+          label = journey.projectId ? "Continuar meu projeto" : "Criar meu projeto";
+        }
+      }
     }
-    window.UniverseDB.countProjects().then((count) => {
-      const projectsStat = document.querySelector("#projects-stat");
-      if (projectsStat) projectsStat.textContent = String(count);
-    }).catch((error) => {
-      console.error("Não foi possível contar os projetos.", error);
-      const detail = document.querySelector("#projects-detail");
-      if (detail) detail.textContent = "Armazenamento indisponível";
-    });
-    const lastChapter = getChapter(state.lastChapter);
-    document.querySelector("#continue-description").textContent = lastChapter
-      ? `Última leitura: ${lastChapter.title}`
-      : "Sua jornada começa com o primeiro capítulo.";
-    document.querySelector("#continue-link").href = lastChapter
-      ? `#/livro?c=${encodeURIComponent(lastChapter.id)}`
-      : "#/livro";
+    link.href = `#/${next}${chapter ? `?c=${encodeURIComponent(chapter.id)}` : ""}${next === "laboratorio" && journey.projectId ? `&p=${encodeURIComponent(journey.projectId)}` : ""}`;
+    link.textContent = `${label} →`;
+    document.querySelector("#journey-context").textContent = chapter
+      ? `Sua leitura: ${chapter.title}. Retome quando quiser; cada capítulo guarda sua própria reflexão e conexões.`
+      : "Comece escolhendo um capítulo. Você não precisa terminar o livro para experimentar uma ideia.";
+  }
 
-    const achievements = [
-      { label: "Primeira conexão — abra um capítulo", done: Boolean(lastChapter) },
-      { label: "Leitor em movimento — conclua um capítulo", done: readCount > 0 },
-      { label: "Explorador — conclua 5 capítulos", done: readCount >= 5 },
-      ...unlockedBadges().map((badge) => ({ label: `${badge.title} — ${badge.description}`, done: badge.unlocked }))
-    ];
-    document.querySelector("#achievements-list").innerHTML = achievements.map((item) =>
-      `<div class="achievement-item${item.done ? " done" : ""}"><span aria-hidden="true">${item.done ? "✦" : "◇"}</span><span>${escapeHtml(item.label)}${item.done ? " · Conquistada" : ""}</span></div>`
-    ).join("");
+  function getJourney(chapterId = state.lastChapter) {
+    const saved = state.journeys[chapterId] || {};
+    return {
+      reflection: typeof saved.reflection === "string" ? saved.reflection : "",
+      conceptIds: Array.isArray(saved.conceptIds) ? [...new Set(saved.conceptIds.filter((id) => getGlossaryTerm(id)))] : [],
+      connection: typeof saved.connection === "string" ? saved.connection : "",
+      projectId: typeof saved.projectId === "string" ? saved.projectId : "",
+      projectDraft: saved.projectDraft && typeof saved.projectDraft === "object" ? saved.projectDraft : {}
+    };
+  }
+
+  function connectionReady(journey) {
+    return journey.conceptIds.length >= 2 && Boolean(journey.connection.trim());
+  }
+
+  function journeyChapter(route) {
+    return getChapter(route.chapter || state.lastChapter);
+  }
+
+  function requireJourney(container, route, needsReflection = false) {
+    const chapter = journeyChapter(route);
+    if (!chapter) {
+      container.innerHTML = '<h2>Comece por uma leitura</h2><p>Escolha um capítulo para dar contexto à sua ideia.</p><a class="button button-primary" href="#/livro">Escolher capítulo →</a>';
+      return null;
+    }
+    if (needsReflection && !getJourney(chapter.id).reflection.trim()) {
+      container.innerHTML = `<h2>Antes, registre sua reflexão</h2><p>Ela será o ponto de partida para suas conexões.</p><a class="button button-primary" href="#/refletir?c=${encodeURIComponent(chapter.id)}">Refletir →</a>`;
+      return null;
+    }
+    return chapter;
+  }
+
+  function attachReflectionPage(route) {
+    const container = document.querySelector("#reflection-workspace");
+    const chapter = requireJourney(container, route);
+    if (!chapter) return;
+    const journey = getJourney(chapter.id);
+    container.innerHTML = `<p class="eyebrow">SUA LEITURA</p><h2>${escapeHtml(chapter.title)}</h2>
+      <a class="text-link" href="#/livro?c=${encodeURIComponent(chapter.id)}">Voltar ao capítulo</a>
+      <form class="project-form" id="reflection-form">
+        <label for="reflection">Que ideia você entendeu e que problema do seu cotidiano ela ajuda a enxergar?</label>
+        <p class="muted" id="reflection-hint">Explique com suas palavras, cite uma situação real e registre o que ainda deseja investigar.</p>
+        <textarea id="reflection" name="reflection" rows="8" required aria-describedby="reflection-hint" placeholder="Entendi que… Isso me fez pensar em…">${escapeHtml(journey.reflection)}</textarea>
+        <p class="note-status" id="reflection-status" role="status">Suas palavras ficam neste dispositivo.</p>
+        <button class="button button-primary" type="submit">Salvar e conectar conceitos →</button>
+      </form>`;
+    const input = container.querySelector("#reflection");
+    const persist = () => {
+      journey.reflection = input.value;
+      state.journeys[chapter.id] = journey;
+      return saveState();
+    };
+    input.addEventListener("input", () => {
+      container.querySelector("#reflection-status").textContent = persist()
+        ? "Reflexão salva neste dispositivo." : "Não foi possível salvar. Não feche esta tela.";
+    });
+    container.querySelector("#reflection-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!input.value.trim()) {
+        input.setCustomValidity("Escreva sua reflexão antes de continuar.");
+        input.reportValidity();
+        input.setCustomValidity("");
+        return;
+      }
+      if (persist()) setRoute("conectar", { c: chapter.id });
+    });
+  }
+
+  function attachConnectionPage(route) {
+    const container = document.querySelector("#connection-workspace");
+    const chapter = requireJourney(container, route, true);
+    if (!chapter) return;
+    const journey = getJourney(chapter.id);
+    const chapterNumber = chapter.id.match(/^(\d+)_/);
+    const related = (term) => chapterNumber && term.chapters.some((reference) =>
+      Number(reference.match(/\d+/)?.[0]) === Number(chapterNumber[1]));
+    const ordered = [...glossary].sort((left, right) => Number(related(right)) - Number(related(left)));
+    container.innerHTML = `<h2>${escapeHtml(chapter.title)}</h2>
+      <details open><summary>Sua reflexão</summary><p class="journey-quote">${escapeHtml(journey.reflection)}</p></details>
+      <a class="text-link" href="#/refletir?c=${encodeURIComponent(chapter.id)}">Revisar reflexão</a>
+      <form class="project-form" id="connection-form">
+        <fieldset class="concept-picker"><legend>Escolha pelo menos dois conceitos</legend>
+          <p class="muted">Os conceitos referenciados no capítulo aparecem primeiro. Você também pode conectar outras áreas do livro.</p>
+          <label for="concept-filter">Filtrar conceitos</label><input id="concept-filter" type="search" placeholder="Nome ou definição">
+          <p id="concept-selection-count" role="status"></p>
+          <div class="concept-options">${ordered.map((term) => `<label class="concept-option">
+            <input type="checkbox" name="conceptIds" value="${escapeHtml(term.id)}"${journey.conceptIds.includes(term.id) ? " checked" : ""}>
+            <span><strong>${escapeHtml(term.title)}</strong>${related(term) ? '<small>Neste capítulo</small>' : ""}
+            <span>${escapeHtml(term.definition)}</span></span></label>`).join("")}</div>
+        </fieldset>
+        <label for="connection">Como esses conceitos se conectam para enfrentar o problema?</label>
+        <textarea id="connection" name="connection" rows="5" required placeholder="Vou combinar… com… para…">${escapeHtml(journey.connection)}</textarea>
+        <p id="connection-status" class="note-status" role="status">Escolha os conceitos e descreva sua conexão.</p>
+        <button class="button button-primary" type="submit">Salvar e criar projeto →</button>
+      </form>`;
+    const form = container.querySelector("#connection-form");
+    const status = container.querySelector("#connection-status");
+    const count = container.querySelector("#concept-selection-count");
+    const persist = () => {
+      journey.conceptIds = [...form.querySelectorAll('[name="conceptIds"]:checked')].map((input) => input.value);
+      journey.connection = form.elements.connection.value;
+      state.journeys[chapter.id] = journey;
+      count.textContent = `${journey.conceptIds.length} conceitos selecionados`;
+      const saved = saveState();
+      status.textContent = saved ? "Conexões salvas neste dispositivo." : "Não foi possível salvar. Não feche esta tela.";
+      return saved;
+    };
+    count.textContent = `${journey.conceptIds.length} conceitos selecionados`;
+    form.addEventListener("input", (event) => {
+      if (event.target.id === "concept-filter") {
+        const query = event.target.value.trim().toLocaleLowerCase("pt-BR");
+        container.querySelectorAll(".concept-option").forEach((option) => {
+          option.hidden = !option.textContent.toLocaleLowerCase("pt-BR").includes(query);
+        });
+        return;
+      }
+      persist();
+    });
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!persist()) return;
+      if (!connectionReady(journey)) {
+        status.textContent = "Selecione pelo menos dois conceitos e escreva como eles se conectam.";
+        return;
+      }
+      setRoute("laboratorio", { c: chapter.id, p: journey.projectId });
+    });
   }
 
   function termsInCategory(categoryId) {
@@ -764,13 +878,19 @@
 
   function projectForm(project = {}) {
     const editing = Boolean(project.id);
+    const guided = Boolean(project.chapterId) || !editing;
     return `<form class="project-form" id="project-form">
       <div class="project-form-heading">
-        <div><p class="eyebrow">${editing ? "EDITAR PROJETO" : "NOVO PROJETO"}</p><h2>${editing ? escapeHtml(project.name) : "Ficha técnica maker"}</h2></div>
+        <div><p class="eyebrow">${editing ? "EDITAR PROJETO" : "NOVO PROJETO"}</p><h2>${editing ? escapeHtml(project.name) : "Uma ideia que você pode testar"}</h2></div>
         ${editing ? '<button class="small-button danger-button" id="delete-project" type="button">Excluir</button>' : ""}
       </div>
       <input type="hidden" name="id" value="${escapeHtml(project.id || "")}">
       <input type="hidden" name="createdAt" value="${escapeHtml(project.createdAt || "")}">
+      ${project.chapterId ? `<details class="project-origin" open><summary>Da leitura ao projeto</summary>
+        <p><a href="#/livro?c=${encodeURIComponent(project.chapterId)}">${escapeHtml(getChapter(project.chapterId)?.title || project.chapterId)}</a></p>
+        <h3>Sua reflexão</h3><p class="journey-quote">${escapeHtml(project.reflection || "")}</p>
+        <h3>Conceitos conectados</h3><p>${(project.conceptIds || []).map((id) => escapeHtml(getGlossaryTerm(id)?.title || id)).join(" + ")}</p>
+        <p class="journey-quote">${escapeHtml(project.connection || "")}</p></details>` : '<p class="muted">Projeto anterior à jornada guiada. Seus dados foram preservados.</p>'}
       <label for="project-name">Nome do projeto *</label>
       <input id="project-name" name="name" required maxlength="100" value="${escapeHtml(project.name || "")}" placeholder="Ex.: Robô seguidor de linha">
       <label for="project-problem">Problema *</label>
@@ -779,12 +899,14 @@
       <textarea id="project-solution" name="solution" required rows="3" placeholder="Como o sistema deve funcionar?">${escapeHtml(project.solution || "")}</textarea>
       <label for="project-components">Componentes</label>
       <textarea id="project-components" name="components" rows="3" placeholder="Sensores, atuadores, controladores, materiais...">${escapeHtml(project.components || "")}</textarea>
-      <label for="project-result">Resultado esperado</label>
-      <textarea id="project-result" name="expectedResult" rows="3" placeholder="Como será possível verificar o sucesso?">${escapeHtml(project.expectedResult || "")}</textarea>
+      <label for="project-test">Primeiro teste${guided ? " *" : ""}</label>
+      <textarea id="project-test" name="firstTest" rows="3"${guided ? " required" : ""} placeholder="Qual é o menor experimento que você pode fazer? Comece no papel ou em um simulador.">${escapeHtml(project.firstTest || "")}</textarea>
+      <label for="project-result">Resultado esperado${guided ? " *" : ""}</label>
+      <textarea id="project-result" name="expectedResult" rows="3"${guided ? " required" : ""} placeholder="O que você observará ou medirá para saber se funcionou?">${escapeHtml(project.expectedResult || "")}</textarea>
       <label for="project-observations">Observações</label>
       <textarea id="project-observations" name="observations" rows="3" placeholder="Medições, riscos, próximos testes...">${escapeHtml(project.observations || "")}</textarea>
-      <label for="project-mission">Missão concluída relacionada</label>
-      <select id="project-mission" name="missionId">${missionOptions(project.missionId || "")}</select>
+      <p class="muted">Prefira simulações e montagens de baixa tensão. Valide uma hipótese antes de ampliar o projeto.</p>
+      <p class="note-status" id="project-status" role="status">${editing ? "Alterações serão gravadas ao salvar." : "O rascunho é salvo enquanto você escreve."}</p>
       <div class="project-form-actions">
         <button class="button button-primary" type="submit">${editing ? "Salvar alterações" : "Criar projeto"}</button>
         <button class="small-button ghost" id="cancel-project" type="button">Cancelar</button>
@@ -801,7 +923,7 @@
         .join(" ").toLocaleLowerCase("pt-BR").includes(filter)
     );
     document.querySelector("#lab-project-count").textContent = String(projects.length);
-    document.querySelector("#lab-linked-count").textContent = String(projects.filter((project) => project.missionId).length);
+    document.querySelector("#lab-linked-count").textContent = String(projects.filter((project) => project.chapterId).length);
     if (!visible.length) {
       container.innerHTML = `<p class="no-results">${projects.length ? "Nenhum projeto corresponde à busca." : "Nenhum projeto registrado."}</p>`;
       return;
@@ -828,22 +950,50 @@
     const workspace = document.querySelector("#project-workspace");
     workspace.innerHTML = projectForm(project);
     const form = workspace.querySelector("#project-form");
+    if (!project.id && project.chapterId) {
+      form.addEventListener("input", () => {
+        const journey = getJourney(project.chapterId);
+        journey.projectDraft = Object.fromEntries(new FormData(form));
+        state.journeys[project.chapterId] = journey;
+        workspace.querySelector("#project-status").textContent = saveState()
+          ? "Rascunho salvo neste dispositivo." : "Não foi possível salvar o rascunho. Não feche esta tela.";
+      });
+    }
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
       const values = Object.fromEntries(new FormData(form));
+      if (["name", "problem", "solution", ...(project.chapterId || !project.id ? ["firstTest", "expectedResult"] : [])]
+        .some((key) => !String(values[key] || "").trim())) {
+        showToast("Preencha os campos obrigatórios com mais que espaços.");
+        return;
+      }
+      const submit = form.querySelector('[type="submit"]');
+      submit.disabled = true;
       try {
-        const saved = await window.UniverseDB.saveProject(values);
+        const saved = await window.UniverseDB.saveProject({ ...project, ...values });
         const index = projects.findIndex((item) => item.id === saved.id);
         if (index >= 0) projects[index] = saved;
         else projects.unshift(saved);
         projects.sort((left, right) => right.updatedAt.localeCompare(left.updatedAt));
+        let contextSaved = true;
+        if (saved.chapterId) {
+          const journey = getJourney(saved.chapterId);
+          journey.projectId = saved.id;
+          journey.projectDraft = {};
+          state.journeys[saved.chapterId] = journey;
+          contextSaved = saveState();
+        }
+        if (!form.isConnected) return;
         renderProjectList(saved.id);
         setRoute("laboratorio", { p: saved.id });
-        showToast(project.id ? "Projeto atualizado." : "Projeto criado no laboratório.");
+        showToast(contextSaved ? (project.id ? "Projeto atualizado." : "Projeto criado no laboratório.")
+          : "Projeto salvo, mas o atalho da jornada não pôde ser gravado. Reabra pela lista de projetos.");
       } catch (error) {
         console.error("Não foi possível salvar o projeto.", error);
         showToast("Não foi possível salvar o projeto no banco local.");
+      } finally {
+        submit.disabled = false;
       }
     });
     workspace.querySelector("#cancel-project").addEventListener("click", closeProjectEditor);
@@ -852,6 +1002,10 @@
       try {
         await window.UniverseDB.deleteProject(project.id);
         projects = projects.filter((item) => item.id !== project.id);
+        Object.values(state.journeys).forEach((journey) => {
+          if (journey.projectId === project.id) journey.projectId = "";
+        });
+        saveState();
         renderProjectList();
         closeProjectEditor();
         setRoute("laboratorio");
@@ -864,18 +1018,41 @@
   }
 
   async function attachLaboratoryPage(route) {
+    const version = routeVersion;
     try {
       projects = await window.UniverseDB.getProjects();
+      if (version !== routeVersion) return;
     } catch (error) {
       console.error("Não foi possível abrir o laboratório.", error);
+      if (version !== routeVersion) return;
       document.querySelector("#project-workspace").innerHTML = '<div class="error-panel"><h2>Banco local indisponível</h2><p>Permita o armazenamento do site e tente novamente.</p></div>';
       return;
     }
     const selected = projects.find((project) => project.id === route.project);
     renderProjectList(selected?.id || "");
     document.querySelector("#project-filter").addEventListener("input", () => renderProjectList(selected?.id || ""));
-    document.querySelector("#new-project").addEventListener("click", () => attachProjectForm({}));
+    const createFromJourney = () => {
+      const workspace = document.querySelector("#project-workspace");
+      const chapter = requireJourney(workspace, route, true);
+      if (!chapter) return;
+      const journey = getJourney(chapter.id);
+      if (!connectionReady(journey)) {
+        workspace.innerHTML = `<h2>Conecte suas ideias primeiro</h2><p>Escolha pelo menos dois conceitos e explique sua conexão antes de criar o projeto.</p><a class="button button-primary" href="#/conectar?c=${encodeURIComponent(chapter.id)}">Conectar conceitos →</a>`;
+        return;
+      }
+      attachProjectForm({
+        ...journey.projectDraft,
+        chapterId: chapter.id,
+        reflection: journey.reflection,
+        conceptIds: journey.conceptIds,
+        connection: journey.connection,
+        problem: journey.projectDraft.problem ?? journey.reflection,
+        solution: journey.projectDraft.solution ?? journey.connection
+      });
+    };
+    document.querySelector("#new-project").addEventListener("click", createFromJourney);
     if (selected) attachProjectForm(selected);
+    else if (route.chapter) createFromJourney();
   }
 
   function timelineCategories() {
@@ -1114,7 +1291,13 @@
       </div>
     </div>
     <div class="markdown-content" id="chapter-body">${renderMarkdown(chapter.content)}</div>
-    <div class="note-panel"><label for="chapter-note">Anotação pessoal</label><textarea id="chapter-note" placeholder="Registre uma ideia, dúvida ou conexão...">${escapeHtml(state.notes[chapter.id] || "")}</textarea><span class="note-status" id="note-status" aria-live="polite">Anotações salvas apenas neste dispositivo.</span>    </div>`;
+    <div class="note-panel"><label for="chapter-note">Anotação pessoal</label><textarea id="chapter-note" placeholder="Registre uma ideia, dúvida ou conexão...">${escapeHtml(state.notes[chapter.id] || "")}</textarea><span class="note-status" id="note-status" aria-live="polite">Anotações salvas apenas neste dispositivo.</span></div>
+    <div class="journey-next"><p>Não precisa dominar tudo. Escolha uma ideia para levar adiante.</p>
+      <a class="button button-primary" id="start-reflection" href="#/refletir?c=${encodeURIComponent(chapter.id)}">Refletir sobre esta leitura →</a></div>`;
+    document.querySelector("#start-reflection").addEventListener("click", (event) => {
+      if (!state.read.includes(chapter.id)) state.read.push(chapter.id);
+      if (!saveState()) event.preventDefault();
+    });
     if (searchTerm) {
       highlightSearchTerms(document.querySelector("#chapter-body"), searchTerm);
     }
@@ -1138,11 +1321,8 @@
     });
     document.querySelector("#chapter-note").addEventListener("input", (event) => {
       state.notes[chapter.id] = event.currentTarget.value;
-      document.querySelector("#note-status").textContent = "Salvando…";
-      window.clearTimeout(saveTimer);
-      saveTimer = window.setTimeout(() => {
-        if (saveState()) document.querySelector("#note-status").textContent = "Salvo neste dispositivo.";
-      }, 250);
+      document.querySelector("#note-status").textContent = saveState()
+        ? "Salvo neste dispositivo." : "Não foi possível salvar. Não feche esta tela.";
     });
     document.querySelector("#chapter-count").textContent = `${chapters.indexOf(chapter) + 1} / ${chapters.length}`;
     document.querySelector("#reading-panel").scrollIntoView({ block: "start", behavior: "smooth" });
@@ -1178,11 +1358,14 @@
   }
 
   async function renderRoute() {
+    const version = ++routeVersion;
     const route = parseRoute();
     activeRoute = route.page;
     const titles = {
-      dashboard: "Dashboard",
+      dashboard: "Minha jornada",
       livro: "Livro interativo",
+      refletir: "Refletir",
+      conectar: "Conectar conceitos",
       conceitos: "Mapa de conceitos",
       enciclopedia: "Enciclopédia",
       desafios: "Desafios e missões",
@@ -1193,15 +1376,20 @@
     const title = titles[route.page];
     setShellHeading(title, route.page);
     try {
-      pageContent.innerHTML = await loadPage(route.page);
+      const html = await loadPage(route.page);
+      if (version !== routeVersion) return;
+      pageContent.innerHTML = html;
     } catch (error) {
       console.error("Não foi possível carregar a tela.", error);
+      if (version !== routeVersion) return;
       pageContent.innerHTML = `<section class="error-panel"><h1>Não foi possível abrir esta tela</h1><p>${escapeHtml(error.message)}</p><button class="small-button" id="retry-page" type="button">Tentar novamente</button></section>`;
       document.querySelector("#retry-page").addEventListener("click", renderRoute);
       return;
     }
     if (route.page === "dashboard") updateDashboard();
     if (route.page === "livro") attachReaderEvents(route);
+    if (route.page === "refletir") attachReflectionPage(route);
+    if (route.page === "conectar") attachConnectionPage(route);
     if (route.page === "conceitos") attachConceptsPage(route);
     if (route.page === "enciclopedia") attachEncyclopediaPage(route);
     if (route.page === "desafios") attachChallengesPage(route);
@@ -1234,44 +1422,7 @@
       }
       return;
     }
-    const termMatch = glossary.find((item) =>
-      [item.title, item.definition, item.analogy, item.example]
-        .some((value) => value.toLocaleLowerCase("pt-BR").includes(term))
-    );
-    if (termMatch) {
-      const nextHash = `/enciclopedia?t=${encodeURIComponent(termMatch.id)}`;
-      if (location.hash.replace(/^#/, "") === nextHash) renderRoute();
-      else setRoute("enciclopedia", { t: termMatch.id });
-      return;
-    }
-    const timelineMatch = timeline.find((item) =>
-      [item.title, item.description, item.category, item.year]
-        .some((value) => String(value).toLocaleLowerCase("pt-BR").includes(term))
-    );
-    if (timelineMatch) {
-      setRoute("timeline");
-      return;
-    }
-    try {
-      const projectMatch = (await window.UniverseDB.getProjects()).find((project) =>
-        [project.name, project.problem, project.solution, project.components, project.expectedResult, project.observations]
-          .some((value) => String(value).toLocaleLowerCase("pt-BR").includes(term))
-      );
-      if (projectMatch) {
-        setRoute("laboratorio", { p: projectMatch.id });
-        return;
-      }
-    } catch (error) {
-      console.error("Não foi possível pesquisar os projetos locais.", error);
-    }
     if (!firstMatch) {
-      const missionMatch = challengeData.missions.find((item) =>
-        [item.title, item.briefing, item.section].some((value) => String(value).toLocaleLowerCase("pt-BR").includes(term))
-      );
-      if (missionMatch) {
-        setRoute("desafios", { tr: "campo", d: missionMatch.id });
-        return;
-      }
       showToast("Nenhum conteúdo corresponde à busca.");
       return;
     }
@@ -1289,46 +1440,15 @@
         throw new Error("O índice de capítulos possui um formato inválido.");
       }
       chapters = loaded;
-      const [glossaryResponse, conceptsResponse, challengesResponse, timelineResponse] = await Promise.all([
-        fetch("data/glossario.json"),
-        fetch("data/conceitos.json"),
-        fetch("data/desafios.json"),
-        fetch("data/timeline.json")
-      ]);
-      if (!glossaryResponse.ok || !conceptsResponse.ok) {
-        throw new Error("Falha ao carregar o glossário ou mapa de conceitos.");
-      }
-      if (!challengesResponse.ok) {
-        throw new Error("Falha ao carregar o catálogo de desafios.");
-      }
-      if (!timelineResponse.ok) {
-        throw new Error("Falha ao carregar a linha do tempo.");
-      }
-      const [glossaryData, conceptsData, challengesData, timelineData] = await Promise.all([
-        glossaryResponse.json(),
-        conceptsResponse.json(),
-        challengesResponse.json(),
-        timelineResponse.json()
-      ]);
-      if (!Array.isArray(glossaryData) || !Array.isArray(conceptsData.categories) || !Array.isArray(conceptsData.connections)) {
-        throw new Error("Os dados da Fase 2 possuem um formato inválido.");
-      }
-      if (!challengesData || !Array.isArray(challengesData.questions) || !Array.isArray(challengesData.missions)
-        || !Array.isArray(challengesData.tracks) || !Array.isArray(challengesData.levels) || !Array.isArray(challengesData.badges)) {
-        throw new Error("O catálogo de desafios possui um formato inválido.");
-      }
-      if (!Array.isArray(timelineData) || timelineData.some((item) =>
-        !Number.isInteger(item.year) || !item.title || !item.description || !item.category
-      )) {
-        throw new Error("A linha do tempo possui um formato inválido.");
+      const glossaryResponse = await fetch("data/glossario.json");
+      if (!glossaryResponse.ok) throw new Error("Falha ao carregar os conceitos do livro.");
+      const glossaryData = await glossaryResponse.json();
+      if (!Array.isArray(glossaryData) || glossaryData.some((term) =>
+        typeof term.id !== "string" || typeof term.title !== "string"
+        || typeof term.definition !== "string" || !Array.isArray(term.chapters))) {
+        throw new Error("Os conceitos do livro possuem um formato inválido.");
       }
       glossary = glossaryData;
-      conceptMap = conceptsData;
-      challengeData = {
-        ...challengesData,
-        totalPoints: Number(challengesData.totalPoints) || 0
-      };
-      timeline = timelineData.sort((left, right) => left.year - right.year);
       window.addEventListener("hashchange", renderRoute);
       document.querySelector("#global-search").addEventListener("submit", runGlobalSearch);
       searchInput.addEventListener("input", () => {
@@ -1374,11 +1494,43 @@
     }
   }
 
-  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
-    navigator.serviceWorker.register("service-worker.js").catch((error) => {
+  let offlineReady = false;
+  function updateOfflineStatus() {
+    document.querySelector("#offline-status").textContent = offlineReady
+      ? (navigator.onLine ? "Pronto para usar offline" : "Offline · conteúdo disponível")
+      : (navigator.onLine ? "Preparando conteúdo offline…" : "Offline não preparado. Conecte-se para baixar.");
+  }
+  window.addEventListener("online", updateOfflineStatus);
+  window.addEventListener("offline", updateOfflineStatus);
+  if ("serviceWorker" in navigator && window.isSecureContext) {
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      if (event.data?.type !== "OFFLINE_STATUS") return;
+      offlineReady = event.data.ready === true;
+      updateOfflineStatus();
+      if (!offlineReady) {
+        document.querySelector("#offline-status").textContent = "Conteúdo offline incompleto. Reconecte e reabra o aplicativo.";
+      }
+    });
+    const checkOffline = () => navigator.serviceWorker.controller?.postMessage({ type: "CHECK_OFFLINE" });
+    navigator.serviceWorker.addEventListener("controllerchange", checkOffline);
+    navigator.serviceWorker.register("service-worker.js").then((registration) => {
+      const noticeUpdate = () => {
+        if (registration.waiting && navigator.serviceWorker.controller) {
+          showToast("Atualização disponível. Feche todas as abas do aplicativo e reabra.");
+        }
+      };
+      noticeUpdate();
+      registration.addEventListener("updatefound", () => {
+        registration.installing?.addEventListener("statechange", noticeUpdate);
+      });
+      return navigator.serviceWorker.ready;
+    }).then(checkOffline).catch((error) => {
       console.error("Falha ao registrar o service worker.", error);
+      document.querySelector("#offline-status").textContent = "Offline indisponível. Reconecte e reabra para tentar novamente.";
       showToast("Não foi possível ativar a leitura offline neste navegador.");
     });
+  } else {
+    document.querySelector("#offline-status").textContent = "Offline exige HTTPS ou localhost e um navegador compatível.";
   }
 
   start();

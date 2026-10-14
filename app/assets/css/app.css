@@ -599,3 +599,40 @@ html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+.journey-panel { margin-top: 1rem; padding: clamp(1rem, 3vw, 2rem); }
+.connection-status { padding: 0.65rem clamp(1.2rem, 4vw, 3.2rem); border-bottom: 1px solid var(--border); color: var(--text-soft); font-size: 0.8rem; }
+.journey-panel h2 { margin-top: 0; }
+.journey-panel p, .project-origin p { line-height: 1.65; overflow-wrap: anywhere; }
+.journey-panel > .text-link { display: inline-block; margin-bottom: 1.5rem; }
+.journey-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; padding: 0; list-style: none; }
+.journey-steps a { display: grid; gap: 0.6rem; height: 100%; padding: 1.1rem; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; }
+.journey-steps a:hover { border-color: var(--caracore-cyan); }
+.journey-steps strong { color: var(--caracore-cyan); }
+.journey-steps span { color: var(--text-soft); line-height: 1.6; }
+.journey-quote { white-space: pre-wrap; }
+.journey-next { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.concept-picker { min-width: 0; margin: 0.5rem 0 1rem; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; }
+.concept-picker legend { padding: 0 0.5rem; font-weight: 700; }
+.concept-options { display: grid; gap: 0.65rem; max-height: 26rem; overflow-y: auto; margin-top: 1rem; }
+.concept-option { display: flex; gap: 0.8rem; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; }
+.concept-option[hidden] { display: none; }
+.concept-option > input { width: 22px; min-height: 22px; height: 22px; flex: 0 0 22px; accent-color: var(--caracore-cyan); }
+.concept-option > span { display: grid; gap: 0.5rem; color: var(--text-soft); font-size: 0.9rem; line-height: 1.5; }
+.concept-option strong { color: var(--caracore-light); }
+.concept-option small { color: var(--caracore-cyan); }
+.project-origin { padding: 1rem; margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 8px; }
+.project-origin h3 { font-size: 0.95rem; }
+summary { min-height: 44px; padding: 0.6rem 0; cursor: pointer; font-weight: 700; }
+.project-form { gap: 0.8rem; }
+.project-form label, .lab-sidebar label { color: var(--text-soft); font-size: 0.95rem; }
+.muted, .note-status { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+.button, .small-button, .filter-chip, .icon-button { min-height: 44px; cursor: pointer; }
+.button:disabled { opacity: 0.6; cursor: wait; }
+.reading-panel { min-width: 0; scroll-margin-top: 6rem; }
+@media (max-width: 760px) {
+  .journey-steps { grid-template-columns: 1fr; }
+  .project-form input, .project-form textarea, .global-search input, .chapter-panel input, .lab-sidebar input { font-size: 1rem; }
+  .journey-next .button, .journey-panel .button { width: 100%; }
+  .sidebar { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+}

@@ -1,39 +1,19 @@
 <section class="welcome-panel">
   <div class="welcome-copy">
-    <p class="eyebrow">CENTRO DE COMANDO · UNIVERSO COMPLETO</p>
-    <h1>Conhecimento também é <span>rebeldia.</span></h1>
-    <p>Entre no universo do livro, acompanhe sua jornada e continue de onde parou — mesmo sem internet.</p>
-    <a class="button button-primary" href="#/livro">Continuar leitura <span aria-hidden="true">→</span></a>
-  </div>
-  <div class="welcome-visual" aria-hidden="true">
-    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-    <div class="core-chip"><span>R</span><i></i><i></i><i></i><i></i></div>
-    <span class="visual-tag tag-top">SISTEMA ONLINE</span>
-    <span class="visual-tag tag-bottom">IDEIAS EM MOVIMENTO</span>
+    <p class="eyebrow">UNIVERSO REBELDIA</p>
+    <h1>Da página à bancada.<br><span>Uma ideia por vez.</span></h1>
+    <p>Transforme a leitura de A Rebeldia da Mecatrônica em algo que você pode construir e testar. No seu ritmo, sem pontos ou competição.</p>
+    <a class="button button-primary" id="journey-resume" href="#/livro">Começar pela leitura →</a>
   </div>
 </section>
-
-<section class="section-block" aria-labelledby="journey-title">
-  <div class="section-heading">
-    <div><p class="eyebrow">SUA JORNADA</p><h2 id="journey-title">Painel de aprendizagem</h2></div>
-    <span class="local-badge"><span class="status-dot" aria-hidden="true"></span> Salvo localmente</span>
-  </div>
-  <div class="stats-grid">
-    <article class="stat-card stat-featured"><div class="stat-top"><span>Progresso de leitura</span><span aria-hidden="true">◴</span></div><strong id="reading-stat">0%</strong><div class="progress-track" role="progressbar" aria-label="Progresso de leitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="reading-progress-bar"></span></div><small id="reading-detail">0 de 0 capítulos concluídos</small></article>
-    <article class="stat-card"><div class="stat-top"><span>Conceitos estudados</span><span aria-hidden="true">⌘</span></div><strong id="concepts-stat">0</strong><small class="muted">Da enciclopédia local</small></article>
-    <article class="stat-card"><div class="stat-top"><span>Desafios completos</span><span aria-hidden="true">◇</span></div><strong id="challenges-stat">0</strong><small class="muted" id="challenges-detail">0 pontos · Aprendiz de bancada</small></article>
-    <article class="stat-card"><div class="stat-top"><span>Projetos maker</span><span aria-hidden="true">⌁</span></div><strong id="projects-stat">0</strong><small class="muted" id="projects-detail">No laboratório local</small></article>
-  </div>
+<section class="content-card journey-panel">
+  <h2>Seu próximo passo</h2>
+  <p id="journey-context"></p>
+  <ol class="journey-steps">
+    <li><a href="#/livro"><strong>1 · Ler</strong><span>Escolha um capítulo e uma ideia que chamou sua atenção.</span></a></li>
+    <li><a href="#/refletir"><strong>2 · Refletir</strong><span>Relacione a leitura a um problema do seu cotidiano.</span></a></li>
+    <li><a href="#/conectar"><strong>3 · Conectar conceitos</strong><span>Explique como dois ou mais conceitos ajudam a resolver esse problema.</span></a></li>
+    <li><a href="#/laboratorio"><strong>4 · Criar projeto</strong><span>Planeje uma solução e um primeiro teste observável.</span></a></li>
+  </ol>
 </section>
-
-<section class="dashboard-lower">
-  <article class="content-card continue-card">
-    <div class="section-heading compact"><div><p class="eyebrow">RETOMAR</p><h2>Continue explorando</h2></div><span class="card-icon" aria-hidden="true">▤</span></div>
-    <p id="continue-description">Seu próximo capítulo estará sempre à mão.</p>
-    <a class="text-link" id="continue-link" href="#/livro">Abrir o livro <span aria-hidden="true">→</span></a>
-  </article>
-  <article class="content-card achievement-card">
-    <div class="section-heading compact"><div><p class="eyebrow">CONQUISTAS</p><h2>Marcos da jornada</h2></div><span class="card-icon orange" aria-hidden="true">✦</span></div>
-    <div id="achievements-list" class="achievement-list"></div>
-  </article>
-</section>
+<p class="muted">Sem conta e sem nuvem: seus registros ficam neste navegador. Em Configurações, exporte uma cópia para não perder suas ideias ao limpar os dados do site.</p>

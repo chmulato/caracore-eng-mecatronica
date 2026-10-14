@@ -31,7 +31,7 @@ python compile_html.py
 
 ## Universo Rebeldia (PWA)
 
-O aplicativo está em `app/` e oferece dashboard, leitor interativo, mapa de conceitos, enciclopédia, desafios com gamificação, busca, favoritos, anotações e progresso local/offline. Todo o conteúdo publicado no PWA é gerado a partir dos Markdown originais em `capitulos/`; não edite manualmente o JSON gerado.
+O aplicativo está em `app/` e prioriza **Ler → Refletir → Conectar Conceitos → Criar Projeto**, com experiência mobile e funcionamento offline após o primeiro carregamento completo. Reflexões e rascunhos são salvos localmente; projetos preservam o capítulo, os conceitos conectados e um primeiro teste verificável. Não há gamificação, rankings ou certificações no fluxo ativo. Todo o conteúdo do livro publicado no PWA é gerado a partir dos Markdown originais em `capitulos/`; não edite manualmente o JSON gerado.
 
 Atualize o índice do aplicativo sempre que alterar um capítulo:
 
@@ -45,13 +45,7 @@ Para a Fase 2 (mapa de conceitos e enciclopédia), gere os dados locais a partir
 python generate_phase2_data.py
 ```
 
-Para a Fase 3 (desafios e gamificação), gere o catálogo de quizzes, estudos de caso e missões maker:
-
-```bash
-python generate_phase3_data.py
-```
-
-As Fases 4 e 5 acrescentam Laboratório Maker em IndexedDB, timeline, configurações, backup local e integração com o site oficial. Para gerar todos os dados, compilar o livro e publicar a PWA em `docs/app/`, execute:
+Os projetos ficam em IndexedDB; Configurações permite instalar a PWA e exportar/importar dados. Os recursos secundários de fases anteriores estão fora da navegação e suas rotas foram desativadas, preservando dados existentes. Para gerar os dados, compilar o livro e publicar a PWA em `docs/app/`, execute:
 
 ```bash
 python publish_site.py
