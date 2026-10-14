@@ -64,3 +64,24 @@ python -m http.server 8000
 ```
 
 Depois acesse `http://localhost:8000/app/` durante o desenvolvimento ou `http://localhost:8000/docs/` para validar exatamente a estrutura publicada no GitHub Pages. A arquitetura e os fluxos estão documentados em [`app/README.md`](app/README.md).
+
+## Autoria e Originalidade
+
+A obra e a plataforma são de autoria de **Christian Vladimir Uhdre Mulato**.
+
+### O que é original neste projeto
+
+* **Narrativa:** personagens, enredo, diálogos e ambientação são criação autoral, com as diretrizes originais documentadas em [`foundation.md`](foundation.md).
+* **Código:** a PWA em `app/` foi escrita do zero em HTML5, CSS3 e JavaScript ES6+, sem frameworks, sem bibliotecas de terceiros e sem CDNs. Não há código importado que exija atribuição ou licença externa.
+* **Identidade visual:** paleta, logotipo, composição e estética tech-noir industrial foram definidas especificamente para esta obra.
+* **Arquitetura de conteúdo:** o pipeline que transforma `capitulos/*.md` em enciclopédia, mapa de conceitos, desafios e trilhas é próprio do projeto. O livro é a fonte única de verdade e o conteúdo derivado não é duplicado manualmente.
+
+### Sobre o uso de Inteligência Artificial
+
+Ferramentas de IA foram utilizadas como apoio na implementação, revisão e geração de ilustrações. Isso é declarado abertamente, em coerência com a proposta do livro de "abrir a caixa preta" — os prompts de arte estão documentados no Apêndice C ([`capitulos/16_galeria_arte.md`](capitulos/16_galeria_arte.md)).
+
+A direção autoral permanece humana. As decisões sobre propósito, público, mensagem, escopo, aceitação ou rejeição de sugestões e o significado atribuído ao conjunto são do autor.
+
+Nenhuma criação parte do zero absoluto: toda obra se apoia em linguagem, técnicas e referências anteriores. Originalidade aqui não significa ausência de influências, e sim a transformação dessas influências em uma expressão com identidade própria. Livros interativos, gamificação, PWAs e laboratórios maker já existiam isoladamente; a combinação específica em torno do universo de *A Rebeldia da Mecatrônica* é que constitui a obra.
+
+O histórico completo de evolução está em [`CHANGELOG.md`](CHANGELOG.md).

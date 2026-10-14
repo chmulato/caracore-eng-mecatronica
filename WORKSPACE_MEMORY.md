@@ -180,6 +180,10 @@ O commit deve explicar a intenção da alteração. Não usar `--force`, não
 ignorar hooks e não incluir arquivos temporários, caches de navegador ou
 segredos.
 
+Registre mudanças relevantes em `CHANGELOG.md`, agrupando-as em `Adicionado`,
+`Alterado`, `Removido` ou `Corrigido`. Correções internas triviais e ajustes de
+texto menores não precisam de entrada própria.
+
 ---
 
 ## 6. Diretrizes editoriais
