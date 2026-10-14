@@ -1,99 +1,223 @@
-# Memória do Workspace: A Rebeldia da Mecatrônica
+# Memória do Workspace — A Rebeldia da Mecatrônica
 
-Este documento registra o estado atual do projeto, a arquitetura do compilador, decisões técnicas críticas e diretrizes editoriais para que as próximas inteligências artificiais consigam assumir o desenvolvimento e edições futuras do livro de forma contínua e sem perda de contexto.
+Este documento é o ponto de entrada para qualquer pessoa ou IA que vá colaborar
+com o projeto. O repositório é público; não incluir credenciais, tokens,
+informações pessoais ou arquivos privados em commits, issues ou documentação.
 
----
+**Repositório:** <https://github.com/chmulato/livro_eng_mecatronica>
 
-## 📈 1. Resumo das Últimas Alterações Realizadas
+**Site oficial:** <https://eng.caracore.com.br/>
 
-### 🎓 Aprimoramento Didático e Narrativo dos Capítulos Finais (11, 12 e 13)
-*   **Capítulo 11 ("A Elite do Atraso"):** Reescrevemos o capítulo focando na engenharia de fluxo cotidiano do jovem leitor (sistemas dinâmicos, *bus bunching*, gargalos na catraca e o Problema do Caixeiro Viajante - TSP). Adicionamos a caixa de destaque **💡 A Regra do Custo de Oportunidade** para ilustrar matematicamente a decisão econômica entre investimentos industriais reais (ROI da tecnologia) vs. rentismo passivo (taxa Selic).
-*   **Capítulo 12 ("A Engenharia do Pix e do Bloco"):** Implementamos uma abertura narrativa tensa com o travamento físico de um robô AMR devido a um erro de *timeout* e consistência distribuída. Explicamos a criptografia assimétrica (chave pública/privada) como uma caixa de correio com fresta e cadeado, os blocos da Blockchain como paletes lacrados invioláveis por hash, e desenvolvemos um script Python prático que simula a integridade encadeada e o efeito avalanche do hash SHA-256. Adicionamos um desafio físico de medição de latência (`ping`).
-*   **Capítulo 13 ("A Rebeldia da Mecatrônica"):** Concluímos o romance com uma cena reflexiva ao entardecer sob a névoa de Curitiba. Amarramos o *continuum tecnológico* unindo o antigo Z80 e o AMR moderno como o mesmo fenômeno em escalas diferentes. Preservamos na lousa verde do galpão o **Manifesto do Silício** (três regras fundamentais sobre soberania, recusa de caixas-pretas proprietárias e persistência teimosa na física). Inserimos o desafio final maker estimulando o leitor a abrir e mapear a engenharia de um dispositivo doméstico comum para iniciar seu próprio manual de campo.
-
-### 🖼️ Geração e Inserção Completa de Ilustrações (HTML & PDF)
-*   **Melhoria:** Criação de ilustrações para todos os capítulos restantes do livro (`cap4.png` a `cap13.png`), mantendo consistência absoluta com os prompts estipulados no guia visual (`prompts_ilustracoes.md`).
-*   **Estilo Visual:** Design de arte conceitual Tech-Noir Industrial com tons frios de azul cobalto e poeira industrial contrastando com pontos de energia quentes em laranja e amarelo neon.
-
-### 🌉 Ajuste de Transições e Fórmulas Matemáticas no HTML
-*   **Melhoria:** Adaptação da lógica de renderização matemática baseada em LaTeX simples também no arquivo `compile_html.py` (antes restrita apenas ao PDF). As equações em bloco (`$$`) e termos matemáticos inline (`$`) agora são renderizados com tags HTML compatíveis, exibindo símbolos de forma adequada e limpa no navegador.
-*   **Estilização Lousa Verde:** A folha de estilos CSS do HTML agora recria a estética de lousas verdes escolares com molduras de madeira de 5px, sombras projetadas e fontes de giz mono-espaçadas para equações e códigos.
-
-### 📄 Regras de Formatação e Recuo de Parágrafos (Padrão Editorial)
-*   **Melhoria:** Correção de incongruências gráficas na indentação de romances.
-    *   **PDF:** Criação do estilo `NarrativeFirstStyle` (com recuo `0`) aplicado automaticamente ao primeiro parágrafo de cada capítulo ou seção após cabeçalhos (`h1`, `h2`, `h3`), imagens, lousas e listagens. Parágrafos subsequentes mantêm o recuo literário padrão de `12pt`.
-    *   **HTML:** Implementação de seletores de CSS avançados de irmão adjacente (`h2 + .narrative-p`, `pre + .narrative-p`) para remover o recuo do primeiro parágrafo de texto e manter `text-indent: 18px` nos seguintes.
-
-### ⏱️ Transições Suaves e Navegação Otimizada (HTML)
-*   **Melhoria:** Adição de `scroll-behavior: smooth` e `scroll-padding-top: 80px` nas folhas de estilo globais do HTML compilado, permitindo navegação fluida pelos tópicos do menu lateral (Drawer) sem sobrepor títulos por baixo da barra fixa superior.
-
-### 🎨 Inclusão do Apêndice C: Galeria de Arte e Prompts de IA
-*   **Melhoria:** Criação do arquivo [16_galeria_arte.md](file:///d:/onedrive/outros/workspace_book/capitulos/16_galeria_arte.md) para atuar como o **Apêndice C**. Este documento atua de forma lúdica revelando as descrições em português e os prompts em inglês que originaram a identidade visual e ilustrações do livro, alinhado à filosofia didática de "abrir a caixa preta".
-
-### 🌐 Sincronização e Publicação
-*   **Melhoria:** Compilação bem-sucedida das saídas finais (PDF e HTML) e envio das atualizações para o branch `master` no repositório remoto do GitHub.
+**PWA publicada:** <https://eng.caracore.com.br/app/>
 
 ---
 
-## 🛠️ 2. Arquitetura e Estrutura do Projeto
+## 1. Missão do projeto
 
-*   `/capitulos/`: Contém os arquivos fontes em Markdown (`.md`) ordenados alfabética e numericamente.
-*   `/imagens/`: Contém as ilustrações do livro (`capa.png` e `cap1.png` a `cap13.png`).
-*   `/docs/`: Destino de saída compilado. O GitHub Pages aponta para este diretório.
-    *   `/docs/imagens/`: Cópia espelhada dos assets visuais para consumo do arquivo HTML.
-    *   `/docs/index.html`: Versão de página única Mobile-First responsiva.
-    *   `/docs/romance_instrutivo.pdf`: Versão diagramada A5.
-*   [compile_book.py](file:///d:/onedrive/outros/workspace_book/compile_book.py): Compilador PDF baseado em Python e ReportLab.
-*   [compile_html.py](file:///d:/onedrive/outros/workspace_book/compile_html.py): Compilador HTML que converte Markdown em HTML responsivo.
+`A Rebeldia da Mecatrônica` é um romance instrutivo sobre tecnologia,
+engenharia, autonomia e sociedade. O projeto digital amplia o livro por meio
+do **Universo Rebeldia**, uma PWA educacional offline-first para estudantes,
+makers, técnicos, engenheiros, professores, empreendedores e leitores.
+
+O objetivo não é substituir o livro. O objetivo é levar o leitor de:
+
+1. leitura;
+2. compreensão dos conceitos;
+3. prática guiada;
+4. criação e registro de projetos;
+5. reflexão crítica sobre tecnologia.
+
+O tom deve ser conversacional, prático, motivador e instigante. Matemática,
+computação de baixo nível e automação devem ser apresentadas como ferramentas
+para compreender e transformar o mundo real, não como decoreba.
 
 ---
 
-## 🚀 3. Instruções de Desenvolvimento (Comandos)
+## 2. Estado atual
 
-### 🔌 Requisitos
-Instale as dependências com:
+Último marco publicado:
+
+- **Commit:** `b3497d3` — `Adiciona plataforma PWA Universo Rebeldia`
+- **Branch principal:** `master`
+- **GitHub Pages:** configurado para publicar a partir de `master:/docs`
+- **Service worker da PWA:** cache `universo-rebeldia-v6`
+- **Status:** fases 1 a 5 implementadas e publicadas
+
+Funcionalidades disponíveis:
+
+- leitor interativo com 18 capítulos;
+- busca, favoritos, anotações e marcação de leitura;
+- dashboard de progresso;
+- mapa de conceitos;
+- enciclopédia local;
+- 54 desafios entre quizzes e estudos de caso;
+- 29 missões e experimentos maker;
+- pontuação, níveis, trilhas e conquistas;
+- Laboratório Maker com CRUD de projetos;
+- persistência de projetos em IndexedDB;
+- timeline tecnológica com 10 marcos;
+- tema claro/escuro, escala de fonte e redução de movimento;
+- instalação da PWA;
+- exportação e importação de backup JSON;
+- funcionamento offline;
+- integração do site oficial com a PWA;
+- layout mobile-first validado em viewport de 320 px.
+
+Débitos conhecidos:
+
+- não há suíte automatizada formal nem CI dedicada;
+- `app/assets/js/app.js` concentra muitas responsabilidades e deve ser
+  modularizado com cuidado;
+- ainda faltam simuladores educacionais;
+- os desafios precisam de formatos mais variados para evitar repetição;
+- o Laboratório Maker pode evoluir para projetos guiados, evidências e
+  rubricas;
+- o progresso é local ao dispositivo, sem sincronização entre usuários;
+- a atualização de cache do service worker deve ser testada após cada release;
+- é recomendável medir Lighthouse e testar em aparelhos físicos.
+
+---
+
+## 3. Arquitetura do repositório
+
+### Livro
+
+- `capitulos/`: fonte única de verdade do conteúdo em Markdown.
+- `imagens/`: capa e ilustrações do livro.
+- `compile_book.py`: compila o PDF diagramado.
+- `compile_html.py`: converte os capítulos para o site HTML.
+- `docs/`: artefatos publicados no GitHub Pages.
+
+### Aplicação
+
+- `app/index.html`: shell da PWA.
+- `app/pages/`: páginas carregadas pelo roteador hash.
+- `app/assets/css/app.css`: estilos, temas, acessibilidade e breakpoints.
+- `app/assets/js/app.js`: estado, roteamento, renderização e interações.
+- `app/assets/js/db.js`: wrapper IndexedDB do Laboratório Maker.
+- `app/data/`: dados gerados para capítulos, conceitos, desafios e timeline.
+- `app/manifest.json`: manifesto instalável.
+- `app/service-worker.js`: cache-first e recursos offline.
+- `app/storage/`: reservado para organização local; não guardar dados de
+  usuários no Git.
+
+### Dados e publicação
+
+- `generate_app_data.py`: gera `capitulos.json` a partir de `capitulos/*.md`.
+- `generate_phase2_data.py`: gera conceitos, glossário e enciclopédia.
+- `generate_phase3_data.py`: gera desafios, missões e trilhas.
+- `publish_site.py`: executa os geradores, compila o site e copia `app/` para
+  `docs/app/`.
+- `docs/app/`: cópia de produção da PWA; não editar manualmente.
+
+---
+
+## 4. Regras técnicas
+
+1. Usar somente HTML5, CSS3, JavaScript ES6+, Python e APIs nativas do
+   navegador.
+2. Não adicionar React, Vue, Angular, bundlers, CDNs ou dependências externas
+   de execução.
+3. O livro em Markdown permanece como fonte única de verdade. Não duplicar
+   capítulos manualmente em JSON ou HTML.
+4. Toda funcionalidade principal deve funcionar sem internet depois do
+   primeiro carregamento.
+5. Preferir `localStorage` para estado leve e `IndexedDB` para projetos ou
+   dados estruturados.
+6. Manter navegação por teclado, foco visível, contraste adequado, rótulos
+   ARIA e alvos de toque de pelo menos 44 px.
+7. Validar mudanças em desktop e em viewport de 320 px antes de publicar.
+8. Atualizar o nome do cache no service worker quando houver alteração que
+   exija invalidação explícita.
+9. Não editar `docs/app/` manualmente; regenerar com o pipeline.
+10. Não apagar ou reverter alterações de outras pessoas sem entender sua
+    origem.
+
+---
+
+## 5. Fluxo recomendado para uma IA colaboradora
+
+Antes de editar:
+
 ```bash
-pip install reportlab Pillow bs4
+git status --short
+git log --oneline -5
 ```
 
-### ⚡ Compilar Livro
-Para gerar a versão PDF e a versão HTML atualizadas:
+Leia esta memória, o `README.md` correspondente à área alterada e os arquivos
+de origem relacionados. Procure implementações existentes antes de criar novos
+helpers ou padrões.
+
+Após alterar o livro:
+
 ```bash
-python compile_book.py
-python compile_html.py
+python publish_site.py
 ```
 
-### 📦 Sincronização Git
-Após compilar e validar alterações:
+Após alterar somente a PWA, ainda é recomendável executar o mesmo pipeline para
+manter `app/` e `docs/app/` idênticos.
+
+Validações mínimas:
+
 ```bash
-git add .
+python -m json.tool app/data/capitulos.json > $null
+python -m json.tool app/data/conceitos.json > $null
+python -m json.tool app/data/desafios.json > $null
+python -m json.tool app/data/timeline.json > $null
+node --check app/assets/js/app.js
+git diff --check
+```
+
+Para publicar:
+
+```bash
+git add -A
 git commit -m "Mensagem descritiva"
-git push
+git push origin master
 ```
 
----
-
-## 📝 4. Diretrizes Editoriais e de Estilo para Futuras IAs
-
-1.  **Tom de Voz:** Conversacional, prático, motivador e instigante. A matemática e a computação de baixo nível devem ser tratadas como "ferramentas de controle do mundo real" para solucionar problemas práticos, nunca como decoreba acadêmica teórica.
-2.  **Uso de Imagens no PDF:** Nunca force dimensões estáticas esticadas nas imagens. Sempre use o cálculo dinâmico com Pillow para preservar a proporção de aspecto nativa.
-3.  **Cálculo de Páginas:** Sempre compile em duas passadas para garantir que o sumário dinâmico reflita a página real dos capítulos.
-4.  **Recuo de Romance:** Mantenha sempre a regra de recuo nulo para o parágrafo inicial que sucede qualquer cabeçalho ou caixa especial de código e recuo padrão para os subsequentes.
-5.  **Fiel ao Continuum Tecnológico:** Mantenha sempre a analogia que cruza as eras do Z80 (baixo nível físico/eletricidade) e dos robôs autônomos modernos controlados por ROS 2 e SLAM. A tecnologia deve ser explicada como o mesmo fenômeno em escalas diferentes.
+O commit deve explicar a intenção da alteração. Não usar `--force`, não
+ignorar hooks e não incluir arquivos temporários, caches de navegador ou
+segredos.
 
 ---
 
-## 🔮 5. Perspectivas e Diretrizes para Evoluções Didáticas Futuras
+## 6. Diretrizes editoriais
 
-Para edições ou desdobramentos futuros, as seguintes melhorias didáticas são recomendadas para enriquecer a experiência de aprendizado do leitor:
+- Preservar o continuum entre o Z80, a eletrônica de baixo nível e os robôs
+  autônomos modernos com ROS 2 e SLAM.
+- Explicar sistemas complexos por analogias concretas, sem perder precisão.
+- Manter a conexão entre tecnologia, autonomia, soberania e responsabilidade
+  social.
+- Evitar glorificar a tecnologia como solução automática para problemas
+  humanos ou sociais.
+- Ao inserir uma seção didática, incluir contexto, exemplo prático e uma forma
+  de o leitor testar ou questionar a ideia.
+- No PDF, preservar proporção nativa das imagens usando cálculo dinâmico com
+  Pillow.
+- Manter o recuo nulo no primeiro parágrafo após cabeçalhos, imagens, lousas,
+  códigos ou caixas especiais; parágrafos narrativos subsequentes usam o
+  recuo literário padrão.
+- Preservar as transições suaves e o espaço para o cabeçalho fixo no HTML.
 
-1.  **Laboratórios Interativos Virtuais (Simulação Web):**
-    *   *Objetivo:* Embutir simuladores ou pequenos compiladores interativos baseados em Javascript/WebAssembly (Wasm) diretamente na página web (`docs/index.html`).
-    *   *Sugestão:* Permitir que o leitor manipule e teste portas lógicas básicas (Capítulo 3) ou escreva pequenos blocos de Z80 Assembly e veja o estado dos registradores mudando visualmente na própria lousa digital do livro.
-2.  **Notas de Bordo com Mapeamento Conceitual Visual:**
-    *   *Objetivo:* Facilitar a visualização da árvore de dependências conceituais.
-    *   *Sugestão:* Adicionar pequenos diagramas de fluxos (ASCII ou SVG leve) que mapeiam visualmente os tópicos do Manual de Campo que estão ativos ou são fundamentais para o trecho da narrativa em leitura.
-3.  **Exercícios de Engenharia Crítica e Geopolítica:**
-    *   *Objetivo:* Estimular discussões extracurriculares sobre o papel social da engenharia técnica.
-    *   *Sugestão:* Criar um apêndice extra com debates estruturados ou desafios sobre soberania tecnológica, investimento de capital em desenvolvimento nacional vs. rentismo financeiro (conectando as tensões dos Capítulos 11 e 13).
+---
 
+## 7. Próximas evoluções prioritárias
+
+1. Remover referências visíveis a “Fase 1–5” da experiência final do usuário.
+2. Adicionar onboarding por perfil de público.
+3. Criar simuladores nativos de portas lógicas, registradores, controle e
+   robótica.
+4. Diversificar desafios com diagnóstico de falhas, diagramas, cálculos e
+   decisões de projeto.
+5. Transformar o Laboratório Maker em caderno de engenharia com etapas,
+   medições, evidências e conclusão.
+6. Conectar missões aos personagens, capítulos e acontecimentos da narrativa.
+7. Criar modo professor com trilhas e relatórios, sem comprometer o modo
+   offline.
+8. Adicionar testes automatizados para geradores, dados e fluxos críticos.
+9. Medir Lighthouse e validar em Android e iOS reais.
+
+Qualquer nova IA deve atualizar esta memória quando uma decisão arquitetural
+importante, uma limitação relevante ou um novo fluxo de colaboração for
+descoberto.
