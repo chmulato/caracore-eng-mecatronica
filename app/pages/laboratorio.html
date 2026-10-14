@@ -1,0 +1,29 @@
+<section class="knowledge-heading lab-heading">
+  <div>
+    <p class="eyebrow">LABORATÓRIO MAKER · FASE 4</p>
+    <h1>Projetos que saem do papel</h1>
+    <p>Registre problemas, hipóteses, componentes e resultados. Tudo permanece neste dispositivo via IndexedDB.</p>
+  </div>
+  <button class="button button-primary" id="new-project" type="button">Novo projeto <span aria-hidden="true">＋</span></button>
+</section>
+
+<section class="lab-summary" aria-label="Resumo do laboratório">
+  <article class="content-card lab-stat"><span>Projetos registrados</span><strong id="lab-project-count">0</strong></article>
+  <article class="content-card lab-stat"><span>Missões vinculadas</span><strong id="lab-linked-count">0</strong></article>
+  <article class="content-card lab-stat"><span>Armazenamento</span><strong>Local</strong></article>
+</section>
+
+<section class="lab-layout">
+  <aside class="content-card lab-sidebar">
+    <label for="project-filter">Buscar projetos</label>
+    <input id="project-filter" type="search" placeholder="Nome, problema ou componente">
+    <div class="project-list" id="project-list" aria-label="Projetos maker"></div>
+  </aside>
+  <article class="content-card project-workspace" id="project-workspace" aria-live="polite">
+    <div class="empty-reader">
+      <span aria-hidden="true">⌁</span>
+      <h2>Comece um projeto</h2>
+      <p>Crie uma ficha técnica ou selecione um projeto existente para continuar.</p>
+    </div>
+  </article>
+</section>

@@ -1,0 +1,256 @@
+[
+  {
+    "id": "z80",
+    "title": "Z80",
+    "definition": "Microprocessador de 8 bits lançado em 1976. Executa instruções lógicas sequenciais básicas.",
+    "analogy": "O cérebro primitivo e obstinado do escriturário de olheiras profundas.",
+    "example": "O processador principal que governou computadores antigos como o TK90X e o circuito de monitoramento mecânico de Milão.",
+    "chapters": [
+      "Cap. 1",
+      "Cap. 2",
+      "Cap. 4"
+    ],
+    "related": [
+      "registrador-register",
+      "program-counter-pc"
+    ]
+  },
+  {
+    "id": "registrador-register",
+    "title": "Registrador / Register",
+    "definition": "Pequeno compartimento de armazenamento temporário ultrarrápido integrado diretamente no interior da CPU.",
+    "analogy": "As gavetas de mesa do escriturário da CPU, que guardam apenas um número de cada vez.",
+    "example": "O Acumulador (Reg A) que armazena dados de 8 bits (de 0 a 255) em tempo real durante operações lógicas.",
+    "chapters": [
+      "Cap. 2",
+      "Cap. 5"
+    ],
+    "related": [
+      "z80",
+      "program-counter-pc"
+    ]
+  },
+  {
+    "id": "program-counter-pc",
+    "title": "Program Counter / PC",
+    "definition": "Registrador especial da CPU que aponta para o endereço da próxima instrução a ser executada no fluxo de memória.",
+    "analogy": "A setinha indicadora ou régua física que guia os olhos do escriturário no manual de instruções do chip.",
+    "example": "Durante um RESET físico, o PC é forçado a pular instantaneamente de volta para o endereço inicial `0000h`.",
+    "chapters": [
+      "Cap. 2",
+      "Cap. 5"
+    ],
+    "related": [
+      "z80",
+      "stack-pilha-de-memoria",
+      "vetor-de-reset"
+    ]
+  },
+  {
+    "id": "stack-pilha-de-memoria",
+    "title": "Stack / Pilha de Memória",
+    "definition": "Região da RAM que armazena dados de forma sequencial utilizando a lógica LIFO (Last-In, First-Out).",
+    "analogy": "Uma pilha de pratos onde você só adiciona (PUSH) ou remove (POP) o prato posicionado no topo.",
+    "example": "Onde a CPU salva o Program Counter ($PC$) quando uma interrupção de hardware suspende a rotina de execução.",
+    "chapters": [
+      "Cap. 5"
+    ],
+    "related": [
+      "program-counter-pc",
+      "interrupcao-irq"
+    ]
+  },
+  {
+    "id": "interrupcao-irq",
+    "title": "Interrupção / IRQ",
+    "definition": "Sinal elétrico enviado por um dispositivo de hardware externo que força a CPU a parar temporariamente sua execução.",
+    "analogy": "O telefone vermelho tocando na mesa do escriturário de forma insistente, demandando atenção prioritária.",
+    "example": "O sinal gerado pelo sensor de presença no teclado IBM que interrompe a CPU para ler a tecla pressionada.",
+    "chapters": [
+      "Cap. 5"
+    ],
+    "related": [
+      "stack-pilha-de-memoria",
+      "nmi-interrupcao-nao-mascaravel",
+      "program-counter-pc"
+    ]
+  },
+  {
+    "id": "nmi-interrupcao-nao-mascaravel",
+    "title": "NMI / Interrupção Não-Mascarável",
+    "definition": "Um tipo especial de interrupção física de hardware de prioridade absoluta que a CPU não pode ignorar ou desativar.",
+    "analogy": "Um alarme físico de incêndio que obriga o escriturário a sair correndo imediatamente, sem chance de ignorar.",
+    "example": "O sinal do botão de parada de emergência do galpão de Milão que interrompeu o transelevador em 2001.",
+    "chapters": [
+      "Cap. 5"
+    ],
+    "related": [
+      "interrupcao-irq"
+    ]
+  },
+  {
+    "id": "vetor-de-reset",
+    "title": "Vetor de Reset",
+    "definition": "O endereço de memória fixado no hardware para onde a CPU aponta logo após ser alimentada com energia ou reiniciada.",
+    "analogy": "O endereço da primeira instrução do manual do escriturário toda vez que ele acorda ou liga.",
+    "example": "O hexadecimal `0000h` no Z80 ou a linha de código em `FFFF:0000h` nos processadores modernos baseados em x86.",
+    "chapters": [
+      "Cap. 5"
+    ],
+    "related": [
+      "program-counter-pc"
+    ]
+  },
+  {
+    "id": "ponte-h",
+    "title": "Ponte H",
+    "definition": "Circuito chaveado que permite a microcontroladores inverter a polaridade aplicada a motores de corrente contínua.",
+    "analogy": "Um trilho ferroviário com desvios articulados que alteram o sentido em que o trem (a corrente) corre.",
+    "example": "O circuito integrado responsável por comandar o sentido de rotação dos motores nos transelevadores de Milão.",
+    "chapters": [
+      "Cap. 8"
+    ],
+    "related": [
+      "pwm-modulacao-por-largura-de-pulso"
+    ]
+  },
+  {
+    "id": "pwm-modulacao-por-largura-de-pulso",
+    "title": "PWM / Modulação por Largura de Pulso",
+    "definition": "Técnica que varia a potência de saída variando a proporção de tempo que um sinal elétrico digital passa ligado.",
+    "analogy": "Acender e apagar o interruptor de luz tão rápido que a lâmpada parece estar no estado de \"meia luz\" estável.",
+    "example": "O controle eletrônico preciso da velocidade das rodas motrizes do robô AMR no galpão de Curitiba.",
+    "chapters": [
+      "Cap. 8"
+    ],
+    "related": [
+      "ponte-h"
+    ]
+  },
+  {
+    "id": "lidar",
+    "title": "LiDAR",
+    "definition": "Sensor óptico rotativo de distância baseado no tempo de ida e volta (Time of Flight) de feixes de laser infravermelho.",
+    "analogy": "Uma lanterna laser ultrarrápida que calcula distâncias \"gritando\" pulsos de luz e cronometrando o eco do reflexo.",
+    "example": "O scanner laser no topo do AMR 12 que faz a varredura do corredor B para detectar paletes estacionados.",
+    "chapters": [
+      "Cap. 6",
+      "Cap. 7",
+      "Cap. 8"
+    ],
+    "related": [
+      "slam-localizacao-e-mapeamento-simultaneos"
+    ]
+  },
+  {
+    "id": "encoder-optico",
+    "title": "Encoder Óptico",
+    "definition": "Sensor óptico acoplado ao eixo de motores que mede velocidade angular contando fendas físicas em um disco giratório.",
+    "analogy": "Um disco quadriculado que gira sob um sensor de luz, contando os pequenos \"passos de formiga\" das rodas.",
+    "example": "O sensor físico nas rodas do AMR que decide se ele avança com precisão milimétrica ou bate na prateleira.",
+    "chapters": [
+      "Cap. 7",
+      "Cap. 8"
+    ],
+    "related": [
+      "odometria"
+    ]
+  },
+  {
+    "id": "odometria",
+    "title": "Odometria",
+    "definition": "A estimativa da distância percorrida pelo veículo calculada integrando no tempo os giros medidos nas rodas.",
+    "analogy": "O ato de estimar a distância caminhada contando passos com um pedômetro no pé do robô.",
+    "example": "O cálculo de posicionamento do robô AMR que acumula pequenos erros causados por derrapagens no piso liso.",
+    "chapters": [
+      "Cap. 7",
+      "Cap. 8"
+    ],
+    "related": [
+      "encoder-optico",
+      "filtro-de-kalman"
+    ]
+  },
+  {
+    "id": "slam-localizacao-e-mapeamento-simultaneos",
+    "title": "SLAM / Localização e Mapeamento Simultâneos",
+    "definition": "Algoritmo de mapeamento que constrói de forma dinâmica o mapa do ambiente enquanto estima a posição do veículo.",
+    "analogy": "Andar de olhos vendados tateando as paredes e desenhando o mapa do quarto na mente à medida que caminha.",
+    "example": "A inteligência do AMR que atualiza o mapa operacional das docas de Curitiba para evitar colisões.",
+    "chapters": [
+      "Cap. 7"
+    ],
+    "related": [
+      "lidar",
+      "odometria"
+    ]
+  },
+  {
+    "id": "filtro-de-kalman",
+    "title": "Filtro de Kalman",
+    "definition": "Algoritmo estatístico recursivo que funde medições dinâmicas de sensores ruidosos para estimar o estado ideal.",
+    "analogy": "Um navegador prudente que combina uma bússola imprecisa e o número de passos do tripulante para calcular o rumo exato.",
+    "example": "O software que integra os dados do LiDAR com a odometria ruidosa das rodas para manter o robô na rota.",
+    "chapters": [
+      "Cap. 7"
+    ],
+    "related": [
+      "odometria",
+      "slam-localizacao-e-mapeamento-simultaneos"
+    ]
+  },
+  {
+    "id": "matriz-booleana-de-ocupacao",
+    "title": "Matriz Booleana de Ocupação",
+    "definition": "Grade de bits onde o valor 1 indica células tridimensionais ocupadas por objetos físicos e 0 representa espaço livre.",
+    "analogy": "Um condomínio de caixas virtuais empilhadas onde cada apartamento pode estar ocupado por carga ou vazio.",
+    "example": "O mapa tridimensional do Corredor B no tablet de Alex que previne sobreposição de caixas pesadas de baterias.",
+    "chapters": [
+      "Cap. 6"
+    ],
+    "related": [
+      "3d-bin-packing"
+    ]
+  },
+  {
+    "id": "3d-bin-packing",
+    "title": "3D Bin Packing",
+    "definition": "Algoritmo combinatório focado em organizar de forma ótima caixas tridimensionais de tamanhos variados em contêineres.",
+    "analogy": "A arte mecânica de empilhar perfeitamente malas e mochilas no porta-malas de um carro de viagem.",
+    "example": "O algoritmo First Fit que resolveu o empilhamento das autopeças da Fiat na crise de estocagem de Milão.",
+    "chapters": [
+      "Cap. 6"
+    ],
+    "related": [
+      "matriz-booleana-de-ocupacao"
+    ]
+  },
+  {
+    "id": "ros-2-robot-operating-system",
+    "title": "ROS 2 / Robot Operating System",
+    "definition": "Middleware estruturado para gerenciar a troca distribuída de tópicos de comunicação e serviços em sistemas robóticos.",
+    "analogy": "A rede de tubulações e rádios que liga os diferentes operadores de uma grande fábrica conectada.",
+    "example": "O software central do robô AMR que recebe dados LiDAR e envia comandos de movimento para as rodas.",
+    "chapters": [
+      "Cap. 5",
+      "Cap. 8"
+    ],
+    "related": [
+      "nos-nodes"
+    ]
+  },
+  {
+    "id": "nos-nodes",
+    "title": "Nós / Nodes",
+    "definition": "Processos independentes especializados que processam dados de sensores e comandam atuadores na rede ROS 2.",
+    "analogy": "Diferentes operários especializados em uma equipe: um mede com laser, outro decide a rota, outro dirige as rodas.",
+    "example": "O nó de navegação do AMR comunicando-se em milissegundos com o nó de controle de velocidade das rodas.",
+    "chapters": [
+      "Cap. 5",
+      "Cap. 8"
+    ],
+    "related": [
+      "ros-2-robot-operating-system"
+    ]
+  }
+]

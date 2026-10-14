@@ -1,0 +1,133 @@
+{
+  "categories": [
+    {
+      "id": "sistemas",
+      "title": "Sistemas e CPU",
+      "description": "Do processador clássico ao fluxo de execução e às interrupções.",
+      "concepts": [
+        "z80",
+        "registrador-register",
+        "program-counter-pc",
+        "stack-pilha-de-memoria",
+        "interrupcao-irq",
+        "nmi-interrupcao-nao-mascaravel",
+        "vetor-de-reset"
+      ]
+    },
+    {
+      "id": "eletronica",
+      "title": "Controle e eletrônica",
+      "description": "Sinais, potência, motores e medições no mundo físico.",
+      "concepts": [
+        "ponte-h",
+        "pwm-modulacao-por-largura-de-pulso",
+        "encoder-optico"
+      ]
+    },
+    {
+      "id": "robotica",
+      "title": "Robótica e navegação",
+      "description": "Percepção, localização e comunicação entre os componentes do robô.",
+      "concepts": [
+        "lidar",
+        "encoder-optico",
+        "odometria",
+        "slam-localizacao-e-mapeamento-simultaneos",
+        "filtro-de-kalman",
+        "ros-2-robot-operating-system",
+        "nos-nodes"
+      ]
+    },
+    {
+      "id": "matematica",
+      "title": "Matemática e otimização",
+      "description": "Representar espaço, estimar estados e organizar cargas.",
+      "concepts": [
+        "odometria",
+        "filtro-de-kalman",
+        "matriz-booleana-de-ocupacao",
+        "3d-bin-packing"
+      ]
+    },
+    {
+      "id": "software",
+      "title": "Software e arquitetura",
+      "description": "Como instruções, processos e sistemas conectados coordenam ações.",
+      "concepts": [
+        "program-counter-pc",
+        "stack-pilha-de-memoria",
+        "interrupcao-irq",
+        "nmi-interrupcao-nao-mascaravel",
+        "vetor-de-reset",
+        "ros-2-robot-operating-system",
+        "nos-nodes"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "z80",
+      "to": "registrador-register"
+    },
+    {
+      "from": "z80",
+      "to": "program-counter-pc"
+    },
+    {
+      "from": "registrador-register",
+      "to": "program-counter-pc"
+    },
+    {
+      "from": "program-counter-pc",
+      "to": "stack-pilha-de-memoria"
+    },
+    {
+      "from": "program-counter-pc",
+      "to": "vetor-de-reset"
+    },
+    {
+      "from": "stack-pilha-de-memoria",
+      "to": "interrupcao-irq"
+    },
+    {
+      "from": "interrupcao-irq",
+      "to": "nmi-interrupcao-nao-mascaravel"
+    },
+    {
+      "from": "interrupcao-irq",
+      "to": "program-counter-pc"
+    },
+    {
+      "from": "ponte-h",
+      "to": "pwm-modulacao-por-largura-de-pulso"
+    },
+    {
+      "from": "lidar",
+      "to": "slam-localizacao-e-mapeamento-simultaneos"
+    },
+    {
+      "from": "encoder-optico",
+      "to": "odometria"
+    },
+    {
+      "from": "odometria",
+      "to": "filtro-de-kalman"
+    },
+    {
+      "from": "slam-localizacao-e-mapeamento-simultaneos",
+      "to": "odometria"
+    },
+    {
+      "from": "filtro-de-kalman",
+      "to": "slam-localizacao-e-mapeamento-simultaneos"
+    },
+    {
+      "from": "matriz-booleana-de-ocupacao",
+      "to": "3d-bin-packing"
+    },
+    {
+      "from": "ros-2-robot-operating-system",
+      "to": "nos-nodes"
+    }
+  ]
+}

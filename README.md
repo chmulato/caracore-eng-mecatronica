@@ -28,3 +28,39 @@ E execute:
 python compile_book.py
 python compile_html.py
 ```
+
+## Universo Rebeldia (PWA)
+
+O aplicativo está em `app/` e oferece dashboard, leitor interativo, mapa de conceitos, enciclopédia, desafios com gamificação, busca, favoritos, anotações e progresso local/offline. Todo o conteúdo publicado no PWA é gerado a partir dos Markdown originais em `capitulos/`; não edite manualmente o JSON gerado.
+
+Atualize o índice do aplicativo sempre que alterar um capítulo:
+
+```bash
+python generate_app_data.py
+```
+
+Para a Fase 2 (mapa de conceitos e enciclopédia), gere os dados locais a partir do glossário:
+
+```bash
+python generate_phase2_data.py
+```
+
+Para a Fase 3 (desafios e gamificação), gere o catálogo de quizzes, estudos de caso e missões maker:
+
+```bash
+python generate_phase3_data.py
+```
+
+As Fases 4 e 5 acrescentam Laboratório Maker em IndexedDB, timeline, configurações, backup local e integração com o site oficial. Para gerar todos os dados, compilar o livro e publicar a PWA em `docs/app/`, execute:
+
+```bash
+python publish_site.py
+```
+
+Para testar localmente (service workers exigem `localhost` ou HTTPS), execute na raiz do repositório:
+
+```bash
+python -m http.server 8000
+```
+
+Depois acesse `http://localhost:8000/app/` durante o desenvolvimento ou `http://localhost:8000/docs/` para validar exatamente a estrutura publicada no GitHub Pages. A arquitetura e os fluxos estão documentados em [`app/README.md`](app/README.md).

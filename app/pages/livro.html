@@ -1,0 +1,17 @@
+<section class="reader-heading">
+  <div><p class="eyebrow">LIVRO INTERATIVO</p><h1>A Rebeldia da Mecatrônica</h1><p>O texto vem diretamente dos capítulos Markdown deste repositório.</p></div>
+  <div class="reader-count" id="chapter-count"></div>
+</section>
+<div class="reader-layout">
+  <aside class="chapter-panel content-card" aria-label="Capítulos do livro">
+    <div class="chapter-panel-head"><h2>Capítulos</h2><label class="sr-only" for="chapter-filter">Filtrar capítulos</label><input id="chapter-filter" type="search" placeholder="Filtrar lista..."></div>
+    <div class="reader-filters">
+      <button class="filter-chip active" data-filter="all" type="button">Todos</button>
+      <button class="filter-chip" data-filter="favorites" type="button">☆ Favoritos</button>
+    </div>
+    <nav id="chapter-list" class="chapter-list" aria-label="Lista de capítulos"></nav>
+  </aside>
+  <article class="reading-panel content-card" id="reading-panel" aria-label="Conteúdo do capítulo">
+    <div class="empty-reader"><span aria-hidden="true">▤</span><h2>Escolha um capítulo</h2><p>Selecione um capítulo na lista para começar a leitura.</p></div>
+  </article>
+</div>

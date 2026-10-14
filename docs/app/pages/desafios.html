@@ -1,0 +1,35 @@
+<section class="knowledge-heading challenge-heading">
+  <div>
+    <p class="eyebrow">ARENA DE DESAFIOS · FASE 3</p>
+    <h1>Desafios e missões maker</h1>
+    <p>Quizzes, estudos de caso e missões práticas extraídos diretamente do livro. Cada acerto vira pontuação, conquista e progresso de trilha.</p>
+  </div>
+  <div class="knowledge-count" id="challenge-count"></div>
+</section>
+
+<section class="gamification-panel" aria-labelledby="gamification-title">
+  <article class="content-card score-card">
+    <div class="section-heading compact"><div><p class="eyebrow">PONTUAÇÃO</p><h2 id="gamification-title">Seu nível na bancada</h2></div><span class="card-icon orange" aria-hidden="true">✦</span></div>
+    <strong class="score-value" id="score-value">0</strong>
+    <p class="score-rank" id="score-rank">Aprendiz de bancada</p>
+    <div class="progress-track" role="progressbar" aria-label="Progresso de pontuação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="score-track"><span id="score-bar"></span></div>
+    <small class="muted" id="score-detail">0 de 0 pontos possíveis</small>
+  </article>
+  <article class="content-card badge-card">
+    <div class="section-heading compact"><div><p class="eyebrow">CONQUISTAS</p><h2>Insígnias desbloqueadas</h2></div><span class="card-icon" aria-hidden="true">◈</span></div>
+    <div class="badge-list" id="badge-list"></div>
+  </article>
+</section>
+
+<section class="challenge-layout">
+  <aside class="content-card challenge-sidebar" aria-label="Trilhas de desafios">
+    <div class="encyclopedia-filter-heading">TRILHAS</div>
+    <div class="challenge-tracks" id="challenge-tracks"></div>
+  </aside>
+  <div class="challenge-results">
+    <nav class="challenge-list content-card" id="challenge-list" aria-label="Desafios da trilha"></nav>
+    <article class="content-card challenge-detail" id="challenge-detail" aria-live="polite">
+      <div class="empty-reader"><span aria-hidden="true">◇</span><h2>Escolha um desafio</h2><p>Responda quizzes e estudos de caso ou registre o resultado de uma missão prática.</p></div>
+    </article>
+  </div>
+</section>

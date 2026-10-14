@@ -1,0 +1,1621 @@
+{
+  "questions": [
+    {
+      "id": "quiz-definition-z80",
+      "type": "quiz",
+      "conceptId": "z80",
+      "facet": "Definição",
+      "track": "sistemas",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Microprocessador de 8 bits lançado em 1976. Executa instruções lógicas sequenciais básicas.",
+      "options": [
+        "NMI / Interrupção Não-Mascarável",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 3,
+      "explanation": "Z80: Microprocessador de 8 bits lançado em 1976. Executa instruções lógicas sequenciais básicas. O cérebro primitivo e obstinado do escriturário de olheiras profundas.",
+      "chapterId": "01_cascavel_z80",
+      "chapterTitle": "Capítulo 1: O Menino e a Caixa Preta",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-z80",
+      "type": "quiz",
+      "conceptId": "z80",
+      "facet": "Analogia",
+      "track": "sistemas",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "O cérebro primitivo e obstinado do escriturário de olheiras profundas.",
+      "options": [
+        "NMI / Interrupção Não-Mascarável",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 3,
+      "explanation": "Z80: Microprocessador de 8 bits lançado em 1976. Executa instruções lógicas sequenciais básicas.",
+      "chapterId": "01_cascavel_z80",
+      "chapterTitle": "Capítulo 1: O Menino e a Caixa Preta",
+      "points": 5
+    },
+    {
+      "id": "caso-example-z80",
+      "type": "caso",
+      "conceptId": "z80",
+      "facet": "Aplicação",
+      "track": "sistemas",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O processador principal que governou computadores antigos como o TK90X e o circuito de monitoramento mecânico de Milão.",
+      "options": [
+        "NMI / Interrupção Não-Mascarável",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 3,
+      "explanation": "Z80: Microprocessador de 8 bits lançado em 1976. Executa instruções lógicas sequenciais básicas.",
+      "chapterId": "01_cascavel_z80",
+      "chapterTitle": "Capítulo 1: O Menino e a Caixa Preta",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-registrador-register",
+      "type": "quiz",
+      "conceptId": "registrador-register",
+      "facet": "Definição",
+      "track": "sistemas",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Pequeno compartimento de armazenamento temporário ultrarrápido integrado diretamente no interior da CPU.",
+      "options": [
+        "NMI / Interrupção Não-Mascarável",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 1,
+      "explanation": "Registrador / Register: Pequeno compartimento de armazenamento temporário ultrarrápido integrado diretamente no interior da CPU. As gavetas de mesa do escriturário da CPU, que guardam apenas um número de cada vez.",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-registrador-register",
+      "type": "quiz",
+      "conceptId": "registrador-register",
+      "facet": "Analogia",
+      "track": "sistemas",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "As gavetas de mesa do escriturário da CPU, que guardam apenas um número de cada vez.",
+      "options": [
+        "NMI / Interrupção Não-Mascarável",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 1,
+      "explanation": "Registrador / Register: Pequeno compartimento de armazenamento temporário ultrarrápido integrado diretamente no interior da CPU.",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 5
+    },
+    {
+      "id": "caso-example-registrador-register",
+      "type": "caso",
+      "conceptId": "registrador-register",
+      "facet": "Aplicação",
+      "track": "sistemas",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O Acumulador (Reg A) que armazena dados de 8 bits (de 0 a 255) em tempo real durante operações lógicas.",
+      "options": [
+        "NMI / Interrupção Não-Mascarável",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 1,
+      "explanation": "Registrador / Register: Pequeno compartimento de armazenamento temporário ultrarrápido integrado diretamente no interior da CPU.",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-program-counter-pc",
+      "type": "quiz",
+      "conceptId": "program-counter-pc",
+      "facet": "Definição",
+      "track": "sistemas",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Registrador especial da CPU que aponta para o endereço da próxima instrução a ser executada no fluxo de memória.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 0,
+      "explanation": "Program Counter / PC: Registrador especial da CPU que aponta para o endereço da próxima instrução a ser executada no fluxo de memória. A setinha indicadora ou régua física que guia os olhos do escriturário no manual de instruções do chip.",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-program-counter-pc",
+      "type": "quiz",
+      "conceptId": "program-counter-pc",
+      "facet": "Analogia",
+      "track": "sistemas",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "A setinha indicadora ou régua física que guia os olhos do escriturário no manual de instruções do chip.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 0,
+      "explanation": "Program Counter / PC: Registrador especial da CPU que aponta para o endereço da próxima instrução a ser executada no fluxo de memória.",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 5
+    },
+    {
+      "id": "caso-example-program-counter-pc",
+      "type": "caso",
+      "conceptId": "program-counter-pc",
+      "facet": "Aplicação",
+      "track": "sistemas",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "Durante um RESET físico, o PC é forçado a pular instantaneamente de volta para o endereço inicial `0000h`.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 0,
+      "explanation": "Program Counter / PC: Registrador especial da CPU que aponta para o endereço da próxima instrução a ser executada no fluxo de memória.",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-stack-pilha-de-memoria",
+      "type": "quiz",
+      "conceptId": "stack-pilha-de-memoria",
+      "facet": "Definição",
+      "track": "sistemas",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Região da RAM que armazena dados de forma sequencial utilizando a lógica LIFO (Last-In, First-Out).",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Stack / Pilha de Memória",
+        "Z80"
+      ],
+      "answer": 2,
+      "explanation": "Stack / Pilha de Memória: Região da RAM que armazena dados de forma sequencial utilizando a lógica LIFO (Last-In, First-Out). Uma pilha de pratos onde você só adiciona (PUSH) ou remove (POP) o prato posicionado no topo.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-stack-pilha-de-memoria",
+      "type": "quiz",
+      "conceptId": "stack-pilha-de-memoria",
+      "facet": "Analogia",
+      "track": "sistemas",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Uma pilha de pratos onde você só adiciona (PUSH) ou remove (POP) o prato posicionado no topo.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Stack / Pilha de Memória",
+        "Z80"
+      ],
+      "answer": 2,
+      "explanation": "Stack / Pilha de Memória: Região da RAM que armazena dados de forma sequencial utilizando a lógica LIFO (Last-In, First-Out).",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "caso-example-stack-pilha-de-memoria",
+      "type": "caso",
+      "conceptId": "stack-pilha-de-memoria",
+      "facet": "Aplicação",
+      "track": "sistemas",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "Onde a CPU salva o Program Counter ($PC$) quando uma interrupção de hardware suspende a rotina de execução.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Stack / Pilha de Memória",
+        "Z80"
+      ],
+      "answer": 2,
+      "explanation": "Stack / Pilha de Memória: Região da RAM que armazena dados de forma sequencial utilizando a lógica LIFO (Last-In, First-Out).",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-interrupcao-irq",
+      "type": "quiz",
+      "conceptId": "interrupcao-irq",
+      "facet": "Definição",
+      "track": "sistemas",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Sinal elétrico enviado por um dispositivo de hardware externo que força a CPU a parar temporariamente sua execução.",
+      "options": [
+        "Interrupção / IRQ",
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Stack / Pilha de Memória"
+      ],
+      "answer": 0,
+      "explanation": "Interrupção / IRQ: Sinal elétrico enviado por um dispositivo de hardware externo que força a CPU a parar temporariamente sua execução. O telefone vermelho tocando na mesa do escriturário de forma insistente, demandando atenção prioritária.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-interrupcao-irq",
+      "type": "quiz",
+      "conceptId": "interrupcao-irq",
+      "facet": "Analogia",
+      "track": "sistemas",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "O telefone vermelho tocando na mesa do escriturário de forma insistente, demandando atenção prioritária.",
+      "options": [
+        "Interrupção / IRQ",
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Stack / Pilha de Memória"
+      ],
+      "answer": 0,
+      "explanation": "Interrupção / IRQ: Sinal elétrico enviado por um dispositivo de hardware externo que força a CPU a parar temporariamente sua execução.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "caso-example-interrupcao-irq",
+      "type": "caso",
+      "conceptId": "interrupcao-irq",
+      "facet": "Aplicação",
+      "track": "sistemas",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O sinal gerado pelo sensor de presença no teclado IBM que interrompe a CPU para ler a tecla pressionada.",
+      "options": [
+        "Interrupção / IRQ",
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Stack / Pilha de Memória"
+      ],
+      "answer": 0,
+      "explanation": "Interrupção / IRQ: Sinal elétrico enviado por um dispositivo de hardware externo que força a CPU a parar temporariamente sua execução.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-nmi-interrupcao-nao-mascaravel",
+      "type": "quiz",
+      "conceptId": "nmi-interrupcao-nao-mascaravel",
+      "facet": "Definição",
+      "track": "sistemas",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Um tipo especial de interrupção física de hardware de prioridade absoluta que a CPU não pode ignorar ou desativar.",
+      "options": [
+        "Interrupção / IRQ",
+        "NMI / Interrupção Não-Mascarável",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 1,
+      "explanation": "NMI / Interrupção Não-Mascarável: Um tipo especial de interrupção física de hardware de prioridade absoluta que a CPU não pode ignorar ou desativar. Um alarme físico de incêndio que obriga o escriturário a sair correndo imediatamente, sem chance de ignorar.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-nmi-interrupcao-nao-mascaravel",
+      "type": "quiz",
+      "conceptId": "nmi-interrupcao-nao-mascaravel",
+      "facet": "Analogia",
+      "track": "sistemas",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Um alarme físico de incêndio que obriga o escriturário a sair correndo imediatamente, sem chance de ignorar.",
+      "options": [
+        "Interrupção / IRQ",
+        "NMI / Interrupção Não-Mascarável",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 1,
+      "explanation": "NMI / Interrupção Não-Mascarável: Um tipo especial de interrupção física de hardware de prioridade absoluta que a CPU não pode ignorar ou desativar.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "caso-example-nmi-interrupcao-nao-mascaravel",
+      "type": "caso",
+      "conceptId": "nmi-interrupcao-nao-mascaravel",
+      "facet": "Aplicação",
+      "track": "sistemas",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O sinal do botão de parada de emergência do galpão de Milão que interrompeu o transelevador em 2001.",
+      "options": [
+        "Interrupção / IRQ",
+        "NMI / Interrupção Não-Mascarável",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 1,
+      "explanation": "NMI / Interrupção Não-Mascarável: Um tipo especial de interrupção física de hardware de prioridade absoluta que a CPU não pode ignorar ou desativar.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-vetor-de-reset",
+      "type": "quiz",
+      "conceptId": "vetor-de-reset",
+      "facet": "Definição",
+      "track": "sistemas",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "O endereço de memória fixado no hardware para onde a CPU aponta logo após ser alimentada com energia ou reiniciada.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 2,
+      "explanation": "Vetor de Reset: O endereço de memória fixado no hardware para onde a CPU aponta logo após ser alimentada com energia ou reiniciada. O endereço da primeira instrução do manual do escriturário toda vez que ele acorda ou liga.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-vetor-de-reset",
+      "type": "quiz",
+      "conceptId": "vetor-de-reset",
+      "facet": "Analogia",
+      "track": "sistemas",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "O endereço da primeira instrução do manual do escriturário toda vez que ele acorda ou liga.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 2,
+      "explanation": "Vetor de Reset: O endereço de memória fixado no hardware para onde a CPU aponta logo após ser alimentada com energia ou reiniciada.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "caso-example-vetor-de-reset",
+      "type": "caso",
+      "conceptId": "vetor-de-reset",
+      "facet": "Aplicação",
+      "track": "sistemas",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O hexadecimal `0000h` no Z80 ou a linha de código em `FFFF:0000h` nos processadores modernos baseados em x86.",
+      "options": [
+        "Program Counter / PC",
+        "Registrador / Register",
+        "Vetor de Reset",
+        "Z80"
+      ],
+      "answer": 2,
+      "explanation": "Vetor de Reset: O endereço de memória fixado no hardware para onde a CPU aponta logo após ser alimentada com energia ou reiniciada.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-ponte-h",
+      "type": "quiz",
+      "conceptId": "ponte-h",
+      "facet": "Definição",
+      "track": "eletronica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Circuito chaveado que permite a microcontroladores inverter a polaridade aplicada a motores de corrente contínua.",
+      "options": [
+        "Encoder Óptico",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 1,
+      "explanation": "Ponte H: Circuito chaveado que permite a microcontroladores inverter a polaridade aplicada a motores de corrente contínua. Um trilho ferroviário com desvios articulados que alteram o sentido em que o trem (a corrente) corre.",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-ponte-h",
+      "type": "quiz",
+      "conceptId": "ponte-h",
+      "facet": "Analogia",
+      "track": "eletronica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Um trilho ferroviário com desvios articulados que alteram o sentido em que o trem (a corrente) corre.",
+      "options": [
+        "Encoder Óptico",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 1,
+      "explanation": "Ponte H: Circuito chaveado que permite a microcontroladores inverter a polaridade aplicada a motores de corrente contínua.",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 5
+    },
+    {
+      "id": "caso-example-ponte-h",
+      "type": "caso",
+      "conceptId": "ponte-h",
+      "facet": "Aplicação",
+      "track": "eletronica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O circuito integrado responsável por comandar o sentido de rotação dos motores nos transelevadores de Milão.",
+      "options": [
+        "Encoder Óptico",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 1,
+      "explanation": "Ponte H: Circuito chaveado que permite a microcontroladores inverter a polaridade aplicada a motores de corrente contínua.",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-pwm-modulacao-por-largura-de-pulso",
+      "type": "quiz",
+      "conceptId": "pwm-modulacao-por-largura-de-pulso",
+      "facet": "Definição",
+      "track": "eletronica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Técnica que varia a potência de saída variando a proporção de tempo que um sinal elétrico digital passa ligado.",
+      "options": [
+        "Encoder Óptico",
+        "NMI / Interrupção Não-Mascarável",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 3,
+      "explanation": "PWM / Modulação por Largura de Pulso: Técnica que varia a potência de saída variando a proporção de tempo que um sinal elétrico digital passa ligado. Acender e apagar o interruptor de luz tão rápido que a lâmpada parece estar no estado de \"meia luz\" estável.",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-pwm-modulacao-por-largura-de-pulso",
+      "type": "quiz",
+      "conceptId": "pwm-modulacao-por-largura-de-pulso",
+      "facet": "Analogia",
+      "track": "eletronica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Acender e apagar o interruptor de luz tão rápido que a lâmpada parece estar no estado de \"meia luz\" estável.",
+      "options": [
+        "Encoder Óptico",
+        "NMI / Interrupção Não-Mascarável",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 3,
+      "explanation": "PWM / Modulação por Largura de Pulso: Técnica que varia a potência de saída variando a proporção de tempo que um sinal elétrico digital passa ligado.",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 5
+    },
+    {
+      "id": "caso-example-pwm-modulacao-por-largura-de-pulso",
+      "type": "caso",
+      "conceptId": "pwm-modulacao-por-largura-de-pulso",
+      "facet": "Aplicação",
+      "track": "eletronica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O controle eletrônico preciso da velocidade das rodas motrizes do robô AMR no galpão de Curitiba.",
+      "options": [
+        "Encoder Óptico",
+        "NMI / Interrupção Não-Mascarável",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 3,
+      "explanation": "PWM / Modulação por Largura de Pulso: Técnica que varia a potência de saída variando a proporção de tempo que um sinal elétrico digital passa ligado.",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-lidar",
+      "type": "quiz",
+      "conceptId": "lidar",
+      "facet": "Definição",
+      "track": "robotica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Sensor óptico rotativo de distância baseado no tempo de ida e volta (Time of Flight) de feixes de laser infravermelho.",
+      "options": [
+        "LiDAR",
+        "Nós / Nodes",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 0,
+      "explanation": "LiDAR: Sensor óptico rotativo de distância baseado no tempo de ida e volta (Time of Flight) de feixes de laser infravermelho. Uma lanterna laser ultrarrápida que calcula distâncias \"gritando\" pulsos de luz e cronometrando o eco do reflexo.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-lidar",
+      "type": "quiz",
+      "conceptId": "lidar",
+      "facet": "Analogia",
+      "track": "robotica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Uma lanterna laser ultrarrápida que calcula distâncias \"gritando\" pulsos de luz e cronometrando o eco do reflexo.",
+      "options": [
+        "LiDAR",
+        "Nós / Nodes",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 0,
+      "explanation": "LiDAR: Sensor óptico rotativo de distância baseado no tempo de ida e volta (Time of Flight) de feixes de laser infravermelho.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 5
+    },
+    {
+      "id": "caso-example-lidar",
+      "type": "caso",
+      "conceptId": "lidar",
+      "facet": "Aplicação",
+      "track": "robotica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O scanner laser no topo do AMR 12 que faz a varredura do corredor B para detectar paletes estacionados.",
+      "options": [
+        "LiDAR",
+        "Nós / Nodes",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 0,
+      "explanation": "LiDAR: Sensor óptico rotativo de distância baseado no tempo de ida e volta (Time of Flight) de feixes de laser infravermelho.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-encoder-optico",
+      "type": "quiz",
+      "conceptId": "encoder-optico",
+      "facet": "Definição",
+      "track": "eletronica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Sensor óptico acoplado ao eixo de motores que mede velocidade angular contando fendas físicas em um disco giratório.",
+      "options": [
+        "Encoder Óptico",
+        "Filtro de Kalman",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 0,
+      "explanation": "Encoder Óptico: Sensor óptico acoplado ao eixo de motores que mede velocidade angular contando fendas físicas em um disco giratório. Um disco quadriculado que gira sob um sensor de luz, contando os pequenos \"passos de formiga\" das rodas.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-encoder-optico",
+      "type": "quiz",
+      "conceptId": "encoder-optico",
+      "facet": "Analogia",
+      "track": "eletronica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Um disco quadriculado que gira sob um sensor de luz, contando os pequenos \"passos de formiga\" das rodas.",
+      "options": [
+        "Encoder Óptico",
+        "Filtro de Kalman",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 0,
+      "explanation": "Encoder Óptico: Sensor óptico acoplado ao eixo de motores que mede velocidade angular contando fendas físicas em um disco giratório.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "caso-example-encoder-optico",
+      "type": "caso",
+      "conceptId": "encoder-optico",
+      "facet": "Aplicação",
+      "track": "eletronica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O sensor físico nas rodas do AMR que decide se ele avança com precisão milimétrica ou bate na prateleira.",
+      "options": [
+        "Encoder Óptico",
+        "Filtro de Kalman",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 0,
+      "explanation": "Encoder Óptico: Sensor óptico acoplado ao eixo de motores que mede velocidade angular contando fendas físicas em um disco giratório.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-odometria",
+      "type": "quiz",
+      "conceptId": "odometria",
+      "facet": "Definição",
+      "track": "robotica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "A estimativa da distância percorrida pelo veículo calculada integrando no tempo os giros medidos nas rodas.",
+      "options": [
+        "LiDAR",
+        "Nós / Nodes",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 2,
+      "explanation": "Odometria: A estimativa da distância percorrida pelo veículo calculada integrando no tempo os giros medidos nas rodas. O ato de estimar a distância caminhada contando passos com um pedômetro no pé do robô.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-odometria",
+      "type": "quiz",
+      "conceptId": "odometria",
+      "facet": "Analogia",
+      "track": "robotica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "O ato de estimar a distância caminhada contando passos com um pedômetro no pé do robô.",
+      "options": [
+        "LiDAR",
+        "Nós / Nodes",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 2,
+      "explanation": "Odometria: A estimativa da distância percorrida pelo veículo calculada integrando no tempo os giros medidos nas rodas.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "caso-example-odometria",
+      "type": "caso",
+      "conceptId": "odometria",
+      "facet": "Aplicação",
+      "track": "robotica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O cálculo de posicionamento do robô AMR que acumula pequenos erros causados por derrapagens no piso liso.",
+      "options": [
+        "LiDAR",
+        "Nós / Nodes",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 2,
+      "explanation": "Odometria: A estimativa da distância percorrida pelo veículo calculada integrando no tempo os giros medidos nas rodas.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-slam-localizacao-e-mapeamento-simultaneos",
+      "type": "quiz",
+      "conceptId": "slam-localizacao-e-mapeamento-simultaneos",
+      "facet": "Definição",
+      "track": "robotica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Algoritmo de mapeamento que constrói de forma dinâmica o mapa do ambiente enquanto estima a posição do veículo.",
+      "options": [
+        "Filtro de Kalman",
+        "Odometria",
+        "ROS 2 / Robot Operating System",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 3,
+      "explanation": "SLAM / Localização e Mapeamento Simultâneos: Algoritmo de mapeamento que constrói de forma dinâmica o mapa do ambiente enquanto estima a posição do veículo. Andar de olhos vendados tateando as paredes e desenhando o mapa do quarto na mente à medida que caminha.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-slam-localizacao-e-mapeamento-simultaneos",
+      "type": "quiz",
+      "conceptId": "slam-localizacao-e-mapeamento-simultaneos",
+      "facet": "Analogia",
+      "track": "robotica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Andar de olhos vendados tateando as paredes e desenhando o mapa do quarto na mente à medida que caminha.",
+      "options": [
+        "Filtro de Kalman",
+        "Odometria",
+        "ROS 2 / Robot Operating System",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 3,
+      "explanation": "SLAM / Localização e Mapeamento Simultâneos: Algoritmo de mapeamento que constrói de forma dinâmica o mapa do ambiente enquanto estima a posição do veículo.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "caso-example-slam-localizacao-e-mapeamento-simultaneos",
+      "type": "caso",
+      "conceptId": "slam-localizacao-e-mapeamento-simultaneos",
+      "facet": "Aplicação",
+      "track": "robotica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "A inteligência do AMR que atualiza o mapa operacional das docas de Curitiba para evitar colisões.",
+      "options": [
+        "Filtro de Kalman",
+        "Odometria",
+        "ROS 2 / Robot Operating System",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 3,
+      "explanation": "SLAM / Localização e Mapeamento Simultâneos: Algoritmo de mapeamento que constrói de forma dinâmica o mapa do ambiente enquanto estima a posição do veículo.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-filtro-de-kalman",
+      "type": "quiz",
+      "conceptId": "filtro-de-kalman",
+      "facet": "Definição",
+      "track": "robotica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Algoritmo estatístico recursivo que funde medições dinâmicas de sensores ruidosos para estimar o estado ideal.",
+      "options": [
+        "Filtro de Kalman",
+        "LiDAR",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 0,
+      "explanation": "Filtro de Kalman: Algoritmo estatístico recursivo que funde medições dinâmicas de sensores ruidosos para estimar o estado ideal. Um navegador prudente que combina uma bússola imprecisa e o número de passos do tripulante para calcular o rumo exato.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-filtro-de-kalman",
+      "type": "quiz",
+      "conceptId": "filtro-de-kalman",
+      "facet": "Analogia",
+      "track": "robotica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Um navegador prudente que combina uma bússola imprecisa e o número de passos do tripulante para calcular o rumo exato.",
+      "options": [
+        "Filtro de Kalman",
+        "LiDAR",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 0,
+      "explanation": "Filtro de Kalman: Algoritmo estatístico recursivo que funde medições dinâmicas de sensores ruidosos para estimar o estado ideal.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 5
+    },
+    {
+      "id": "caso-example-filtro-de-kalman",
+      "type": "caso",
+      "conceptId": "filtro-de-kalman",
+      "facet": "Aplicação",
+      "track": "robotica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O software que integra os dados do LiDAR com a odometria ruidosa das rodas para manter o robô na rota.",
+      "options": [
+        "Filtro de Kalman",
+        "LiDAR",
+        "Odometria",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 0,
+      "explanation": "Filtro de Kalman: Algoritmo estatístico recursivo que funde medições dinâmicas de sensores ruidosos para estimar o estado ideal.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-matriz-booleana-de-ocupacao",
+      "type": "quiz",
+      "conceptId": "matriz-booleana-de-ocupacao",
+      "facet": "Definição",
+      "track": "matematica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Grade de bits onde o valor 1 indica células tridimensionais ocupadas por objetos físicos e 0 representa espaço livre.",
+      "options": [
+        "3D Bin Packing",
+        "Interrupção / IRQ",
+        "Matriz Booleana de Ocupação",
+        "Stack / Pilha de Memória"
+      ],
+      "answer": 2,
+      "explanation": "Matriz Booleana de Ocupação: Grade de bits onde o valor 1 indica células tridimensionais ocupadas por objetos físicos e 0 representa espaço livre. Um condomínio de caixas virtuais empilhadas onde cada apartamento pode estar ocupado por carga ou vazio.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-matriz-booleana-de-ocupacao",
+      "type": "quiz",
+      "conceptId": "matriz-booleana-de-ocupacao",
+      "facet": "Analogia",
+      "track": "matematica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Um condomínio de caixas virtuais empilhadas onde cada apartamento pode estar ocupado por carga ou vazio.",
+      "options": [
+        "3D Bin Packing",
+        "Interrupção / IRQ",
+        "Matriz Booleana de Ocupação",
+        "Stack / Pilha de Memória"
+      ],
+      "answer": 2,
+      "explanation": "Matriz Booleana de Ocupação: Grade de bits onde o valor 1 indica células tridimensionais ocupadas por objetos físicos e 0 representa espaço livre.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 5
+    },
+    {
+      "id": "caso-example-matriz-booleana-de-ocupacao",
+      "type": "caso",
+      "conceptId": "matriz-booleana-de-ocupacao",
+      "facet": "Aplicação",
+      "track": "matematica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O mapa tridimensional do Corredor B no tablet de Alex que previne sobreposição de caixas pesadas de baterias.",
+      "options": [
+        "3D Bin Packing",
+        "Interrupção / IRQ",
+        "Matriz Booleana de Ocupação",
+        "Stack / Pilha de Memória"
+      ],
+      "answer": 2,
+      "explanation": "Matriz Booleana de Ocupação: Grade de bits onde o valor 1 indica células tridimensionais ocupadas por objetos físicos e 0 representa espaço livre.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-3d-bin-packing",
+      "type": "quiz",
+      "conceptId": "3d-bin-packing",
+      "facet": "Definição",
+      "track": "matematica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Algoritmo combinatório focado em organizar de forma ótima caixas tridimensionais de tamanhos variados em contêineres.",
+      "options": [
+        "3D Bin Packing",
+        "Matriz Booleana de Ocupação",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 0,
+      "explanation": "3D Bin Packing: Algoritmo combinatório focado em organizar de forma ótima caixas tridimensionais de tamanhos variados em contêineres. A arte mecânica de empilhar perfeitamente malas e mochilas no porta-malas de um carro de viagem.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-3d-bin-packing",
+      "type": "quiz",
+      "conceptId": "3d-bin-packing",
+      "facet": "Analogia",
+      "track": "matematica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "A arte mecânica de empilhar perfeitamente malas e mochilas no porta-malas de um carro de viagem.",
+      "options": [
+        "3D Bin Packing",
+        "Matriz Booleana de Ocupação",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 0,
+      "explanation": "3D Bin Packing: Algoritmo combinatório focado em organizar de forma ótima caixas tridimensionais de tamanhos variados em contêineres.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 5
+    },
+    {
+      "id": "caso-example-3d-bin-packing",
+      "type": "caso",
+      "conceptId": "3d-bin-packing",
+      "facet": "Aplicação",
+      "track": "matematica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O algoritmo First Fit que resolveu o empilhamento das autopeças da Fiat na crise de estocagem de Milão.",
+      "options": [
+        "3D Bin Packing",
+        "Matriz Booleana de Ocupação",
+        "Ponte H",
+        "PWM / Modulação por Largura de Pulso"
+      ],
+      "answer": 0,
+      "explanation": "3D Bin Packing: Algoritmo combinatório focado em organizar de forma ótima caixas tridimensionais de tamanhos variados em contêineres.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-ros-2-robot-operating-system",
+      "type": "quiz",
+      "conceptId": "ros-2-robot-operating-system",
+      "facet": "Definição",
+      "track": "robotica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Middleware estruturado para gerenciar a troca distribuída de tópicos de comunicação e serviços em sistemas robóticos.",
+      "options": [
+        "Filtro de Kalman",
+        "Odometria",
+        "ROS 2 / Robot Operating System",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 2,
+      "explanation": "ROS 2 / Robot Operating System: Middleware estruturado para gerenciar a troca distribuída de tópicos de comunicação e serviços em sistemas robóticos. A rede de tubulações e rádios que liga os diferentes operadores de uma grande fábrica conectada.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-ros-2-robot-operating-system",
+      "type": "quiz",
+      "conceptId": "ros-2-robot-operating-system",
+      "facet": "Analogia",
+      "track": "robotica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "A rede de tubulações e rádios que liga os diferentes operadores de uma grande fábrica conectada.",
+      "options": [
+        "Filtro de Kalman",
+        "Odometria",
+        "ROS 2 / Robot Operating System",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 2,
+      "explanation": "ROS 2 / Robot Operating System: Middleware estruturado para gerenciar a troca distribuída de tópicos de comunicação e serviços em sistemas robóticos.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "caso-example-ros-2-robot-operating-system",
+      "type": "caso",
+      "conceptId": "ros-2-robot-operating-system",
+      "facet": "Aplicação",
+      "track": "robotica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O software central do robô AMR que recebe dados LiDAR e envia comandos de movimento para as rodas.",
+      "options": [
+        "Filtro de Kalman",
+        "Odometria",
+        "ROS 2 / Robot Operating System",
+        "SLAM / Localização e Mapeamento Simultâneos"
+      ],
+      "answer": 2,
+      "explanation": "ROS 2 / Robot Operating System: Middleware estruturado para gerenciar a troca distribuída de tópicos de comunicação e serviços em sistemas robóticos.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 10
+    },
+    {
+      "id": "quiz-definition-nos-nodes",
+      "type": "quiz",
+      "conceptId": "nos-nodes",
+      "facet": "Definição",
+      "track": "robotica",
+      "prompt": "Qual conceito corresponde a esta definição?",
+      "statement": "Processos independentes especializados que processam dados de sensores e comandam atuadores na rede ROS 2.",
+      "options": [
+        "Filtro de Kalman",
+        "LiDAR",
+        "Nós / Nodes",
+        "ROS 2 / Robot Operating System"
+      ],
+      "answer": 2,
+      "explanation": "Nós / Nodes: Processos independentes especializados que processam dados de sensores e comandam atuadores na rede ROS 2. Diferentes operários especializados em uma equipe: um mede com laser, outro decide a rota, outro dirige as rodas.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "quiz-analogy-nos-nodes",
+      "type": "quiz",
+      "conceptId": "nos-nodes",
+      "facet": "Analogia",
+      "track": "robotica",
+      "prompt": "Qual conceito o livro descreve com esta analogia?",
+      "statement": "Diferentes operários especializados em uma equipe: um mede com laser, outro decide a rota, outro dirige as rodas.",
+      "options": [
+        "Filtro de Kalman",
+        "LiDAR",
+        "Nós / Nodes",
+        "ROS 2 / Robot Operating System"
+      ],
+      "answer": 2,
+      "explanation": "Nós / Nodes: Processos independentes especializados que processam dados de sensores e comandam atuadores na rede ROS 2.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 5
+    },
+    {
+      "id": "caso-example-nos-nodes",
+      "type": "caso",
+      "conceptId": "nos-nodes",
+      "facet": "Aplicação",
+      "track": "robotica",
+      "prompt": "Qual conceito resolve a situação descrita neste caso?",
+      "statement": "O nó de navegação do AMR comunicando-se em milissegundos com o nó de controle de velocidade das rodas.",
+      "options": [
+        "Filtro de Kalman",
+        "LiDAR",
+        "Nós / Nodes",
+        "ROS 2 / Robot Operating System"
+      ],
+      "answer": 2,
+      "explanation": "Nós / Nodes: Processos independentes especializados que processam dados de sensores e comandam atuadores na rede ROS 2.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 10
+    }
+  ],
+  "missions": [
+    {
+      "id": "01-cascavel-z80-o-loop-do-codigo-primitivo",
+      "type": "missao",
+      "title": "O Loop do Código Primitivo",
+      "section": "Desafio prático",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Acesse o emulador online e rode o loop clássico de exibição. Observe a tela se encher linha por linha — o Z80 está executando a mesma instrução, de novo e de novo, sem sistema operacional no meio do caminho.\n* [Simulador Online do ZX Spectrum](https://jsspeccy.zxdemo.org/)\n```basic\n10 PRINT \"Ola Mundo!\"\n20 GOTO 10\n```",
+      "chapterId": "01_cascavel_z80",
+      "chapterTitle": "Capítulo 1: O Menino e a Caixa Preta",
+      "points": 15
+    },
+    {
+      "id": "01-cascavel-z80-a-fita-que-falha",
+      "type": "missao",
+      "title": "A Fita que Falha",
+      "section": "Desafio prático",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "No mesmo emulador, altere o programa para imprimir um contador:\n```basic\n10 LET n=0\n20 PRINT \"Alex \"; n\n30 LET n=n+1\n40 GOTO 20\n```\nDepois explique, em cinco linhas no caderno, por que um desalinhamento de 1 mm no cabeçote da fita K7 invalidaria o `LOAD \"\"`. É o mesmo tipo de falha física que hoje aparece como ruído no encoder de um AMR.",
+      "chapterId": "01_cascavel_z80",
+      "chapterTitle": "Capítulo 1: O Menino e a Caixa Preta",
+      "points": 20
+    },
+    {
+      "id": "02-anatomia-z80-seu-primeiro-programa-em-assembly",
+      "type": "missao",
+      "title": "Seu Primeiro Programa em Assembly",
+      "section": "Desafio prático e guiado",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Escreva a sequência de instruções em Assembly do Z80 para realizar a seguinte lógica passo a passo:\n1. Coloque o valor 12 na gaveta A.\n2. Copie esse valor para a gaveta B.\n3. Some A + B.\n4. Envia o resultado somado para a porta física 254.\n5. Explique resumidamente o que aconteceu em cada etapa no papel.",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 15
+    },
+    {
+      "id": "02-anatomia-z80-o-loop-de-som-e-a-frequencia",
+      "type": "missao",
+      "title": "O Loop de Som e a Frequência",
+      "section": "Desafio prático e guiado",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Utilizando o código em Assembly do Z80 apresentado no final deste capítulo, explique o que aconteceria com a frequência do som emitido pelo alto-falante se a instrução de atraso de tempo (delay loop) fosse inserida entre a leitura do teclado e o comando `OUT`.\n\n---",
+      "chapterId": "02_anatomia_z80",
+      "chapterTitle": "Capítulo 2: A Anatomia do Z80",
+      "points": 20
+    },
+    {
+      "id": "03-logica-do-bit-o-sprite-no-caderno",
+      "type": "missao",
+      "title": "O Sprite no Caderno",
+      "section": "Desafio prático e guiado",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "1. Desenhe uma grade de 8×8 em um papel quadriculado e monte o desenho de um invasor espacial simples.\n2. Converta cada linha preenchida para sua sequência binária (quadradinho pintado é `1`, em branco é `0`).\n3. Converta cada linha binária no número decimal equivalente.",
+      "chapterId": "03_logica_do_bit",
+      "chapterTitle": "Capítulo 3: A Lógica do Bit",
+      "points": 15
+    },
+    {
+      "id": "03-logica-do-bit-do-pixel-ao-encoder",
+      "type": "missao",
+      "title": "Do Pixel ao Encoder",
+      "section": "Desafio prático e guiado",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Pegue os oito números do Nível 1 e converta cada um também para hexadecimal. Depois imagine que cada linha é um “disco de encoder”: onde está `1` a luz infravermelha passa, e onde está `0` ela é interrompida. Explique como o circuito do robô usaria essa alternância de bits para descobrir que a roda está se movendo de fato.\n\n---",
+      "chapterId": "03_logica_do_bit",
+      "chapterTitle": "Capítulo 3: A Lógica do Bit",
+      "points": 20
+    },
+    {
+      "id": "04-saudacao-tres-dedos-experimento-de-3-minutos-sentindo-o-vazamento-na-pele",
+      "type": "experimento",
+      "title": "Experimento de 3 Minutos: Sentindo o Vazamento na Pele",
+      "section": "Experimento de 3 Minutos: Sentindo o Vazamento na Pele",
+      "level": 1,
+      "difficulty": "Campo",
+      "briefing": "Para ver um vazamento de memória acontecendo diante dos seus olhos sem precisar programar nada, faça este teste simples agora:\n1. Abra o **Gerenciador de Tarefas** do seu computador (pressione `Ctrl + Shift + Esc`) e clique na aba **Desempenho** -> **Memória**.\n2. Abra seu navegador web e abra dezenas de abas em sites pesados ou vídeos simultâneos. Veja o gráfico da memória RAM subir e a porcentagem de uso disparar.\n3. Agora, feche todas as abas de uma vez. O consumo de RAM deve despencar de volta para o nível inicial. Se o consumo não retornar ao valor de repouso e continuar \"preso\" em um nível alto, significa que o navegador teve um pequeno *vazamento de memória*. Em computadores de uso pessoal, fechar o programa resolve temporariamente; em robôs ou indústrias que rodam sem parar por meses, isso congela a máquina de forma fatal.",
+      "chapterId": "04_saudacao_tres_dedos",
+      "chapterTitle": "Capítulo 4: A Saudação de Três Dedos no Magazzino",
+      "points": 20
+    },
+    {
+      "id": "04-saudacao-tres-dedos-a-caixa-d-agua",
+      "type": "missao",
+      "title": "A Caixa d'Água",
+      "section": "Desafios práticos e guiados",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Em seu caderno técnico, desenhe uma caixa d'água com um pequeno furo na base e uma torneira no topo. Desenhe o nível da água descendo a cada minuto até secar. Escreva abaixo: *\"Isto representa um vazamento de memória (Memory Leak) — o espaço de trabalho da CPU se esgotando gota a gota.\"*  \nSe cada iteração de um loop consome 128 bytes e o microcontrolador tem 64 KB de RAM, calcule quantas voltas bastam para secar o tanque.",
+      "chapterId": "04_saudacao_tres_dedos",
+      "chapterTitle": "Capítulo 4: A Saudação de Três Dedos no Magazzino",
+      "points": 15
+    },
+    {
+      "id": "04-saudacao-tres-dedos-cacando-o-vazamento",
+      "type": "missao",
+      "title": "Caçando o Vazamento",
+      "section": "Desafios práticos e guiados",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "1. Escreva um pseudo-código com o erro clássico: criar variáveis dinâmicas em loop sem desalocá-las.\n2. Indique a instrução de limpeza (`delete` ou `free`) que fecharia o furo.\n3. Explique por que, mesmo com gigabytes de RAM, um vazamento em um serviço que roda por meses acaba travando a máquina — o mesmo silêncio que congelou o magazzino.\n\n---",
+      "chapterId": "04_saudacao_tres_dedos",
+      "chapterTitle": "Capítulo 4: A Saudação de Três Dedos no Magazzino",
+      "points": 20
+    },
+    {
+      "id": "05-sistemas-raiz-o-botao-de-emergencia",
+      "type": "missao",
+      "title": "O Botão de Emergência",
+      "section": "Desafio prático",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Desenhe no caderno o fluxo de um ciclo simples: *loop principal → sinal de emergência → rotina de interrupção → retorno*. Marque com uma seta o instante em que a CPU abandona o que estava fazendo.",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 15
+    },
+    {
+      "id": "05-sistemas-raiz-a-pilha-do-pc",
+      "type": "missao",
+      "title": "A Pilha do PC",
+      "section": "Desafio prático",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Escreva um pseudo-código em que o loop principal é interrompido por um botão de emergência. Mostre explicitamente: (1) o salvamento do Program Counter na pilha, (2) o salto para a ISR e (3) a restauração do PC ao retornar. Sem essa gaveta temporária, o escriturário elétrico não saberia onde tinha parado.\n\n---",
+      "chapterId": "05_sistemas_raiz",
+      "chapterTitle": "Capítulo 5: Sistemas Operacionais Raiz",
+      "points": 20
+    },
+    {
+      "id": "06-matematica-do-espaco-a-otimizacao-de-caixas",
+      "type": "missao",
+      "title": "A Otimização de Caixas",
+      "section": "Desafio prático",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Implemente o cálculo manual da eficiência volumétrica ($Efe$) para um palete de volume total de 1m³ contendo exatamente 4 caixas retangulares de dimensões 40x50x30 cm.",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 15
+    },
+    {
+      "id": "06-matematica-do-espaco-o-codigo-de-colisao",
+      "type": "missao",
+      "title": "O Código de Colisão",
+      "section": "Desafio prático",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Modifique a função em Python `verificar_colisao` apresentada no capítulo para incluir uma margem de segurança física de `0.05` metros (5 cm) em todos os lados de cada caixa a fim de evitar que vibrações dos robôs façam as cargas se tocarem.\n\n---",
+      "chapterId": "06_matematica_do_espaco",
+      "chapterTitle": "Capítulo 6: A Matemática do Espaço",
+      "points": 20
+    },
+    {
+      "id": "07-formigas-eletricas-a-simulacao-do-desvio",
+      "type": "missao",
+      "title": "A Simulação do Desvio",
+      "section": "Desafio prático",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Desenhe uma malha de grade 5×5 com um obstáculo na posição central. Trace a rota mais curta do canto inferior esquerdo ao canto superior direito, desviando do obstáculo.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 15
+    },
+    {
+      "id": "07-formigas-eletricas-agv-versus-amr",
+      "type": "missao",
+      "title": "AGV versus AMR",
+      "section": "Desafio prático",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Na mesma malha, imagine que o obstáculo caiu em cima da fita magnética do AGV. Em cinco linhas, explique por que o AGV congela e o AMR desvia. Depois acrescente um segundo obstáculo e redesenhe a rota do AMR.",
+      "chapterId": "07_formigas_eletricas",
+      "chapterTitle": "Capítulo 7: As Formigas Elétricas",
+      "points": 20
+    },
+    {
+      "id": "08-cerebro-do-robo-desvio-de-obstaculos-no-tinkercad",
+      "type": "missao",
+      "title": "Desvio de Obstáculos no Tinkercad",
+      "section": "Desafio prático",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Monte um circuito de teste virtual usando um Arduino Uno e um sensor ultrassônico. Programe o Arduino para acionar um sinal de aviso caso a leitura de distância seja menor que 10 cm.\n* [Tinkercad Circuits](https://www.tinkercad.com/)",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 15
+    },
+    {
+      "id": "08-cerebro-do-robo-a-incerteza-do-sensor",
+      "type": "missao",
+      "title": "A Incerteza do Sensor",
+      "section": "Desafio prático",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Altere os parâmetros do Filtro de Kalman simulado no código C++ acima. Aumente o `ruido_medicao` do sensor LiDAR para `2.0` e descreva como a estimativa final da variável `posicao` reage às atualizações em relação à odometria estável.\n\n---",
+      "chapterId": "08_cerebro_do_robo",
+      "chapterTitle": "Capítulo 8: O Cérebro do Robô",
+      "points": 20
+    },
+    {
+      "id": "09-pilha-de-codigo-a-criacao-do-topico",
+      "type": "missao",
+      "title": "A Criação do Tópico",
+      "section": "Desafio prático",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Desenhe o diagrama de fluxo de dados mostrando o caminho da mensagem desde o sensor LiDAR físico até a atuação na roda, indicando os nós e nomes dos tópicos intermediários.",
+      "chapterId": "09_pilha_de_codigo",
+      "chapterTitle": "Capítulo 9: A Pilha de Código Moderna",
+      "points": 15
+    },
+    {
+      "id": "09-pilha-de-codigo-o-no-de-escuta-em-c",
+      "type": "missao",
+      "title": "O Nó de Escuta em C++",
+      "section": "Desafio prático",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Complete a implementação da função `callback_velocidade` no código C++ acima. Crie uma variável para receber a velocidade angular da curva (`msg->angular.z`) e adicione uma linha de log `RCLCPP_INFO` para exibir esse parâmetro de rotação.\n\n---",
+      "chapterId": "09_pilha_de_codigo",
+      "chapterTitle": "Capítulo 9: A Pilha de Código Moderna",
+      "points": 20
+    },
+    {
+      "id": "10-equacao-almoxarifado-o-algoritmo-de-encaixe",
+      "type": "missao",
+      "title": "O Algoritmo de Encaixe",
+      "section": "Desafio prático",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Teste manualmente o algoritmo FFD para acomodar caixas de tamanhos `[50, 20, 30, 40, 10]` em nichos com capacidade máxima de 60 unidades cada. Anote quantos nichos foram usados e quanto espaço sobrou.",
+      "chapterId": "10_equacao_almoxarifado",
+      "chapterTitle": "Capítulo 10: A Equação do Almoxarifado",
+      "points": 15
+    },
+    {
+      "id": "10-equacao-almoxarifado-first-fit-contra-ffd",
+      "type": "missao",
+      "title": "First Fit contra FFD",
+      "section": "Desafio prático",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Repita o encaixe **sem ordenar** (First Fit puro) com a sequência `[10, 50, 20, 40, 30]` nos mesmos nichos de 60. Compare o desperdício de espaço com o FFD do Nível 1. A ordem muda o galpão.",
+      "chapterId": "10_equacao_almoxarifado",
+      "chapterTitle": "Capítulo 10: A Equação do Almoxarifado",
+      "points": 20
+    },
+    {
+      "id": "11-elite-do-atraso-experimento-pratico-de-campo-medindo-a-eficiencia",
+      "type": "experimento",
+      "title": "Experimento Prático de Campo: Medindo a Eficiência",
+      "section": "Experimento Prático de Campo: Medindo a Eficiência",
+      "level": 1,
+      "difficulty": "Campo",
+      "briefing": "Na próxima vez que você for pegar um ônibus, ir ao supermercado ou pedir uma entrega, faça esta coleta simples de dados:\n1. **Calcule o tempo de gargalo**: Cronometre quanto tempo um ônibus gasta parado na catraca para embarcar cada passageiro. Se o tempo médio por pessoa for de 6 segundos, calcule o atraso total se 35 passageiros embarcarem em uma linha com 20 paradas.\n2. **Observe o bus bunching**: Monitore um aplicativo de transporte de ônibus em tempo real. Veja se há pontos da cidade onde dois veículos da mesma linha estão se deslocando colados um ao outro e tente identificar qual gargalo geográfico causou a perda de sincronia do fluxo.",
+      "chapterId": "11_elite_do_atraso",
+      "chapterTitle": "Capítulo 11: A Elite do Atraso",
+      "points": 20
+    },
+    {
+      "id": "11-elite-do-atraso-selic-versus-roi",
+      "type": "missao",
+      "title": "Selic versus ROI",
+      "section": "Desafios práticos e conceituais",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Um projeto de automação de esteiras tem CAPEX de R$ 50.000 e economiza R$ 6.000 ao ano (ROI real). Se a Selic está em 12% ao ano, calcule a diferença de rendimento no primeiro ano entre deixar os R$ 50.000 em títulos públicos e investir no projeto. Em duas frases, diga que decisão um investidor racional tomaria e o que isso faz com a engenharia do bairro.",
+      "chapterId": "11_elite_do_atraso",
+      "chapterTitle": "Capítulo 11: A Elite do Atraso",
+      "points": 15
+    },
+    {
+      "id": "11-elite-do-atraso-o-caixeiro-de-quatro-pontos",
+      "type": "missao",
+      "title": "O Caixeiro de Quatro Pontos",
+      "section": "Desafios práticos e conceituais",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Desenhe um mapa com 4 pontos de entrega interligados. Calcule o número total de rotas fechadas que visitam todos os pontos e voltam à base. Depois introduza um gargalo (uma ponte em obras) e explique como isso altera a rota ótima — o mesmo pensamento sistêmico que destrava um galpão.\n\n---",
+      "chapterId": "11_elite_do_atraso",
+      "chapterTitle": "Capítulo 11: A Elite do Atraso",
+      "points": 20
+    },
+    {
+      "id": "12-engenharia-do-pix-experimento-pratico-de-campo-medindo-a-latencia",
+      "type": "experimento",
+      "title": "Experimento Prático de Campo: Medindo a Latência",
+      "section": "Experimento Prático de Campo: Medindo a Latência",
+      "level": 1,
+      "difficulty": "Campo",
+      "briefing": "Para enxergar a latência invisível que governa as redes e o controle de robôs, faça este teste simples:\n1. Abra o terminal do seu computador (Command Prompt ou PowerShell).\n2. Digite o comando de ping para um servidor de grande porte:\n   `ping google.com`\n3. Observe os tempos de resposta em milissegundos (ms). Um ping de 15 ms significa que a informação levou 0,015 segundos para ir e voltar.\n4. Agora imagine que um robô industrial se move a 2 metros por segundo. Se a latência de controle do Wi-Fi do galpão subir para 150 ms devido a interferências de motores elétricos, calcule a distância que o robô percorrerá às cegas antes de receber um comando de parada de emergência.",
+      "chapterId": "12_engenharia_do_pix",
+      "chapterTitle": "Capítulo 12: A Engenharia do Pix e do Bloco",
+      "points": 20
+    },
+    {
+      "id": "12-engenharia-do-pix-encadeando-um-bloco",
+      "type": "missao",
+      "title": "Encadeando um Bloco",
+      "section": "Desafios práticos e conceituais",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Rode o código Python do capítulo (no computador ou num interpretador online). Crie um terceiro bloco (`bloco_tres`) que aponte para o hash do `bloco_dois`. Confirme que a cadeia continua íntegra.",
+      "chapterId": "12_engenharia_do_pix",
+      "chapterTitle": "Capítulo 12: A Engenharia do Pix e do Bloco",
+      "points": 15
+    },
+    {
+      "id": "12-engenharia-do-pix-quebrando-a-cadeia-e-a-latencia",
+      "type": "missao",
+      "title": "Quebrando a Cadeia e a Latência",
+      "section": "Desafios práticos e conceituais",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Altere a transação do `bloco_genesis` de `\"Alex pagou 10 moedas\"` para `\"Alex pagou 100 moedas\"`. Recalcule o hash e descreva o que acontece com os blocos seguintes.  \nDepois meça a latência da sua rede com `ping google.com`. Se um robô se move a 2 m/s e o Wi-Fi do galpão sobe para 150 ms, calcule quantos centímetros ele percorre às cegas antes do comando de parada.\n\n---",
+      "chapterId": "12_engenharia_do_pix",
+      "chapterTitle": "Capítulo 12: A Engenharia do Pix e do Bloco",
+      "points": 20
+    },
+    {
+      "id": "13-rebeldia-mecatronica-abra-a-caixa-preta",
+      "type": "missao",
+      "title": "Abra a Caixa-Preta",
+      "section": "Desafio Prático Final: O Projeto da Rebeldia",
+      "level": 1,
+      "difficulty": "Iniciante",
+      "briefing": "Escolha um objeto eletrônico ou mecânico do dia a dia (mouse antigo, fechadura eletrônica, controle remoto ou sensor de presença). Com segurança, abra o dispositivo e desenhe no caderno o fluxo de sinal: onde a energia entra, onde a informação é processada e qual é o atuador de saída.",
+      "chapterId": "13_rebeldia_mecatronica",
+      "chapterTitle": "Capítulo 13: A Rebeldia da Mecatrônica",
+      "points": 15
+    },
+    {
+      "id": "13-rebeldia-mecatronica-a-primeira-pagina-do-manual",
+      "type": "missao",
+      "title": "A Primeira Página do Manual",
+      "section": "Desafio Prático Final: O Projeto da Rebeldia",
+      "level": 2,
+      "difficulty": "Avançado",
+      "briefing": "Anote a data, as especificações do que descobriu e proponha uma modificação concreta — um sensor a mais, um firmware mais claro, um reparo em vez de descarte. Essa página é o início do seu próprio diário de campo.\n\n---",
+      "chapterId": "13_rebeldia_mecatronica",
+      "chapterTitle": "Capítulo 13: A Rebeldia da Mecatrônica",
+      "points": 20
+    }
+  ],
+  "tracks": [
+    {
+      "id": "sistemas",
+      "title": "Sistemas e CPU",
+      "description": "Do processador clássico ao fluxo de execução e às interrupções.",
+      "items": [
+        "quiz-definition-z80",
+        "quiz-analogy-z80",
+        "caso-example-z80",
+        "quiz-definition-registrador-register",
+        "quiz-analogy-registrador-register",
+        "caso-example-registrador-register",
+        "quiz-definition-program-counter-pc",
+        "quiz-analogy-program-counter-pc",
+        "caso-example-program-counter-pc",
+        "quiz-definition-stack-pilha-de-memoria",
+        "quiz-analogy-stack-pilha-de-memoria",
+        "caso-example-stack-pilha-de-memoria",
+        "quiz-definition-interrupcao-irq",
+        "quiz-analogy-interrupcao-irq",
+        "caso-example-interrupcao-irq",
+        "quiz-definition-nmi-interrupcao-nao-mascaravel",
+        "quiz-analogy-nmi-interrupcao-nao-mascaravel",
+        "caso-example-nmi-interrupcao-nao-mascaravel",
+        "quiz-definition-vetor-de-reset",
+        "quiz-analogy-vetor-de-reset",
+        "caso-example-vetor-de-reset"
+      ]
+    },
+    {
+      "id": "eletronica",
+      "title": "Controle e eletrônica",
+      "description": "Sinais, potência, motores e medições no mundo físico.",
+      "items": [
+        "quiz-definition-ponte-h",
+        "quiz-analogy-ponte-h",
+        "caso-example-ponte-h",
+        "quiz-definition-pwm-modulacao-por-largura-de-pulso",
+        "quiz-analogy-pwm-modulacao-por-largura-de-pulso",
+        "caso-example-pwm-modulacao-por-largura-de-pulso",
+        "quiz-definition-encoder-optico",
+        "quiz-analogy-encoder-optico",
+        "caso-example-encoder-optico"
+      ]
+    },
+    {
+      "id": "robotica",
+      "title": "Robótica e navegação",
+      "description": "Percepção, localização e comunicação entre os componentes do robô.",
+      "items": [
+        "quiz-definition-lidar",
+        "quiz-analogy-lidar",
+        "caso-example-lidar",
+        "quiz-definition-odometria",
+        "quiz-analogy-odometria",
+        "caso-example-odometria",
+        "quiz-definition-slam-localizacao-e-mapeamento-simultaneos",
+        "quiz-analogy-slam-localizacao-e-mapeamento-simultaneos",
+        "caso-example-slam-localizacao-e-mapeamento-simultaneos",
+        "quiz-definition-filtro-de-kalman",
+        "quiz-analogy-filtro-de-kalman",
+        "caso-example-filtro-de-kalman",
+        "quiz-definition-ros-2-robot-operating-system",
+        "quiz-analogy-ros-2-robot-operating-system",
+        "caso-example-ros-2-robot-operating-system",
+        "quiz-definition-nos-nodes",
+        "quiz-analogy-nos-nodes",
+        "caso-example-nos-nodes"
+      ]
+    },
+    {
+      "id": "matematica",
+      "title": "Matemática e otimização",
+      "description": "Representar espaço, estimar estados e organizar cargas.",
+      "items": [
+        "quiz-definition-matriz-booleana-de-ocupacao",
+        "quiz-analogy-matriz-booleana-de-ocupacao",
+        "caso-example-matriz-booleana-de-ocupacao",
+        "quiz-definition-3d-bin-packing",
+        "quiz-analogy-3d-bin-packing",
+        "caso-example-3d-bin-packing"
+      ]
+    },
+    {
+      "id": "campo",
+      "title": "Missões de campo",
+      "description": "Desafios práticos e experimentos propostos nos capítulos do livro.",
+      "items": [
+        "01-cascavel-z80-o-loop-do-codigo-primitivo",
+        "01-cascavel-z80-a-fita-que-falha",
+        "02-anatomia-z80-seu-primeiro-programa-em-assembly",
+        "02-anatomia-z80-o-loop-de-som-e-a-frequencia",
+        "03-logica-do-bit-o-sprite-no-caderno",
+        "03-logica-do-bit-do-pixel-ao-encoder",
+        "04-saudacao-tres-dedos-experimento-de-3-minutos-sentindo-o-vazamento-na-pele",
+        "04-saudacao-tres-dedos-a-caixa-d-agua",
+        "04-saudacao-tres-dedos-cacando-o-vazamento",
+        "05-sistemas-raiz-o-botao-de-emergencia",
+        "05-sistemas-raiz-a-pilha-do-pc",
+        "06-matematica-do-espaco-a-otimizacao-de-caixas",
+        "06-matematica-do-espaco-o-codigo-de-colisao",
+        "07-formigas-eletricas-a-simulacao-do-desvio",
+        "07-formigas-eletricas-agv-versus-amr",
+        "08-cerebro-do-robo-desvio-de-obstaculos-no-tinkercad",
+        "08-cerebro-do-robo-a-incerteza-do-sensor",
+        "09-pilha-de-codigo-a-criacao-do-topico",
+        "09-pilha-de-codigo-o-no-de-escuta-em-c",
+        "10-equacao-almoxarifado-o-algoritmo-de-encaixe",
+        "10-equacao-almoxarifado-first-fit-contra-ffd",
+        "11-elite-do-atraso-experimento-pratico-de-campo-medindo-a-eficiencia",
+        "11-elite-do-atraso-selic-versus-roi",
+        "11-elite-do-atraso-o-caixeiro-de-quatro-pontos",
+        "12-engenharia-do-pix-experimento-pratico-de-campo-medindo-a-latencia",
+        "12-engenharia-do-pix-encadeando-um-bloco",
+        "12-engenharia-do-pix-quebrando-a-cadeia-e-a-latencia",
+        "13-rebeldia-mecatronica-abra-a-caixa-preta",
+        "13-rebeldia-mecatronica-a-primeira-pagina-do-manual"
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "id": "aprendiz",
+      "title": "Aprendiz de bancada",
+      "minPoints": 0
+    },
+    {
+      "id": "tecnico",
+      "title": "Técnico de campo",
+      "minPoints": 175
+    },
+    {
+      "id": "engenheiro",
+      "title": "Engenheiro rebelde",
+      "minPoints": 438
+    },
+    {
+      "id": "mestre",
+      "title": "Mestre da mecatrônica",
+      "minPoints": 700
+    }
+  ],
+  "badges": [
+    {
+      "id": "primeiro-acerto",
+      "title": "Primeiro acerto",
+      "description": "Acerte a primeira questão de um quiz.",
+      "rule": "correctAnswers",
+      "threshold": 1
+    },
+    {
+      "id": "serie-dez",
+      "title": "Dez em ordem",
+      "description": "Acerte dez questões no total.",
+      "rule": "correctAnswers",
+      "threshold": 10
+    },
+    {
+      "id": "analista-de-casos",
+      "title": "Analista de casos",
+      "description": "Conclua cinco estudos de caso.",
+      "rule": "caseAnswers",
+      "threshold": 5
+    },
+    {
+      "id": "maker-iniciado",
+      "title": "Maker iniciado",
+      "description": "Registre a conclusão de uma missão prática.",
+      "rule": "missions",
+      "threshold": 1
+    },
+    {
+      "id": "maker-veterano",
+      "title": "Maker veterano",
+      "description": "Conclua cinco missões práticas.",
+      "rule": "missions",
+      "threshold": 5
+    },
+    {
+      "id": "trilha-completa",
+      "title": "Trilha dominada",
+      "description": "Conclua todos os itens de uma trilha.",
+      "rule": "completedTracks",
+      "threshold": 1
+    }
+  ],
+  "totalPoints": 875
+}

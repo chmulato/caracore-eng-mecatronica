@@ -1,0 +1,38 @@
+{
+  "id": "./",
+  "name": "Universo Rebeldia",
+  "short_name": "Rebeldia",
+  "description": "Plataforma interativa e offline de A Rebeldia da Mecatrônica.",
+  "lang": "pt-BR",
+  "start_url": "./index.html#/dashboard",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "categories": ["education", "books", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Continuar leitura",
+      "short_name": "Livro",
+      "url": "./index.html#/livro"
+    },
+    {
+      "name": "Laboratório Maker",
+      "short_name": "Laboratório",
+      "url": "./index.html#/laboratorio"
+    },
+    {
+      "name": "Desafios",
+      "short_name": "Desafios",
+      "url": "./index.html#/desafios"
+    }
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

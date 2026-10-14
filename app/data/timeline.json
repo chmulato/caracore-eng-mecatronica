@@ -1,0 +1,65 @@
+[
+  {
+    "year": 1760,
+    "title": "Revolução Industrial",
+    "category": "industria",
+    "description": "A mecanização transforma energia em produção repetível e inaugura a engenharia industrial moderna."
+  },
+  {
+    "year": 1950,
+    "title": "Controle automático",
+    "category": "controle",
+    "description": "Realimentação, servomecanismos e eletrônica tornam máquinas capazes de corrigir seu próprio comportamento."
+  },
+  {
+    "year": 1970,
+    "title": "CNC e microprocessadores",
+    "category": "computacao",
+    "description": "Comandos digitais e CPUs compactas levam precisão programável ao chão de fábrica."
+  },
+  {
+    "year": 1986,
+    "title": "A lógica de 8 bits chega à sala de aula",
+    "category": "computacao",
+    "description": "O TK90X do livro revela que registradores, bits e loops são a base dos sistemas atuais.",
+    "chapterId": "01_cascavel_z80"
+  },
+  {
+    "year": 1990,
+    "title": "Internet comercial",
+    "category": "redes",
+    "description": "Sistemas antes isolados passam a trocar dados em escala global."
+  },
+  {
+    "year": 2001,
+    "title": "Automação conectada em Milão",
+    "category": "industria",
+    "description": "O armazém do livro expõe como software, memória e segurança física já formavam um único sistema.",
+    "chapterId": "04_saudacao_tres_dedos"
+  },
+  {
+    "year": 2010,
+    "title": "Internet das Coisas",
+    "category": "redes",
+    "description": "Sensores, atuadores e serviços em nuvem conectam objetos, fábricas e cidades."
+  },
+  {
+    "year": 2020,
+    "title": "IA generativa",
+    "category": "inteligencia",
+    "description": "Modelos de grande escala passam a criar texto, código, imagens e novas interfaces de trabalho."
+  },
+  {
+    "year": 2026,
+    "title": "Robótica autônoma",
+    "category": "robotica",
+    "description": "AMRs, LiDAR e fusão sensorial conectam a lógica clássica à operação adaptativa descrita no livro.",
+    "chapterId": "08_cerebro_do_robo"
+  },
+  {
+    "year": 2030,
+    "title": "Indústria cognitiva",
+    "category": "inteligencia",
+    "description": "Pessoas, máquinas e agentes inteligentes colaboram em sistemas produtivos explicáveis e resilientes."
+  }
+]

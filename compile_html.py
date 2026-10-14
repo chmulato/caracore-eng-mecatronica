@@ -225,7 +225,6 @@ def main():
     <meta name="description" content="A Rebeldia da Mecatrônica — romance instrutivo de tecnologia e sociedade, de Christian Vladimir Uhdre Mulato.">
     <title>A Rebeldia da Mecatrônica — Christian Vladimir Uhdre Mulato</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0f172a;
@@ -277,6 +276,10 @@ def main():
             background: var(--primary); color: #fff; text-decoration: none;
             padding: 0.4rem 0.7rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
         }
+        .header-app-btn {
+            color: #bae6fd; text-decoration: none; padding: 0.4rem 0.55rem;
+            border: 1px solid #316582; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
+        }
         .nav-drawer {
             position: fixed; top: var(--header-h); bottom: 0; left: -100%; width: min(85%, 300px);
             background: var(--header-bg); border-right: 1px solid var(--border-color);
@@ -318,6 +321,12 @@ def main():
             background: var(--primary); color: #fff; text-decoration: none;
             padding: 0.75rem 1.35rem; border-radius: 8px; font-size: 0.92rem; font-weight: 700;
             margin: 0.5rem 0 1rem; box-shadow: 0 4px 15px rgba(217,93,20,0.4);
+        }
+        .app-cta-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #e0f2fe; text-decoration: none; padding: 0.7rem 1.15rem;
+            border: 1px solid #3b82f6; border-radius: 8px; font-size: 0.9rem; font-weight: 700;
+            margin: 0.5rem 0.35rem 1rem; background: rgba(59,130,246,0.12);
         }
         .dedication { font-style: italic; font-size: 0.98rem; color: var(--text-muted); text-align: center; margin: 1.5rem auto 0; line-height: 1.65; max-width: 36rem; }
         .chapter-section { margin-bottom: 4rem; scroll-margin-top: calc(var(--header-h) + 12px); }
@@ -457,6 +466,7 @@ def main():
     <header class="mobile-header">
         <span class="header-title">A Rebeldia da Mecatrônica</span>
         <div class="header-actions">
+            <a href="app/" class="header-app-btn">Universo</a>
             <a href="romance_instrutivo.pdf" class="header-download-btn" download>PDF</a>
             <button class="menu-button" id="menuBtn" aria-label="Abrir sumário">☰</button>
         </div>
@@ -542,6 +552,7 @@ def main():
                 <h1 class="cover-title">A Rebeldia da Mecatrônica</h1>
                 <p class="cover-subtitle">Romance Instrutivo de Tecnologia e Sociedade</p>
                 <p class="cover-author">Christian Vladimir Uhdre Mulato</p>
+                <a href="app/" class="app-cta-btn">Entrar no Universo Rebeldia</a>
                 <a href="romance_instrutivo.pdf" class="download-cta-btn" download>Baixar PDF para leitura offline</a>
                 <div class="dedication">
                     Dedicado à minha família, cujo apoio silencioso e inabalável estruturou

@@ -1,0 +1,49 @@
+<section class="knowledge-heading settings-heading">
+  <div>
+    <p class="eyebrow">CONTROLE LOCAL · FASE 5</p>
+    <h1>Configurações e portabilidade</h1>
+    <p>Personalize a leitura, instale a PWA e leve seus dados para outro dispositivo sem depender de uma conta.</p>
+  </div>
+</section>
+
+<section class="settings-grid">
+  <article class="content-card settings-card">
+    <p class="eyebrow">APARÊNCIA</p>
+    <h2>Conforto de leitura</h2>
+    <label for="theme-select">Tema</label>
+    <select id="theme-select">
+      <option value="dark">Escuro</option>
+      <option value="light">Claro</option>
+      <option value="system">Usar preferência do sistema</option>
+    </select>
+    <label for="font-scale">Tamanho do texto <output id="font-scale-output">100%</output></label>
+    <input id="font-scale" type="range" min="90" max="125" step="5" value="100">
+    <label class="toggle-setting"><input id="motion-setting" type="checkbox"> Reduzir animações e transições</label>
+  </article>
+
+  <article class="content-card settings-card">
+    <p class="eyebrow">APLICATIVO</p>
+    <h2>Instalação e conexão</h2>
+    <p id="install-description" class="muted">O navegador informará quando a instalação estiver disponível.</p>
+    <button class="small-button" id="install-app" type="button" disabled>Instalar Universo Rebeldia</button>
+    <a class="text-link settings-official-link" href="https://chmulato.github.io/livro_eng_mecatronica/" target="_blank" rel="noopener">Abrir o site oficial do livro <span aria-hidden="true">↗</span></a>
+  </article>
+
+  <article class="content-card settings-card">
+    <p class="eyebrow">BACKUP LOCAL</p>
+    <h2>Exportar e importar</h2>
+    <p class="muted">O arquivo inclui leitura, anotações, desafios, preferências e projetos maker.</p>
+    <div class="settings-actions">
+      <button class="small-button" id="export-data" type="button">Exportar dados</button>
+      <label class="small-button file-button" for="import-data">Importar dados</label>
+      <input class="sr-only" id="import-data" type="file" accept="application/json,.json">
+    </div>
+  </article>
+
+  <article class="content-card settings-card danger-card">
+    <p class="eyebrow">ZONA DE CUIDADO</p>
+    <h2>Reiniciar jornada</h2>
+    <p class="muted">Remove deste dispositivo todo o progresso e todos os projetos. Essa ação não pode ser desfeita.</p>
+    <button class="small-button danger-button" id="reset-data" type="button">Apagar todos os dados locais</button>
+  </article>
+</section>
