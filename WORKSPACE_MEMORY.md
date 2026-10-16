@@ -4,7 +4,7 @@ Este documento é o ponto de entrada para qualquer pessoa ou IA que vá colabora
 com o projeto. O repositório é público; não incluir credenciais, tokens,
 informações pessoais ou arquivos privados em commits, issues ou documentação.
 
-**Repositório:** <https://github.com/chmulato/livro_eng_mecatronica>
+**Repositório:** <https://github.com/chmulato/caracore-eng-mecatronica>
 
 **Site oficial:** <https://eng.caracore.com.br/>
 

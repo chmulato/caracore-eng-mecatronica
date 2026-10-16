@@ -126,7 +126,7 @@ Primeira versão pública do livro.
 
 ---
 
-[2.0.0]: https://github.com/chmulato/livro_eng_mecatronica/compare/75e4c83...HEAD
-[1.2.0]: https://github.com/chmulato/livro_eng_mecatronica/compare/77855aa...75e4c83
-[1.1.0]: https://github.com/chmulato/livro_eng_mecatronica/compare/4a0432e...77855aa
-[1.0.0]: https://github.com/chmulato/livro_eng_mecatronica/commit/4a0432e
+[2.0.0]: https://github.com/chmulato/caracore-eng-mecatronica/compare/75e4c83...HEAD
+[1.2.0]: https://github.com/chmulato/caracore-eng-mecatronica/compare/77855aa...75e4c83
+[1.1.0]: https://github.com/chmulato/caracore-eng-mecatronica/compare/4a0432e...77855aa
+[1.0.0]: https://github.com/chmulato/caracore-eng-mecatronica/commit/4a0432e

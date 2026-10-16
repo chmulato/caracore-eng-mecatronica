@@ -1,6 +1,6 @@
 # A Rebeldia da Mecatrônica
 
-📖 **Leia o livro online:** [A Rebeldia da Mecatrônica](https://chmulato.github.io/livro_eng_mecatronica/)
+📖 **Leia o livro online:** [A Rebeldia da Mecatrônica](https://eng.caracore.com.br/)
 
 Este repositório contém o código-fonte, capítulos e scripts de compilação do livro **A Rebeldia da Mecatrônica - Romance Instrutivo de Tecnologia e Sociedade**.
 
