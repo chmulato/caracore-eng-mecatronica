@@ -260,8 +260,8 @@ class JourneyTests(unittest.TestCase):
             "Pronto para usar offline", timeout=20000
         )
         names = self.page.evaluate("() => caches.keys()")
-        self.assertTrue(any("/app/:v7" in name and "/docs/" not in name for name in names))
-        self.assertTrue(any("/docs/app/:v7" in name for name in names))
+        self.assertTrue(any("/app/:v9" in name and "/docs/" not in name for name in names))
+        self.assertTrue(any("/docs/app/:v9" in name for name in names))
         self.context.set_offline(True)
         self.open("#/livro?c=01_cascavel_z80", published=True)
         expect(self.page.locator("#chapter-body")).to_contain_text("Z80")

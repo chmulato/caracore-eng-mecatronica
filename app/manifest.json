@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Universo Rebeldia",
   "short_name": "Rebeldia",
-  "description": "Leia, reflita, conecte conceitos e crie projetos a partir de A Rebeldia da Mecatrônica, mesmo offline.",
+  "description": "App de estudo de A Rebeldia da Mecatrônica, publicado pela Cara Core Informática: leia, reflita, conecte conceitos e crie projetos, mesmo offline.",
   "lang": "pt-BR",
   "start_url": "./index.html#/dashboard",
   "scope": "./",

@@ -222,9 +222,47 @@ def main():
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1e293b">
     <meta name="author" content="Christian Vladimir Uhdre Mulato">
-    <meta name="description" content="A Rebeldia da Mecatrônica — romance instrutivo de tecnologia e sociedade, de Christian Vladimir Uhdre Mulato.">
-    <title>A Rebeldia da Mecatrônica — Christian Vladimir Uhdre Mulato</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <meta name="description" content="A Rebeldia da Mecatrônica — romance instrutivo de tecnologia e sociedade, publicado pela Cara Core Informática, com app de estudo Universo Rebeldia.">
+    <title>A Rebeldia da Mecatrônica — Cara Core Informática</title>
+    <link rel="canonical" href="https://eng.caracore.com.br/">
+    <link rel="icon" type="image/svg+xml" href="app/assets/icons/icon.svg">
+    <link rel="apple-touch-icon" href="app/assets/icons/icon-192.png">
+    <meta property="og:type" content="book">
+    <meta property="og:site_name" content="Cara Core Informática">
+    <meta property="og:title" content="A Rebeldia da Mecatrônica — Cara Core Informática">
+    <meta property="og:description" content="Romance instrutivo de tecnologia e sociedade, publicado pela Cara Core Informática, com app de estudo Universo Rebeldia.">
+    <meta property="og:url" content="https://eng.caracore.com.br/">
+    <meta property="og:image" content="https://eng.caracore.com.br/capa.jpg">
+    <meta property="og:image:alt" content="Capa de A Rebeldia da Mecatrônica">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "A Rebeldia da Mecatrônica",
+      "alternateName": "Romance Instrutivo de Tecnologia e Sociedade",
+      "inLanguage": "pt-BR",
+      "url": "https://eng.caracore.com.br/",
+      "image": "https://eng.caracore.com.br/capa.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Cara Core Informática",
+        "url": "https://www.caracore.com.br/",
+        "taxID": "23.969.028/0001-37"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Christian Vladimir Uhdre Mulato"
+      },
+      "workExample": {
+        "@type": "Book",
+        "name": "A Rebeldia da Mecatrônica — PDF",
+        "bookFormat": "https://schema.org/EBook",
+        "url": "https://eng.caracore.com.br/romance_instrutivo.pdf"
+      }
+    }
+    </script>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -298,6 +336,8 @@ def main():
         .nav-drawer a.active, .nav-drawer a:hover {
             color: #fff; background: var(--bg-color); border-left: 3px solid var(--primary); padding-left: 0.65rem;
         }
+        .nav-divider { height: 1px; margin: 0.8rem 0.5rem; background: var(--border-color); list-style: none; }
+        .nav-external { color: #7dd3fc !important; }
         .overlay {
             position: fixed; top: var(--header-h); inset: var(--header-h) 0 0 0;
             background: rgba(0,0,0,0.5); z-index: 98; display: none;
@@ -315,7 +355,24 @@ def main():
         }
         .cover-title { font-family: Outfit, sans-serif; font-size: clamp(1.6rem, 6vw, 2.35rem); font-weight: 700; color: #fff; margin-bottom: 0.4rem; line-height: 1.2; }
         .cover-subtitle { font-size: 0.98rem; color: var(--text-muted); margin-bottom: 0.35rem; }
-        .cover-author { font-size: 1rem; color: #e2e8f0; font-weight: 600; margin-bottom: 1.25rem; }
+        .cover-publisher { font-size: 1rem; color: #f8fafc; font-weight: 700; margin-bottom: 0.35rem; }
+        .cover-positioning { font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.8rem; max-width: 34rem; }
+        .cover-access { font-size: 0.82rem; color: var(--text-muted); margin: 0.2rem 0 0.9rem; }
+        .cover-badges { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-bottom: 0.9rem; }
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            padding: 0.2rem 0.55rem; border: 1px solid var(--border-color); border-radius: 999px;
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none;
+        }
+        .status-available { color: #86efac; border-color: #166534; background: rgba(22, 101, 52, 0.28); }
+        .status-pilot { color: #fdba74; border-color: #9a3412; background: rgba(154, 52, 18, 0.24); }
+        .breadcrumb {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
+            margin-bottom: 1.4rem; color: var(--text-muted); font-size: 0.78rem;
+        }
+        .breadcrumb a { color: #cbd5e1; text-decoration: none; }
+        .breadcrumb a:hover { color: #fff; text-decoration: underline; }
+        .breadcrumb [aria-current="page"] { color: var(--text-muted); }
         .download-cta-btn {
             display: inline-flex; align-items: center; justify-content: center;
             background: var(--primary); color: #fff; text-decoration: none;
@@ -419,12 +476,50 @@ def main():
             text-decoration: none; padding: 0.85rem 1.3rem; border-radius: 10px;
             font-family: Outfit, sans-serif; font-weight: 600; font-size: 0.92rem; line-height: 1.35;
         }
+        .ecosystem-section {
+            margin: 3rem 0 1rem; padding: 1.4rem 1.2rem; border: 1px solid var(--border-color);
+            border-radius: 12px; background: rgba(30, 41, 59, 0.45);
+            scroll-margin-top: calc(var(--header-h) + 12px);
+        }
+        .ecosystem-section h2 { margin-top: 0.2rem; }
+        .site-eyebrow { margin-bottom: 0.25rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); }
+        .ecosystem-intro { margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted); }
+        .ecosystem-grid { display: grid; grid-template-columns: 1fr; gap: 0.8rem; }
+        .ecosystem-card {
+            display: flex; flex-direction: column; gap: 0.35rem; padding: 1rem;
+            border: 1px solid var(--border-color); border-radius: 10px; background: rgba(15, 23, 42, 0.55);
+        }
+        .ecosystem-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); }
+        .ecosystem-card h3 { margin: 0; font-size: 1.05rem; color: #fff; }
+        .ecosystem-card p { margin: 0; font-size: 0.9rem; color: #cbd5e1; }
+        .ecosystem-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: auto; padding-top: 0.55rem; }
+        .ecosystem-links a { color: #7dd3fc; font-size: 0.82rem; font-weight: 700; text-decoration: none; }
+        .ecosystem-links a:hover { text-decoration: underline; }
+        .ecosystem-chapters a { color: var(--text-muted); font-weight: 600; }
+        .ecosystem-more { margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted); }
+        .ecosystem-more a { color: #cbd5e1; }
+        .site-footer {
+            margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);
+            color: var(--text-muted); font-size: 0.82rem;
+        }
+        .site-footer a { color: #cbd5e1; }
+        .site-footer p { margin-bottom: 0.35rem; font-size: inherit; color: inherit; }
+        .footer-brand strong { display: block; margin-bottom: 0.3rem; font-family: Outfit, sans-serif; font-size: 1rem; color: #fff; }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin: 0.8rem 0; }
+        .footer-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; font-size: 0.8rem; }
+        .credits-section {
+            margin: 3rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);
+            scroll-margin-top: calc(var(--header-h) + 12px);
+        }
+        .credits-section h2 { margin-top: 0.2rem; }
+        .credits-section p { font-size: 0.95rem; }
 
         @media (min-width: 640px) {
             :root { --header-h: 60px; }
             .content-container { padding: 1.6rem 1.75rem 4rem; }
             .cover-image { width: min(100%, 340px); }
             p, .narrative-p { font-size: 1.08rem; }
+            .ecosystem-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (min-width: 768px) {
             .content-container { padding: 2rem 2.25rem 4.5rem; }
@@ -441,6 +536,7 @@ def main():
             }
             .content-container {
                 margin-left: var(--sidebar-w);
+                width: auto;
                 max-width: none;
                 padding: 2.4rem 3rem 5rem;
             }
@@ -449,6 +545,8 @@ def main():
             .cover-section { display: grid; grid-template-columns: 280px 1fr; gap: 2rem; align-items: center; text-align: left; }
             .cover-image { width: 100%; margin-bottom: 0; }
             .cover-copy { text-align: left; }
+            .cover-badges { justify-content: flex-start; }
+            .cover-positioning { margin-left: 0; margin-right: 0; }
             .header-title { max-width: none; }
         }
         @media (min-width: 1280px) {
@@ -507,6 +605,43 @@ def main():
         menu_items.append(f'            <li><a href="#{slug}">{label}</a></li>')
 
     chapters_content = []
+    ecosystem_html = """
+        <section id="ecossistema" class="ecosystem-section" aria-labelledby="ecosystem-title">
+            <p class="site-eyebrow">Continue no ecossistema Cara Core</p>
+            <h2 id="ecosystem-title">Do capítulo para a prática</h2>
+            <p class="ecosystem-intro">Os capítulos terminam em problema; estes produtos continuam em prática. Todos são projetos da Cara Core Informática.</p>
+            <div class="ecosystem-grid">
+                <article class="ecosystem-card">
+                    <p class="ecosystem-kicker">Capítulos 2 e 3 · Lógica e Python</p>
+                    <h3>Circuito Ferradura</h3>
+                    <p>Pratique lógica digital e programação em Python em trilhas guiadas.</p>
+                    <p class="ecosystem-chapters">No livro: <a href="#cap2">A Anatomia do Z80</a> · <a href="#cap3">A Lógica do Bit</a></p>
+                    <div class="ecosystem-links"><a href="https://circuito.caracore.com.br/" target="_blank" rel="noopener noreferrer">Conhecer o Circuito Ferradura ↗</a></div>
+                </article>
+                <article class="ecosystem-card">
+                    <p class="ecosystem-kicker">Capítulo 10 · Estoque e operação</p>
+                    <h3>PDV Java</h3>
+                    <p>Leve estoque, vendas e custo de oportunidade para um ponto de venda real.</p>
+                    <p class="ecosystem-chapters">No livro: <a href="#cap10">A Equação do Almoxarifado</a></p>
+                    <div class="ecosystem-links"><a href="https://pdv.caracore.com.br/" target="_blank" rel="noopener noreferrer">Conhecer o PDV Java ↗</a></div>
+                </article>
+                <article class="ecosystem-card">
+                    <p class="ecosystem-kicker">Capítulo 10 · Automação e ROI</p>
+                    <h3>Minerador 4.0</h3>
+                    <p>Aplique a conta de ROI de R$ 110.000 em automação de almoxarifado e AMR.</p>
+                    <p class="ecosystem-chapters">No livro: <a href="#cap10">A Equação do Almoxarifado</a></p>
+                    <div class="ecosystem-links"><a href="https://ete.caracore.com.br/" target="_blank" rel="noopener noreferrer">Conhecer o Minerador 4.0 ↗</a></div>
+                </article>
+                <article class="ecosystem-card">
+                    <p class="ecosystem-kicker">Capítulo 12 · Chaves e protocolos</p>
+                    <h3>Reino OIDC</h3>
+                    <p>Exercite chaves, tokens e protocolos de identidade por trás de transações seguras.</p>
+                    <p class="ecosystem-chapters">No livro: <a href="#cap12">A Engenharia do Pix e do Bloco</a></p>
+                    <div class="ecosystem-links"><a href="https://oidc.caracore.com.br/" target="_blank" rel="noopener noreferrer">Conhecer o Reino OIDC ↗</a></div>
+                </article>
+            </div>
+            <p class="ecosystem-more"><a href="https://www.caracore.com.br/portfolio.html">Ver todos os produtos</a> · <a href="https://www.caracore.com.br/ecossistema#roadmap">Ecossistema Cara Core Informática</a></p>
+        </section>"""
     for idx, cap in enumerate(capitulos):
         slug = chapter_slugs[idx]
         cap_path = os.path.join(CAPITULOS_DIR, cap)
@@ -535,25 +670,49 @@ def main():
             <div class="next-chapter-container">
                 <a href="#{next_slug}" class="next-chapter-link">Próximo: {next_label}</a>
             </div>"""
+        is_ecosystem_anchor = slug == "apendice-b"
         chapters_content.append(f"""
         <article id="{slug}" class="chapter-section">
             {formatted_body}
-            {next_link_html}
+            {"" if is_ecosystem_anchor else next_link_html}
         </article>""")
+        if is_ecosystem_anchor:
+            chapters_content.append(ecosystem_html)
+            if next_link_html:
+                chapters_content.append(next_link_html)
+
+    menu_items.extend([
+        '            <li><a href="#ecossistema">Continue no ecossistema</a></li>',
+        '            <li><a href="#creditos">Sobre o autor e créditos</a></li>',
+        '            <li class="nav-divider" aria-hidden="true"></li>',
+        '            <li><a class="nav-external" href="https://www.caracore.com.br/" target="_blank" rel="noopener">Cara Core Informática ↗</a></li>',
+        '            <li><a class="nav-external" href="https://www.caracore.com.br/portfolio.html" target="_blank" rel="noopener">Outros produtos ↗</a></li>',
+    ])
 
     html_middle = """
         </ul>
     </nav>
 
     <main class="content-container">
+        <nav class="breadcrumb" aria-label="Navegação">
+            <a href="https://www.caracore.com.br/">Cara Core Informática</a> <span aria-hidden="true">·</span>
+            <a href="https://www.caracore.com.br/portfolio.html">Portfólio</a> <span aria-hidden="true">·</span>
+            <span aria-current="page">A Rebeldia da Mecatrônica — Loja</span>
+        </nav>
         <section id="cover" class="cover-section">
             <img src="capa.jpg" alt="Capa do livro A Rebeldia da Mecatrônica" class="cover-image" width="1024" height="1536">
             <div class="cover-copy">
                 <h1 class="cover-title">A Rebeldia da Mecatrônica</h1>
                 <p class="cover-subtitle">Romance Instrutivo de Tecnologia e Sociedade</p>
-                <p class="cover-author">Christian Vladimir Uhdre Mulato</p>
+                <p class="cover-publisher">Cara Core Informática</p>
+                <p class="cover-positioning">Um livro da Cara Core Informática: engenharia contada como história, com desafios práticos.</p>
+                <div class="cover-badges">
+                    <span class="status-badge status-available">Livro · Disponível</span>
+                    <span class="status-badge status-pilot">App Universo Rebeldia · Piloto</span>
+                </div>
                 <a href="app/" class="app-cta-btn">Entrar no Universo Rebeldia</a>
-                <a href="romance_instrutivo.pdf" class="download-cta-btn" download>Baixar PDF para leitura offline</a>
+                <a href="romance_instrutivo.pdf" class="download-cta-btn" download>Baixar PDF</a>
+                <p class="cover-access">Leitura online e PDF gratuitos.</p>
                 <div class="dedication">
                     Dedicado à minha família, cujo apoio silencioso e inabalável estruturou
                     o caminho para que este projeto de vida ganhasse o mundo.<br/><br/>
@@ -566,13 +725,37 @@ def main():
 """
 
     html_end = """
+        <section id="creditos" class="credits-section">
+            <p class="site-eyebrow">Créditos</p>
+            <h2>Sobre o autor</h2>
+            <p><strong>Christian Vladimir Uhdre Mulato</strong> é o autor de A Rebeldia da Mecatrônica.</p>
+            <p>Publicado por <strong>Cara Core Informática</strong> · CNPJ 23.969.028/0001-37.</p>
+            <p>Leitura online e PDF gratuitos. Contato: <a href="mailto:suporte@caracore.com.br">suporte@caracore.com.br</a>.</p>
+        </section>
+        <footer class="site-footer">
+            <div class="footer-brand">
+                <strong>Cara Core Informática</strong>
+                <p>CNPJ 23.969.028/0001-37 · <a href="https://www.caracore.com.br/">www.caracore.com.br</a> · <a href="mailto:suporte@caracore.com.br">suporte@caracore.com.br</a></p>
+            </div>
+            <nav class="footer-links" aria-label="Links do ecossistema">
+                <a href="https://eng.caracore.com.br/">eng.caracore.com.br</a>
+                <a href="app/">Universo Rebeldia (app)</a>
+                <a href="https://www.caracore.com.br/portfolio.html">Portfólio</a>
+                <a href="https://www.caracore.com.br/ecossistema#roadmap">Ecossistema</a>
+            </nav>
+            <p class="footer-status">
+                <span class="status-badge status-available">Livro · Disponível</span>
+                <span class="status-badge status-pilot">App · Piloto</span>
+                <span>Livro e app educacionais. Leitura online e PDF gratuitos.</span>
+            </p>
+        </footer>
     </main>
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const drawer = document.getElementById('drawer');
         const overlay = document.getElementById('overlay');
         const links = document.querySelectorAll('.nav-drawer a');
-        const sections = document.querySelectorAll('#cover, .chapter-section');
+        const sections = document.querySelectorAll('#cover, .chapter-section, #ecossistema, #creditos');
         const progress = document.getElementById('readProgress');
         const desktopMq = window.matchMedia('(min-width: 1024px)');
 
@@ -591,13 +774,15 @@ def main():
 
         links.forEach(link => {
             link.addEventListener('click', (e) => {
-                const target = document.querySelector(link.getAttribute('href'));
+                const href = link.getAttribute('href') || '';
+                if (!href.startsWith('#')) return;
+                const target = document.querySelector(href);
                 if (!target) return;
                 e.preventDefault();
                 if (!isDesktop()) closeMenu();
                 const top = target.getBoundingClientRect().top + window.pageYOffset - 72;
                 window.scrollTo({ top, behavior: 'smooth' });
-                history.pushState(null, '', link.getAttribute('href'));
+                history.pushState(null, '', href);
             });
         });
 

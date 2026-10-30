@@ -4,13 +4,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="Leia e explore A Rebeldia da Mecatrônica, um livro interativo e offline-first.">
+  <meta name="description" content="Universo Rebeldia: app de estudo de A Rebeldia da Mecatrônica, publicado pela Cara Core Informática. Leia, reflita, conecte conceitos e crie projetos, mesmo offline.">
   <meta name="author" content="Christian Vladimir Uhdre Mulato">
+  <link rel="canonical" href="https://eng.caracore.com.br/app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cara Core Informática">
+  <meta property="og:title" content="Universo Rebeldia — Cara Core Informática">
+  <meta property="og:description" content="App de estudo offline de A Rebeldia da Mecatrônica: leia, reflita, conecte conceitos e crie projetos.">
+  <meta property="og:url" content="https://eng.caracore.com.br/app/">
+  <meta property="og:image" content="https://eng.caracore.com.br/capa.jpg">
+  <meta property="og:image:alt" content="Capa de A Rebeldia da Mecatrônica">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Universo Rebeldia",
+    "url": "https://eng.caracore.com.br/app/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "inLanguage": "pt-BR",
+    "description": "App de estudo offline de A Rebeldia da Mecatrônica: leia, reflita, conecte conceitos e crie projetos.",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Cara Core Informática",
+      "url": "https://www.caracore.com.br/",
+      "taxID": "23.969.028/0001-37"
+    },
+    "isPartOf": {
+      "@type": "Book",
+      "name": "A Rebeldia da Mecatrônica",
+      "url": "https://eng.caracore.com.br/"
+    }
+  }
+  </script>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
   <link rel="stylesheet" href="assets/css/app.css">
-  <title>Universo Rebeldia</title>
+  <title>Universo Rebeldia — Cara Core Informática</title>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
@@ -53,12 +87,33 @@
 
       <main id="main-content" tabindex="-1">
         <div class="page-meta">
-          <nav aria-label="Breadcrumb" class="breadcrumbs"><a href="#/dashboard">Início</a><span aria-hidden="true">/</span><span id="breadcrumb-current">Minha jornada</span></nav>
+          <nav aria-label="Breadcrumb" class="breadcrumbs">
+            <a href="https://www.caracore.com.br/">Cara Core Informática</a><span aria-hidden="true">/</span>
+            <a href="https://www.caracore.com.br/portfolio.html">Portfólio</a><span aria-hidden="true">/</span>
+            <a href="https://eng.caracore.com.br/">A Rebeldia da Mecatrônica</a><span aria-hidden="true">/</span>
+            <span id="breadcrumb-current">Minha jornada</span>
+          </nav>
           <button class="back-button" id="back-button" type="button"><span aria-hidden="true">←</span> Voltar</button>
         </div>
         <div id="page-content" aria-live="polite"></div>
       </main>
-      <footer class="app-footer"><a href="https://eng.caracore.com.br/" target="_blank" rel="noopener">Site oficial</a><span>Dados salvos neste dispositivo</span></footer>
+      <footer class="app-footer">
+        <div class="footer-legal">
+          <strong>Cara Core Informática</strong>
+          <span>CNPJ 23.969.028/0001-37 · <a href="https://www.caracore.com.br/">www.caracore.com.br</a> · <a href="mailto:suporte@caracore.com.br">suporte@caracore.com.br</a></span>
+        </div>
+        <nav class="footer-links" aria-label="Links do ecossistema">
+          <a href="https://eng.caracore.com.br/">eng.caracore.com.br</a>
+          <a href="./">Universo Rebeldia</a>
+          <a href="https://www.caracore.com.br/portfolio.html">Portfólio</a>
+          <a href="https://www.caracore.com.br/ecossistema#roadmap">Ecossistema</a>
+        </nav>
+        <p class="footer-status">
+          <span class="status-badge status-available">Livro · Disponível</span>
+          <span class="status-badge status-pilot">App · Piloto</span>
+          <span>Leitura online e PDF gratuitos. Dados salvos neste dispositivo.</span>
+        </p>
+      </footer>
     </div>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

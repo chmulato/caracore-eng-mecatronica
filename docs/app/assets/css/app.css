@@ -136,12 +136,29 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .mobile-menu { display: none !important; }
 main { width: min(1440px, 100%); min-height: calc(100vh - 132px); margin: 0 auto; padding: 1.1rem clamp(1.2rem, 4vw, 3.2rem) 3rem; }
 .page-meta { display: flex; min-height: 33px; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; }
-.breadcrumbs { display: flex; align-items: center; gap: 0.55rem; color: #8496ab; font-size: 0.72rem; }
+.breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; color: #8496ab; font-size: 0.72rem; }
 .breadcrumbs a { color: #a9b8c9; text-decoration: none; }
 .breadcrumbs a:hover { color: var(--caracore-cyan); }
 .back-button { padding: 0.25rem 0; border: 0; background: transparent; color: #a8b5c4; font-size: 0.76rem; cursor: pointer; }
 .back-button:hover { color: var(--caracore-light); }
-.app-footer { display: flex; justify-content: space-between; padding: 1rem clamp(1.2rem, 4vw, 3.2rem); border-top: 1px solid #26364c; color: #8293a8; font-size: 0.7rem; }
+.app-footer {
+  display: grid; gap: 0.55rem;
+  padding: 1.2rem clamp(1.2rem, 4vw, 3.2rem);
+  border-top: 1px solid #26364c; color: #8293a8; font-size: 0.7rem;
+}
+.footer-legal { display: grid; gap: 0.15rem; }
+.footer-legal strong { color: #dbe7f2; font-size: 0.78rem; letter-spacing: 0.02em; }
+.footer-legal a, .footer-links a { color: #a9bccd; text-decoration: none; }
+.footer-legal a:hover, .footer-links a:hover { color: var(--caracore-cyan); text-decoration: underline; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; }
+.footer-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0; color: #8fa1b5; }
+.status-badge {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.16rem 0.5rem; border: 1px solid var(--border); border-radius: 999px;
+  font-size: 0.63rem; font-weight: 700;
+}
+.status-available { color: #86efac; border-color: #166534; background: #14532d33; }
+.status-pilot { color: #fdba74; border-color: #9a3412; background: #7c2d1233; }
 
 .welcome-panel {
   position: relative;
@@ -438,6 +455,31 @@ button.reference-chip { cursor: pointer; }
 .project-item small { color: #69bfe2; font-size: 0.62rem; }
 .project-item:hover, .project-item.active { border-color: #356e91; background: #1a3147; }
 .project-workspace { min-height: 600px; padding: 1rem; }
+.ecosystem-section {
+  margin-top: 1.1rem; padding: 1.1rem;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: linear-gradient(120deg, #14243a, #152236 70%, #182c42);
+}
+.ecosystem-section h2 { margin: 0.2rem 0 0.4rem; font-size: 1.08rem; }
+.ecosystem-intro { margin: 0 0 0.9rem; color: #9aabc0; font-size: 0.8rem; line-height: 1.6; }
+.ecosystem-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+.ecosystem-card {
+  display: flex; flex-direction: column; gap: 0.35rem; padding: 0.9rem;
+  border: 1px solid #2b4058; border-radius: 8px; background: #111e2ecc;
+}
+.ecosystem-kicker { margin: 0; color: #f9a05c; font-size: 0.61rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.ecosystem-card h3 { margin: 0; font-size: 0.92rem; color: #f3f9ff; }
+.ecosystem-card p { margin: 0; color: #a9b9cb; font-size: 0.76rem; line-height: 1.55; }
+.ecosystem-chapters { color: #7f93aa !important; font-size: 0.7rem !important; }
+.ecosystem-chapters a { color: #9fb7cb; text-decoration: none; }
+.ecosystem-chapters a:hover { color: var(--caracore-cyan); text-decoration: underline; }
+.ecosystem-card .text-link { margin-top: auto; padding-top: 0.35rem; }
+.ecosystem-more { margin: 0.9rem 0 0; font-size: 0.74rem; color: #7f93aa; }
+.ecosystem-more .text-link { margin-left: 0.15rem; }
+:root[data-theme="light"] .ecosystem-section { background: linear-gradient(120deg, #fff, #eaf4fb); border-color: #c7d4df; }
+:root[data-theme="light"] .ecosystem-card { background: #fff; border-color: #c7d4df; }
+:root[data-theme="light"] .ecosystem-card h3 { color: #102033; }
+:root[data-theme="light"] .ecosystem-card p { color: #52667a; }
 .project-form { display: grid; gap: 0.45rem; }
 .project-form-heading { display: flex; align-items: start; justify-content: space-between; gap: 1rem; margin-bottom: 0.4rem; }
 .project-form-heading h2 { margin: 0.25rem 0 0; font-size: 1.1rem; }
@@ -466,6 +508,7 @@ button.reference-chip { cursor: pointer; }
 .settings-card { display: grid; align-content: start; gap: 0.6rem; padding: 1rem; }
 .settings-card h2 { margin: 0.1rem 0 0.35rem; font-size: 1.05rem; }
 .settings-card output { float: right; color: #58bfe9; }
+.settings-badges { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.1rem 0 0.3rem; }
 .toggle-setting { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.4rem; }
 .toggle-setting input { width: 18px; height: 18px; accent-color: #0ea5e9; }
 .settings-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -512,6 +555,12 @@ html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after 
 :root[data-theme="light"] .project-form select,
 :root[data-theme="light"] .settings-card select { background: #fff; color: #102033; }
 :root[data-theme="light"] .timeline-event::before { border-color: #eef4f8; }
+:root[data-theme="light"] .status-available { color: #166534; border-color: #86efac; background: #dcfce7; }
+:root[data-theme="light"] .status-pilot { color: #9a3412; border-color: #fdba74; background: #ffedd5; }
+:root[data-theme="light"] .app-footer { border-color: #c7d4df; color: #52667a; }
+:root[data-theme="light"] .footer-legal strong { color: #102033; }
+:root[data-theme="light"] .footer-legal a,
+:root[data-theme="light"] .footer-links a { color: #30465c; }
 
 @media (max-width: 1040px) {
   :root { --sidebar-width: 215px; }
@@ -564,6 +613,8 @@ html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after 
   .lab-sidebar { position: static; }
   .project-list { max-height: 260px; }
   .project-workspace { min-height: 0; }
+  .ecosystem-grid { grid-template-columns: 1fr; }
+  .breadcrumbs { gap: 0.35rem; font-size: 0.66rem; }
 }
 @media (max-width: 430px) {
   .topbar { gap: 0.55rem; }

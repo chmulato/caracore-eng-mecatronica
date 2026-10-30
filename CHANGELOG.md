@@ -12,6 +12,31 @@ O projeto reúne duas frentes:
 
 ---
 
+## [Não lançado] - 2026-10-30
+
+Integração de `eng.caracore.com.br` ao ecossistema Cara Core Informática.
+
+### Adicionado
+
+* Breadcrumb e rodapé legal com CNPJ, contato, Portfólio e Ecossistema no livro
+  e no app Universo Rebeldia.
+* Selos de maturidade: livro **Disponível** e app **Piloto**.
+* Seção "Continue no ecossistema Cara Core" após o Apêndice B e na etapa
+  "Criar projeto" do app, com links para Circuito Ferradura, PDV Java,
+  Minerador 4.0 e Reino OIDC.
+* JSON-LD `Book` e `WebApplication`, Open Graph, canonical e `og:image`.
+* Página de créditos no PDF e no HTML, com autoria e publicação.
+
+### Alterado
+
+* Título, descrição, capa e metadados passam a destacar a Cara Core
+  Informática; o nome do autor fica nos créditos e nos metadados secundários.
+* Favicon do livro passa a usar o ícone do app.
+* Cache do service worker atualizado para `v9`.
+* Correção de overflow horizontal do layout desktop do livro.
+
+---
+
 ## [2.0.0] - 2026-10-14
 
 Lançamento da plataforma Universo Rebeldia, que transforma o livro em uma

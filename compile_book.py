@@ -629,6 +629,26 @@ def build_story(styles, page_map=None):
         story.append(PageTracker(cap, chapter_titles.get(cap, cap)))
         story.extend(parse_markdown_to_story(cap_path, idx, styles))
 
+    print("Inserindo créditos...")
+    story.append(PageBreak())
+    story.append(Spacer(1, 90))
+    story.append(Paragraph("Créditos", styles["BookTitleStyle"]))
+    story.append(Spacer(1, 14))
+    story.append(Paragraph(
+        "<b>A Rebeldia da Mecatrônica</b><br/>Romance Instrutivo de Tecnologia e Sociedade",
+        styles["CreditStyle"],
+    ))
+    story.append(Spacer(1, 16))
+    story.append(Paragraph("Autor: Christian Vladimir Uhdre Mulato", styles["CreditStyle"]))
+    story.append(Spacer(1, 10))
+    story.append(Paragraph(
+        "Publicado por <b>Cara Core Informática</b><br/>"
+        "CNPJ 23.969.028/0001-37 · www.caracore.com.br · suporte@caracore.com.br",
+        styles["CreditStyle"],
+    ))
+    story.append(Spacer(1, 10))
+    story.append(Paragraph("Leitura online e PDF gratuitos.", styles["CreditStyle"]))
+
     return story
 
 
@@ -741,6 +761,15 @@ def build_styles():
         alignment=1,
     ))
     styles.add(ParagraphStyle(
+        name="CreditStyle",
+        parent=styles["Normal"],
+        fontName=FONT_NAME,
+        fontSize=11,
+        leading=16,
+        textColor=colors.HexColor("#333333"),
+        alignment=1,
+    ))
+    styles.add(ParagraphStyle(
         name="ListItemStyle",
         parent=styles["Normal"],
         fontName=FONT_NAME,
@@ -787,8 +816,8 @@ def make_doc():
         bottomMargin=MARGIN,
         title="A Rebeldia da Mecatrônica",
         author="Christian Vladimir Uhdre Mulato",
-        subject="Romance instrutivo de engenharia, mecatrônica e tecnologia para jovens",
-        creator="A Rebeldia da Mecatrônica",
+        subject="Romance instrutivo de engenharia, mecatrônica e tecnologia para jovens. Publicado pela Cara Core Informática.",
+        creator="Cara Core Informática",
         lang="pt-BR",
     )
     return doc
